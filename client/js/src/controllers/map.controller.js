@@ -61,28 +61,21 @@ function configureLeaflet($scope, helpersSrv)
 
 }
 
+function popUpContent()
+{
+	return "<header-graphic></header-graphic>";
+}
+
 function createTempMarker($scope, position)
 {
-	if (!$scope.isMarkerInProg)
+	if ($scope.lastMarker)
 	{
-		console.log("if: isMarkerInProg:",$scope.isMarkerInProg);
-		console.log("if: lastMarker:",$scope.lastMarker);
-
-		$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.map);
-		$scope.isMarkerInProg = true;
+		$scope.lastMarker.remove();
 	}
-	else 
-	{
-		if ($scope.isMarkerInProg)
-		{
-			console.log("else: isMarkerInProg:",$scope.isMarkerInProg);
-			console.log("else: lastMarker:",$scope.lastMarker);
-			$scope.lastMarker.remove();
-			$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.map);
-			$scope.isMarkerInProg = false;
-		}
-
-	}
+		
+	$scope.isMarkerInProg = true;
+	$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.map);
+	$scope.lastMarker.bindPopup("<header-graphic></header-graphic>").openPopup()
 }
 
 
