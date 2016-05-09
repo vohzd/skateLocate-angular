@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Beautify</title>
+	<meta name="description" content="An app to find and locate skateparks and skate spots">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- fav icon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/fav/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/fav/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/fav/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/fav/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/fav/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="img/fav/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="img/fav/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+	<link rel="manifest" href="img/fav/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="img/fav/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="./css/leaflet.css" />
+	<link rel="stylesheet" href="./css/markerCluster.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+<body ng-controller="MainCtrl as main">
+
+	<!-- The main map wrapper -->
+	<div id="map-core"></div>
+
+	<!-- Sidebar view -->
+	<div class="sidebar">
+		<header-graphic></header-graphic>
+
+	</div>
+
+
+
+<!-- for dev, keep these uncommented -->
+<script type="text/javascript" src="../jspm_packages/system.js"></script>
+<script type="text/javascript" src="../config.js"></script>
+<script type="text/javascript">
+	System.import("js/src/main.js").then(function(){
+		angular.element(document).ready(function(){
+			angular.bootstrap( document, [ "ngSkateApp" ]);
+		});
+	});
+
+</script>
+
+
+<!-- for prod, comment out the 3 above and just use this
+<script type="text/javascript" src="js/dist/bundleFinal.js"></script>
+-->
+
+
+</body>
+</html>

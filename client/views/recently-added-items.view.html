@@ -1,0 +1,13 @@
+<li class="nudged-menu full-width">
+<h5 class="collapsible-header"><i class="material-icons align faded">forward_10</i> Recently Added <i class="material-icons grn-colour">swap_vert</i></h5>
+<div class="list-of-most-recent-items collapsible-body">
+	<div ng-repeat="item in main.revData | limitTo: 10">
+
+		<div class="item-name" ng-click="showSkateparkDetails(item._id, item)">
+			{{ item.skateparkName }}
+			<span class="small">{{ item.createdAt | date: 'h:mm a, MMM d' }} by {{ item.skateparkAdder }} </span>
+		</div>
+
+	</div>
+</div>
+</li>

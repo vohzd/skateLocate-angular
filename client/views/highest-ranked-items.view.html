@@ -1,0 +1,17 @@
+<li class="nudged-menu full-width">
+	<h5 class="collapsible-header active"><i class="material-icons align faded">present_to_all</i>  Highest Voted <i class="material-icons grn-colour">swap_vert</i></h5>
+
+	<div class="collapsible-body">
+
+		<div ng-repeat="item in main.allData | orderBy: '-skateparkRating' | limitTo: 4" class="list-of-highest-rated-items collection mouse-clickable ">
+
+			<div class="collection-item avatar" ng-click="showSkateparkDetails(item._id, item)">
+				<span class="absolute-label">{{ item.skateparkRating }}</span><i class=" circle"></i>
+				<span class="title">{{ item.skateparkName }}</span>
+				<upvote-button ng-click="incrementRating(item)" ng-hide="item.hasVote" class="secondary-content"></upvote-button>
+			</div>
+
+		</div>
+
+	</div>
+</li>
