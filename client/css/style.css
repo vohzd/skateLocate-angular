@@ -1,3 +1,18 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'coming';
+	font-style: normal;
+	src: url('../font/coming/coming.eot');
+	src: url('../font/coming/coming.eot?#iefix') format('embedded-opentype'),
+		local('coming'),
+		local('coming'),
+		url('../font/coming/coming.woff2') format('woff2'),
+		url('../font/coming/coming.woff') format('woff'),
+		url('../font/coming/coming.ttf') format('truetype'),
+		url('../font/coming/coming.svg#coming') format('svg');
+}
+
 html, body
 {
 	margin: 0;
@@ -14,18 +29,70 @@ html, body
 .sidebar
 {	
 	position: absolute;
-	background: rgba(0,0,0,0.3);
+	background: rgba(255,255,255,0.3);
 	margin: 0;
 	padding: 0;
 	right: 0;
 	z-index: 2;
 	height: 100vh;
 	width: 38.2%;
+	max-width: 650px;
+	border-left: 2px solid rgba(255,255,255,0.3);
 }
 
 .skate-icon
 {
 	float:right;
+}
+
+.header-row
+{
+	padding: 2%;
+	background: rgba(255,255,255,0.3);
+}
+.main-header
+{
+	font-family: coming;
+	font-size: 4.20rem;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(0,0,0,0.79);
+}
+
+.toggleControl
+{
+	position: absolute !important;
+	z-index:5 !important;
+	top: 0 !important;
+	left: 0 !important;
+	margin: 1% !important;
+	margin-right: 3% !important;
+}
+
+
+.leaflet-control-attribution
+{
+	display: none;
+}
+
+.custom-buttom
+{
+	line-height:1.4 !important;
+	background: none !important;
+	outline: none !important;
+}
+
+.leaflet-bar
+{
+	box-shadow: none;
+}
+
+.easy-button-button
+{
+	background: rgba(255,255,255,0.4) !important;
+	outline: none !important;
+	border:none!important;
+	text-shadow: none;
 }
 
 
