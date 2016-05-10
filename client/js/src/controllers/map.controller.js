@@ -2,6 +2,8 @@
 
 function MapCtrl($scope, helpersSrv){
 
+	console.log("running");
+	/*
 	// Bootstrap the mofo
 	configureLeaflet($scope, helpersSrv);
 
@@ -26,6 +28,7 @@ function MapCtrl($scope, helpersSrv){
 		}
 
 	})
+	*/
 
 
 }

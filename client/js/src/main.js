@@ -5,7 +5,10 @@ import angular from "angular";
 import $ from "jquery";
 import material from "materialize-css";
 import leaflet from "leaflet";
-import leafletMarkerCluster from "leaflet.markercluster";
+import nemLogging from "angular-simple-logger";
+import uiLeaflet from "ui-leaflet";
+
+//import leafletMarkerCluster from "leaflet.markercluster";
 import leafletEasyButton from "leaflet-easybutton";
 
 // services
@@ -26,7 +29,7 @@ import MainCtrl from "./controllers/main.controller.js";
 import MapCtrl from "./controllers/map.controller.js";
 
 
-angular.module("ngSkateApp", [])
+angular.module("ngSkateApp", ["nemLogging", "ui-leaflet"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
 	.directive("headerGraphic", headerGraphic)
@@ -38,54 +41,3 @@ angular.module("ngSkateApp", [])
 	.directive("existingSkateparkInfo", existingSkateparkInfo)
 	.directive("searchBar", searchBar)
 	.service("helpersSrv", helpersSrv);
-
-	//.controller("MapCtrl", MapCtrl);
-
-	//.directive("headerGraphic", headerGraphic)
-	//.service("stylesSrv", stylesSrv);
-
-
-
-
-
-/*
-for (let i = 0; i < markers.length; i++)
-{
-	let arr = [markers[i][0], markers[i][1]]
-	let mark = L.marker( arr ).addTo(mymap).bindPopup("<b>Hello world!</b><br>I am a popup.");
-	mark.bindPopup("<div><b>Hello world!</b><br>I am a popup.</div>");
-}
-*/
-
-
-//let marker = L.marker( [54.0, -0.09] ).addTo(mymap);
-
-//marker.bindPopup("<div><b>Hello world!</b><br>I am a popup.</div>");
-
-//var marker = L.marker([51.5, -0.09]).addTo(mymap);
-// get some stuff
-
-
-
-// services
-//import allParksSrv from "./services/all-parks.service.js";
-
-// controllers
-//import MainCtrl from "./controllers/main.controller.js";
-//import MapCtrl from "./controllers/map.controller.js";
-
-// directives
-//import headerGraphic from "./directives/header.directive.js";
-
-
-// filters
-
-
-// GO!
-
-
-
-	//.controller("MainCtrl", MainCtrl)
-	//.controller("MapCtrl", MapCtrl);
-	//.directive("headerGraphic", headerGraphic)
-	//.service("stylesSrv", stylesSrv);
