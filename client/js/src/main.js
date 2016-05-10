@@ -16,6 +16,7 @@ import headerGraphic from "./directives/header.directive.js";
 import highestRankedItems from "./directives/highest-ranked-items.directive.js";
 import existingSkateparkInfo from "./directives/existing-skatepark-info.directive.js";
 import recentlyAddedItems from "./directives/recently-added-items.directive.js";
+import addNewSkatepark from "./directives/add-new-skatepark.directive.js";
 import filterItemsByTag from "./directives/filter-items-by-tag.directive.js";
 import infoTriangle from "./directives/info-triangle.directive.js";
 import searchBar from "./directives/search.directive.js";
@@ -31,6 +32,7 @@ angular.module("ngSkateApp", [])
 	.directive("headerGraphic", headerGraphic)
 	.directive("highestRankedItems", highestRankedItems)
 	.directive("recentlyAddedItems", recentlyAddedItems)
+	.directive("addNewSkatepark", addNewSkatepark)
 	.directive("infoTriangle", infoTriangle)
 	.directive("filterItemsByTag", filterItemsByTag)
 	.directive("existingSkateparkInfo", existingSkateparkInfo)

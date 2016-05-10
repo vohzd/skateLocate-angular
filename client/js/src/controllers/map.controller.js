@@ -75,7 +75,7 @@ function createTempMarker($scope, position)
 		
 	$scope.isMarkerInProg = true;
 	$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.map);
-	$scope.lastMarker.bindPopup("<header-graphic></header-graphic>").openPopup()
+	$scope.lastMarker.bindPopup("<div>wowow</div>").openPopup()
 }
 
 
