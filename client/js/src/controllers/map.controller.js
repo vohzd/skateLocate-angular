@@ -1,9 +1,9 @@
 "use strict";
 
-function MapCtrl($scope, helpersSrv){
+function MapCtrl($scope, $log, leafletData, helpersSrv){
 
 	// Bootstrap the mofo
-	configureLeaflet($scope, helpersSrv);
+	configureLeaflet($scope, $log, leafletData, helpersSrv);
 
 	/*
 
@@ -49,13 +49,37 @@ function toggleEditButton($scope, helpersSrv)
 	}
 }
 
-function configureLeaflet($scope, helpersSrv)
+function configureLeaflet($scope, $log, leafletData, helpersSrv)
 {
+
 	$scope.init = {
 		lat: 51.505,
 		lng: -0.09,
 		zoom: 10
 	}
+
+	$scope.tiles = {
+		name: 'skate',
+		url: 'https://api.mapbox.com/styles/v1/intheon/cinz0kw8i0006bgnmykeq58x6/tiles/{z}/{x}/{y}?access_token={apikey}',
+		type: 'xyz',
+		options: {
+			apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
+			mapid: 'mapbox://styles/intheon/cinz0kw8i0006bgnmykeq58x6'
+		}
+	}
+
+
+
+	leafletData.getMap("map-core").then((map) => {
+		$scope.mapInstance = map;
+	});
+
+
+
+
+
+
+
 
 	/*
 	$scope.map = L.map('map-core', { zoomControl: false }).setView([51.505, -0.09], 13);

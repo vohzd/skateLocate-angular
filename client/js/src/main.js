@@ -8,7 +8,7 @@ import leaflet from "leaflet";
 import nemLogging from "angular-simple-logger";
 import uiLeaflet from "ui-leaflet";
 
-//import leafletMarkerCluster from "leaflet.markercluster";
+import leafletMarkerCluster from "leaflet.markercluster";
 import leafletEasyButton from "leaflet-easybutton";
 
 // services

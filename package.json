@@ -10,6 +10,7 @@
   "jspm": {
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.5.5",
+      "angular-leaflet-directive": "npm:angular-leaflet-directive@^0.10.0",
       "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
       "jquery": "npm:jquery@^2.2.3",
       "leaflet": "npm:leaflet@1.0.0-rc.1",

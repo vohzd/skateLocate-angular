@@ -15,6 +15,7 @@ System.config({
 
   map: {
     "angular": "github:angular/bower-angular@1.5.5",
+    "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
@@ -87,6 +88,13 @@ System.config({
     },
     "github:jspm/nodelibs-zlib@0.1.0": {
       "browserify-zlib": "npm:browserify-zlib@0.1.4"
+    },
+    "npm:angular-leaflet-directive@0.10.0": {
+      "angular": "npm:angular@1.5.5",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "leaflet": "npm:leaflet@0.7.7",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:angular-simple-logger@0.1.7": {
       "angular": "npm:angular@1.5.5",
