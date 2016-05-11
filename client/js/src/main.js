@@ -26,11 +26,14 @@ import searchBar from "./directives/search.directive.js";
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
 import MapCtrl from "./controllers/map.controller.js";
+import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
+
 
 
 angular.module("ngSkateApp", ["nemLogging", "ui-leaflet"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
+	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
 	.directive("headerGraphic", headerGraphic)
 	.directive("highestRankedItems", highestRankedItems)
 	.directive("recentlyAddedItems", recentlyAddedItems)

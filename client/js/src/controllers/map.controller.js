@@ -96,7 +96,8 @@ function createTempMarker($scope, $compile, position)
 	$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.mapInstance);
 
 	// This compiles the directive, because otherwise, you just get a blank pop up
-	let directiveTag = $(document.createElement("add-new-skatepark"));
+	//let directiveTag = $(document.createElement("add-new-skatepark"));
+	let directiveTag = $("<add-new-skatepark></add-new-skatepark>");
 	let compiledDirective = $compile(directiveTag)($scope);
 
 	$scope.lastMarker.bindPopup(compiledDirective[0]).openPopup()

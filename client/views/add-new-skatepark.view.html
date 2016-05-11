@@ -1,4 +1,4 @@
-<form action="#" class="add-skate-location">
+<form action="#" class="add-skate-location" ng-controller="addNewSkateparkCtrl as addNew">
 	<!-- Ask for the skatepark name -->
 	<div class="input-field row" >
 		<i class="material-icons prefix">room</i>
@@ -63,7 +63,7 @@
 
 	<!-- Submit button -->
 	<div class="row extraWidth">
-		<input type="button" value="Submit!" class="btn col s12" ng-click="submitNewSkateparkForm()">
+		<input type="button" value="Submit!" class="btn col s12" ng-click="addNew.submitNewSkatepark()">
 	</div>
 
 	<!-- Is hidden initially, but the Upload Service will command the width -->
