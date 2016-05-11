@@ -5,31 +5,11 @@ function MapCtrl($scope, $log, leafletData, helpersSrv){
 	// Bootstrap the mofo
 	configureLeaflet($scope, $log, leafletData, helpersSrv);
 
-	/*
-
-
-
 	// A button the user has to click to switch to 'add skatepark' modes
 	$scope.isEditing 			= false;
 	$scope.isMarkerInProg 		= false;
 	$scope.lastMarker 			= null;
 
-
-	// Set a listener on the map instance
-	$scope.map.on("click", (event) => {
-
-		// Dont do anything if edit mode is off
-		if (!$scope.isEditing)
-		{
-			return;
-		}
-		else
-		{
-			createTempMarker($scope, event.latlng);
-		}
-
-	})
-	*/
 
 
 }
@@ -51,13 +31,14 @@ function toggleEditButton($scope, helpersSrv)
 
 function configureLeaflet($scope, $log, leafletData, helpersSrv)
 {
-
+	// Map center
 	$scope.init = {
 		lat: 51.505,
 		lng: -0.09,
 		zoom: 10
 	}
 
+	// Map 'tiles' (which is another name for a skin) + api keys
 	$scope.tiles = {
 		name: 'skate',
 		url: 'https://api.mapbox.com/styles/v1/intheon/cinz0kw8i0006bgnmykeq58x6/tiles/{z}/{x}/{y}?access_token={apikey}',
@@ -68,11 +49,37 @@ function configureLeaflet($scope, $log, leafletData, helpersSrv)
 		}
 	}
 
-
-
+	// store the map instance
+	// returns a promise, which is ensures you dont run anything on 'undefined'
 	leafletData.getMap("map-core").then((map) => {
+
 		$scope.mapInstance = map;
+		// Set a listener on the map instance
+
+		$scope.mapInstance.on("click", (event) => {
+			// Dont do anything if edit mode is off
+			if (!$scope.isEditing)
+			{
+				return;
+			}
+			else
+			{
+				createTempMarker($scope, event.latlng);
+			}
+		})
+
+		// Add the edit button
+		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
+			toggleEditButton($scope, helpersSrv);
+		}).addTo($scope.mapInstance);
+
+
 	});
+
+	//new L.Control.Zoom({ position: 'bottomleft' }).addTo($scope.map);
+
+
+
 
 
 

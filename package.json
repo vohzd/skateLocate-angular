@@ -15,6 +15,7 @@
       "jquery": "npm:jquery@^2.2.3",
       "leaflet": "npm:leaflet@1.0.0-rc.1",
       "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
+      "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
       "leaflet.markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
       "materialize-css": "npm:materialize-css@^0.97.6",
       "ui-leaflet": "npm:ui-leaflet@^1.0.0"

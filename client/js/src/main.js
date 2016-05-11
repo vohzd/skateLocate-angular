@@ -4,12 +4,11 @@
 import angular from "angular";
 import $ from "jquery";
 import material from "materialize-css";
-import leaflet from "leaflet";
 import nemLogging from "angular-simple-logger";
+import leaflet from "leaflet";
 import uiLeaflet from "ui-leaflet";
-
-import leafletMarkerCluster from "leaflet.markercluster";
 import leafletEasyButton from "leaflet-easybutton";
+import leafletMarkerCluster from "leaflet.markercluster";
 
 // services
 import helpersSrv from "./services/helpers.service.js";

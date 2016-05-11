@@ -75,6 +75,7 @@ html, body
 	display: none;
 }
 
+
 .custom-buttom
 {
 	line-height:1.4 !important;
@@ -93,6 +94,12 @@ html, body
 	outline: none !important;
 	border:none!important;
 	text-shadow: none;
+}
+
+.easy-button-container
+{
+	left: 45px;
+	top: -62px;
 }
 
 
