@@ -88,6 +88,12 @@ html, body
 	box-shadow: none;
 }
 
+.leaflet-popup-content
+{
+	min-width:420px;
+	padding: 2%;
+}
+
 .easy-button-button
 {
 	background: rgba(255,255,255,0.4) !important;
@@ -100,6 +106,12 @@ html, body
 {
 	left: 45px;
 	top: -62px;
+}
+
+.chip
+{
+	margin-right: 1%;
+	margin-bottom: 1%;
 }
 
 
