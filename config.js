@@ -26,6 +26,7 @@ System.config({
     "leaflet.fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "leaflet.markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
     "materialize-css": "npm:materialize-css@0.97.6",
+    "ng-file-upload": "npm:ng-file-upload@12.0.4",
     "ui-leaflet": "npm:ui-leaflet@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -303,6 +304,9 @@ System.config({
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
+    },
+    "npm:ng-file-upload@12.0.4": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pako@0.2.8": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",

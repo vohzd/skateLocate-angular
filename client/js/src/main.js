@@ -12,6 +12,7 @@ import leafletMarkerCluster from "leaflet.markercluster";
 
 // services
 import helpersSrv from "./services/helpers.service.js";
+import uploadImageToCloud from "./services/uploadImageToCloud.service.js";
 
 // directives
 import headerGraphic from "./directives/header.directive.js";
@@ -29,8 +30,8 @@ import MapCtrl from "./controllers/map.controller.js";
 import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
 
 
-
-angular.module("ngSkateApp", ["nemLogging", "ui-leaflet"])
+// GO
+angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
 	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
@@ -42,4 +43,6 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet"])
 	.directive("filterItemsByTag", filterItemsByTag)
 	.directive("existingSkateparkInfo", existingSkateparkInfo)
 	.directive("searchBar", searchBar)
-	.service("helpersSrv", helpersSrv);
+	.service("helpersSrv", helpersSrv)
+	.service("uploadImageToCloud", uploadImageToCloud);
+

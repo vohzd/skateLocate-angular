@@ -25,8 +25,28 @@ function helpers(){
 		$(".toggleControl").text("ADD")
 	}
 
+	helpers.testIsValidURL = function(string){
+		// This regex probably sucks and will probably break
+		const testRegEx = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+		const isIt = string.match(testRegEx);
+		return isIt;
+	}
+
+	helpers.returnArray = function(string){
+		let toReturn = [];
+
+		if (typeof data === "string"){
+			toReturn.push(data);
+		}
+		else if (typeof data === "object"){
+			toReturn = data
+		}
+
+		return toReturn;
+	}
+
 	return helpers;
 }
 
 
-export default helpers;
+export default helpers;			
