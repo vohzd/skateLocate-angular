@@ -1,8 +1,21 @@
 "use strict";
 
-function MainCtrl(){
+function MainCtrl($scope, $compile, getFromDB){
 
-	this.message = "hi there!"
+	// This is fired on page init to get ALL the skateparks
+
+	getFromDB.getAll().success((response) => {
+
+		// Store the response in the array
+		this.allData = response;
+
+	}).then((response) => {
+
+
+
+	});
+
+
 
 }
 

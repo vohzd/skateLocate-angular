@@ -16,6 +16,8 @@ import leafletMarkerCluster from "leaflet.markercluster";
 import helpersSrv from "./services/helpers.service.js";
 import uploadImageToCloud from "./services/uploadImageToCloud.service.js";
 import sendToDB from "./services/sendToDB.service.js";
+import getFromDB from "./services/getFromDB.service.js";
+
 
 // directives
 import headerGraphic from "./directives/header.directive.js";
@@ -48,5 +50,6 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.directive("searchBar", searchBar)
 	.service("helpersSrv", helpersSrv)
 	.service("sendToDB", sendToDB)
+	.service("getFromDB", getFromDB)
 	.service("uploadImageToCloud", uploadImageToCloud);
 

@@ -11,8 +11,8 @@ const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
 
 // MongoDB config
-const dbString 	      = "mongodb://127.0.0.1/angular-concepts";
-//const dbString 		=  "mongodb://skatelocate_ben_db:oneHundredThou77@ds023550.mlab.com:23550/heroku_r1j6hfp6";
+//const dbString 	      = "mongodb://127.0.0.1/angular-concepts";
+const dbString 		=  "mongodb://skatelocate_ben_db:oneHundredThou77@ds023550.mlab.com:23550/heroku_r1j6hfp6";
 
 // Mongo Connect
 mongoose.connect(dbString, (err, res) => {
