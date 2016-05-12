@@ -6,9 +6,23 @@ const app             = express();
 const http 			  = require("http").Server(app);
 const port            = process.env.PORT || 1337;
 const morgan          = require('morgan');
+const mongoose        = require('mongoose');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
 
+// MongoDB config
+const dbString 	      = "mongodb://127.0.0.1/angular-concepts";
+//const dbString 		=  "mongodb://skatelocate_ben_db:oneHundredThou77@ds023550.mlab.com:23550/heroku_r1j6hfp6";
+
+// Mongo Connect
+mongoose.connect(dbString, (err, res) => {
+	if (err) console.log("error connecting to " + dbString + " with error -> " + err);
+	else console.log ('Succeeded connecting to: ' + dbString);
+});
+
+// Routes
+// ------------------------------------------------------
+require('./backend/routes.js')(app);
 
 // Expose the jspm packages + config as well as the client front-end
 app.use('/jspm_packages',  express.static(__dirname + '/jspm_packages'));

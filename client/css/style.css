@@ -112,6 +112,19 @@ html, body
 {
 	margin-right: 1%;
 	margin-bottom: 1%;
+	transition: 0.5s all;
 }
+
+.chip:hover
+{
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+.active-chip
+{
+	background: #2BBAAC !important;
+}
+
 
 

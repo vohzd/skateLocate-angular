@@ -5,6 +5,8 @@ import angular from "angular";
 import $ from "jquery";
 import material from "materialize-css";
 import nemLogging from "angular-simple-logger";
+import ngFileUpload from "ng-file-upload";
+
 import leaflet from "leaflet";
 import uiLeaflet from "ui-leaflet";
 import leafletEasyButton from "leaflet-easybutton";
@@ -13,6 +15,7 @@ import leafletMarkerCluster from "leaflet.markercluster";
 // services
 import helpersSrv from "./services/helpers.service.js";
 import uploadImageToCloud from "./services/uploadImageToCloud.service.js";
+import sendToDB from "./services/sendToDB.service.js";
 
 // directives
 import headerGraphic from "./directives/header.directive.js";
@@ -44,5 +47,6 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.directive("existingSkateparkInfo", existingSkateparkInfo)
 	.directive("searchBar", searchBar)
 	.service("helpersSrv", helpersSrv)
+	.service("sendToDB", sendToDB)
 	.service("uploadImageToCloud", uploadImageToCloud);
 

@@ -1,11 +1,15 @@
 "use strict";
 // yes this is ugly. its also pretty confusing! 
 // basically you can either: not submit screenshots, submit local files, submit files retreived from url, or both.
-function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
+function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
 
-	$scope.selectedTags = [];
+	/*
+		Stuff with 'this' means its called by the viewmodel
+		OR in english, something within index.html needs to be clicked to fire these
+		The other functions are internal
+	*/
 
-	this.submitNewSkatepark = function(){
+	this.submitNewSkatepark = function(event){
 		let validation = isMandatoryFieldsFilled();
 
 		if (validation)
@@ -18,7 +22,7 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 				submitMetaToMongoDb(
 					$scope.addNew.skateparkName,
 					$scope.addNew.skateparkDesc,
-					$scope.clickedLocation,
+					$scope.lastMarkerPosition,
 					$scope.addNew.skateparkAdder,
 					null);
 				$("#uploadScrollbar div").width("100%");
@@ -40,7 +44,7 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 					}
 					else
 					{
-						helpersSrv.displayErrorMessage("Please enter a correct URL :)");
+						helpersSrv.createToast("Please enter a correct URL :)");
 						$scope.addNew.screenshotURL = "";
 					}
 				}
@@ -56,6 +60,32 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 		{
 			helpersSrv.createToast("Please fill out skatepark name, and your name :)");
 		}
+	}
+
+	this.addTag = function(tagName, event){
+		if ($(event.target).hasClass("active-chip"))
+		{
+			$(event.target).removeClass("active-chip");
+		}
+		else
+		{
+			$(event.target).addClass("active-chip");
+		}		
+	}
+
+	// Gets all tags with the active chip tag and returns it
+	function getTags(){
+
+		const tags = $(".active-chip");
+		let arrOfTags = [];
+
+		$(tags).each((pointer, value) => {
+
+			arrOfTags.push($(value).context.innerText)
+		});
+
+		return arrOfTags;
+
 	}
 
 	/* These functions are nested so I don't have to keep explicitly passing the scope and service functions as it just inherits them - sue me! */
@@ -96,7 +126,8 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 	}
 
 	// Submits urls OR local files to Cloudinary
-	function submitToCloudAndDB(data){
+	function submitToCloudAndDB(data)
+	{
 			const defer 		= $q.defer();
 			const toSubmit 		= helpersSrv.returnArray(data);
 			const cloudPromise 	= addImageToCloud.uploadImages(toSubmit);
@@ -107,7 +138,7 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 				submitMetaToMongoDb(
 					$scope.addNew.skateparkName,
 					$scope.addNew.skateparkDesc,
-					$scope.clickedLocation,
+					$scope.lastMarkerPosition,
 					$scope.addNew.skateparkAdder,
 					response
 				);
@@ -122,7 +153,8 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 	}
 
 	// Submits metadata to internal database - The final stage
-	function submitMetaToMongoDb(skateparkName, skateparkDesc, skateparkLocation, skateparkAdder, cloudinaryImageMeta){
+	function submitMetaToMongoDb(skateparkName, skateparkDesc, skateparkLocation, skateparkAdder, cloudinaryImageMeta)
+	{
 
 		const skateparkImages = [];
 
@@ -132,20 +164,20 @@ function addNewSkatepark($scope, helpersSrv, addImageToCloud, sendToDB){
 				skateparkImages.push(image);
 			});
 		}
-
+	
 		const payload = {
 			skateparkName : skateparkName,
 			skateparkDesc : skateparkDesc,
-			skateparkLocation : skateparkLocation[0].location,
+			skateparkLocation : skateparkLocation,
 			skateparkAdder : skateparkAdder,
 			skateparkRating : 1,
 			skateparkImages : skateparkImages,
-			skateparkTags: $scope.getTags();
+			skateparkTags: getTags()
 		}
 
 		sendToDB.submitNewPark(payload);
 
-	};
+	}
 
 }
 
