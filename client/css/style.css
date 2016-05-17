@@ -127,5 +127,10 @@ html, body
 	background: #2BBAAC !important;
 }
 
+.leaflet-marker-icon
+{
+	z-index:70000;
+}
+
 
 

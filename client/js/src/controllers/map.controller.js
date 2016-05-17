@@ -35,7 +35,7 @@ function toggleEditButton($scope, helpersSrv)
 function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 {
 	// where default images are stored
-	L.Icon.Default.imagePath = '../../img/leaflet/';
+	//L.Icon.Default.imagePath = '../../img/leaflet/';
 
 	angular.extend($scope, {
 
