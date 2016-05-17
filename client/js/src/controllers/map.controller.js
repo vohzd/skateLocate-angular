@@ -154,6 +154,82 @@ function createTempMarker($scope, $compile, position)
 function parseMarkers($scope, markers)
 {
 
+	$scope.markers = [
+		{
+			lat: 49.1,
+			lng: 0.1,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		{
+			lat: 50,
+			lng: -0.1,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		{
+			lat: 50.1,
+			lng: -0.2,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		{
+			lat: 50.1,
+			lng: 0.2,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		{
+			lat: 50.2,
+			lng: -0.2,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		{
+			lat: 49.1,
+			lng: -0.23,
+			message: "<existing-skatepark-info></existing-skatepark-info>",
+			group: "group",
+			label: {
+				message: "marker",
+				options: {
+					noHide: true
+				}
+			}
+		}
+	]
+
+	/*
 	for (marker of markers)
 	{
 
@@ -176,6 +252,7 @@ function parseMarkers($scope, markers)
 
 	}
 
+*/
 
 
 
