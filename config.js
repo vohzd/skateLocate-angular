@@ -21,14 +21,14 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
     "jquery": "npm:jquery@2.2.3",
-    //"leaflet": "npm:leaflet@1.0.0-rc.1",
+    "leaflet": "npm:leaflet@0.7.7",
     "leaflet-easybutton": "npm:leaflet-easybutton@1.2.0",
     "leaflet-fullscreen": "npm:leaflet.fullscreen@1.4.2",
-    "leaflet-markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
     "leaflet-label": "github:Leaflet/Leaflet.label@0.2.1",
+    "leaflet-markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
     "materialize-css": "npm:materialize-css@0.97.6",
     "ng-file-upload": "npm:ng-file-upload@12.0.4",
-    //"ui-leaflet": "npm:ui-leaflet@1.0.0",
+    "ui-leaflet": "npm:ui-leaflet@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

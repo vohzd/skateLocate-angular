@@ -15,7 +15,7 @@
       "angular-leaflet-directive": "npm:angular-leaflet-directive@^0.10.0",
       "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
       "jquery": "npm:jquery@^2.2.3",
-      "leaflet": "npm:leaflet@1.0.0-rc.1",
+      "leaflet": "npm:leaflet@^0.7.7",
       "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
       "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
       "leaflet.markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
