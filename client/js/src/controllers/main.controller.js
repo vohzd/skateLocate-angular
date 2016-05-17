@@ -1,8 +1,10 @@
 "use strict";
 
-function MainCtrl($scope, $rootScope, $compile, getFromDB){
+function MainCtrl($scope, $rootScope, $compile, getFromDB, tagsSrv){
 
 	// This is fired on page init to get ALL the skateparks
+
+	this.tags = tagsSrv;
 
 	getFromDB.getAll().success((response) => {
 
@@ -19,7 +21,6 @@ function MainCtrl($scope, $rootScope, $compile, getFromDB){
 
 	$rootScope.$on("pushLastToScope", function(event, response){
 		$scope.main.allData.push(response);
-
 	});
 
 

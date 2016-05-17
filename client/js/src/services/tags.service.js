@@ -1,9 +1,9 @@
 "use strict";
 
-function stylesSrv (){
+function tagsSrv (){
 
 	return ["Outdoor", "Indoor", "Concrete", "Wooden", "Lighting", "No Lighting", "Ledges", "Stairs", "Mini", "Skatepark", "Street spot", "Bowl", "Has shop"];
 
 }
 
-export default stylesSrv;
+export default tagsSrv;

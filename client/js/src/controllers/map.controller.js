@@ -52,7 +52,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 		init : {
 			lat: 51.5,
 			lng: 0,
-			zoom: 7
+			zoom: 4
 		},
 
 		tiles : {

@@ -18,6 +18,8 @@ import helpersSrv from "./services/helpers.service.js";
 import uploadImageToCloud from "./services/uploadImageToCloud.service.js";
 import sendToDB from "./services/sendToDB.service.js";
 import getFromDB from "./services/getFromDB.service.js";
+import tagsSrv from "./services/tags.service.js";
+
 
 
 // directives
@@ -52,5 +54,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.service("helpersSrv", helpersSrv)
 	.service("sendToDB", sendToDB)
 	.service("getFromDB", getFromDB)
-	.service("uploadImageToCloud", uploadImageToCloud);
+	.service("uploadImageToCloud", uploadImageToCloud)
+	.service("tagsSrv", tagsSrv);
+
 
