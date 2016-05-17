@@ -117,6 +117,8 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 
+
+
 	});
 
 }
@@ -152,6 +154,7 @@ function parseMarkers($scope, markers)
 {
 	for (marker of markers)
 	{
+
 		Object.defineProperty($scope.markers, marker._id, {
 
 			enumerable: true,
@@ -167,7 +170,7 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				group: "skate"
+				group: "group"
 			}
 
 		});
