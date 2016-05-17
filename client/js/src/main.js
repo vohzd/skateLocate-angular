@@ -9,8 +9,8 @@ import ngFileUpload from "ng-file-upload";
 
 import leaflet from "leaflet";
 import uiLeaflet from "ui-leaflet";
+import leafletMarkerCluster from "Leaflet/Leaflet.markercluster";
 import leafletEasyButton from "leaflet-easybutton";
-import leafletMarkerCluster from "leaflet-markercluster";
 import leafletLabel from "leaflet-label"
 
 // services

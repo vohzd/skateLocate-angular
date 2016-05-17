@@ -37,11 +37,61 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 	// where default images are stored
 	L.Icon.Default.imagePath = '../../img/leaflet/';
 
+
+	$scope.markers = {
+		taipei: {
+			group: "northTaiwan",
+			lat: 25.0391667,
+			lng: 121.525,
+		},
+		yangmei: {
+			group: "northTaiwan",
+			lat: 24.9166667,
+			lng: 121.1333333
+		},
+		hsinchu: {
+			group: "northTaiwan",
+			lat: 24.8047222,
+			lng: 120.9713889
+		},
+		miaoli: {
+			group: "northTaiwan",
+			lat: 24.5588889,
+			lng: 120.8219444
+		},
+		tainan: {
+			group: "southTaiwan",
+			lat: 22.9933333,
+			lng: 120.2036111,
+			label: {
+				message: "Marker2",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		puzi: {
+			group: "southTaiwan",
+			lat: 23.4611,
+			lng: 120.242
+		},
+		kaohsiung: {
+			group: "southTaiwan",
+			lat: 22.6252777778,
+			lng: 120.3088888889
+		},
+		taitun: {
+			group: "southTaiwan",
+			lat: 22.75,
+			lng: 121.15
+		}
+	};
+
 	// Map center
 	$scope.init = {
-		lat: 51.505,
-		lng: -0.09,
-		zoom: 10
+		lat: 25.0391667,
+		lng: 121.525,
+		zoom: 7
 	}
 
 	// Map 'tiles' (which is another name for a skin) + api keys
@@ -54,6 +104,8 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			mapid: 'mapbox://styles/intheon/cinz0kw8i0006bgnmykeq58x6'
 		}
 	}
+
+
 
 	// markers
 
@@ -114,21 +166,91 @@ function createTempMarker($scope, $compile, position)
 function parseMarkers($scope, markers)
 {
 
+
+
+	/*
 	$scope.markers = {
-		main_marker: {
+		m1: {
 			lat: 51.5,
 			lng: 0,
 			focus: true,
 			title: "Marker",
 			draggable: true,
 			label: {
-				message: "Hey, drag me if you want",
+				message: "Marker1",
 				options: {
- 					noHide: true
+					noHide: true
+				}
+			}
+		},
+		m2: {
+			lat: 51,
+			lng: 0,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Marker2",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		m3: {
+			lat: 50.6,
+			lng: 0,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Marker3",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		m4: {
+			lat: 51.6,
+			lng: 0.1,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Marker4",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		m5: {
+			lat: 53,
+			lng: 0,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Marker5",
+				options: {
+					noHide: true
+				}
+			}
+		},
+		m6: {
+			lat: 51.4,
+			lng: -0.1,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Marker6",
+				options: {
+					noHide: true
 				}
 			}
 		}
 	}
+
+	*/
 
 
 	/*

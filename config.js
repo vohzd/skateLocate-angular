@@ -14,6 +14,7 @@ System.config({
   },
 
   map: {
+    "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@0.5.0",
     "angular": "github:angular/bower-angular@1.5.5",
     "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
@@ -25,7 +26,6 @@ System.config({
     "leaflet-easybutton": "npm:leaflet-easybutton@1.2.0",
     "leaflet-fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "leaflet-label": "github:Leaflet/Leaflet.label@0.2.1",
-    "leaflet-markercluster": "npm:leaflet.markercluster@1.0.0-rc.1.0",
     "materialize-css": "npm:materialize-css@0.97.6",
     "ng-file-upload": "npm:ng-file-upload@12.0.4",
     "ui-leaflet": "npm:ui-leaflet@1.0.0",
@@ -88,9 +88,6 @@ System.config({
     },
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
-    },
-    "github:jspm/nodelibs-zlib@0.1.0": {
-      "browserify-zlib": "npm:browserify-zlib@0.1.4"
     },
     "npm:angular-leaflet-directive@0.10.0": {
       "angular": "npm:angular@1.5.5",
@@ -164,14 +161,6 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "parse-asn1": "npm:parse-asn1@5.0.0",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
-    },
-    "npm:browserify-zlib@0.1.4": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0",
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "pako": "npm:pako@0.2.8",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "readable-stream": "npm:readable-stream@2.1.2",
-      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:buffer-xor@1.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -279,25 +268,6 @@ System.config({
     "npm:leaflet-easybutton@1.2.0": {
       "leaflet": "npm:leaflet@0.7.7"
     },
-    "npm:leaflet.markercluster@1.0.0-rc.1.0": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "leaflet": "npm:leaflet@1.0.0-rc.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "util": "github:jspm/nodelibs-util@0.1.0"
-    },
-    "npm:leaflet@1.0.0-rc.1": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.2",
-      "util": "github:jspm/nodelibs-util@0.1.0",
-      "zlib": "github:jspm/nodelibs-zlib@0.1.0"
-    },
     "npm:materialize-css@0.97.6": {
       "css": "github:systemjs/plugin-css@0.1.21",
       "jquery": "github:components/jquery@2.2.1"
@@ -307,10 +277,6 @@ System.config({
       "brorand": "npm:brorand@1.0.5"
     },
     "npm:ng-file-upload@12.0.4": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:pako@0.2.8": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:parse-asn1@5.0.0": {
@@ -333,9 +299,6 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
-    },
-    "npm:process-nextick-args@1.0.7": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:process@0.11.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
@@ -366,17 +329,6 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
-    },
-    "npm:readable-stream@2.1.2": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "core-util-is": "npm:core-util-is@1.0.2",
-      "events": "github:jspm/nodelibs-events@0.1.1",
-      "inherits": "npm:inherits@2.0.1",
-      "isarray": "npm:isarray@1.0.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "process-nextick-args": "npm:process-nextick-args@1.0.7",
-      "string_decoder": "npm:string_decoder@0.10.31",
-      "util-deprecate": "npm:util-deprecate@1.0.2"
     },
     "npm:ripemd160@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -412,9 +364,6 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "punycode": "npm:punycode@1.3.2",
       "querystring": "npm:querystring@0.2.0",
-      "util": "github:jspm/nodelibs-util@0.1.0"
-    },
-    "npm:util-deprecate@1.0.2": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:util@0.10.3": {
