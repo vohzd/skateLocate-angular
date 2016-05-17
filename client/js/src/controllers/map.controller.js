@@ -37,7 +37,29 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 	// where default images are stored
 	L.Icon.Default.imagePath = '../../img/leaflet/';
 
+	angular.extend($scope, {
 
+		init : {
+			lat: 51.5,
+			lng: 0,
+			zoom: 7
+		},
+
+		tiles : {
+			name: 'skate-clean',
+			url: 'https://api.mapbox.com/styles/v1/intheon/cinzqpcbf001cb7m7isotj0nz/tiles/{z}/{x}/{y}?access_token={apikey}',
+			type: 'xyz',
+			options: {
+				apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
+				mapid: 'mapbox://styles/intheon/cinzqpcbf001cb7m7isotj0nz'
+			},
+			tileSize: 512,
+		},
+
+
+	});
+
+	/*
 	// Map center
 	$scope.init = {
 		lat: 51.5,
@@ -47,16 +69,17 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 
 	// Map 'tiles' (which is another name for a skin) + api keys
 	$scope.tiles = {
-		name: 'skate',
-		url: 'https://api.mapbox.com/styles/v1/intheon/cinz0kw8i0006bgnmykeq58x6/tiles/{z}/{x}/{y}?access_token={apikey}',
+		name: 'basic',
+		url: 'https://api.mapbox.com/styles/v1/intheon/ciobor26g00aevemcqytkj4e9/tiles/{z}/{x}/{y}?access_token={apikey}',
 		type: 'xyz',
 		options: {
 			apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
-			mapid: 'mapbox://styles/intheon/cinz0kw8i0006bgnmykeq58x6'
-		}
+			mapid: 'mapbox://styles/intheon/ciobor26g00aevemcqytkj4e9'
+		},
+		tileSize: 1024
 	}
 
-
+	*/
 
 	// markers
 
@@ -83,6 +106,13 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
+
+		L.tileLayer(map, {
+			tileSize: 512,
+			zoomOffset: -1
+		})
+
+		console.log(L.tileLayer);
 
 
 	});

@@ -14,6 +14,7 @@ System.config({
   },
 
   map: {
+    "Leaflet/Leaflet.label": "github:Leaflet/Leaflet.label@0.2.1",
     "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@0.5.0",
     "angular": "github:angular/bower-angular@1.5.5",
     "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
@@ -26,6 +27,7 @@ System.config({
     "leaflet-easybutton": "npm:leaflet-easybutton@1.2.0",
     "leaflet-fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "leaflet-label": "github:Leaflet/Leaflet.label@0.2.1",
+    "leaflet.fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "materialize-css": "npm:materialize-css@0.97.6",
     "ng-file-upload": "npm:ng-file-upload@12.0.4",
     "ui-leaflet": "npm:ui-leaflet@1.0.0",
