@@ -7,11 +7,11 @@ import material from "materialize-css";
 import nemLogging from "angular-simple-logger";
 import ngFileUpload from "ng-file-upload";
 
-import leaflet from "leaflet";
-import uiLeaflet from "ui-leaflet";
+import leaflet from "Leaflet/Leaflet";
+import uiLeaflet from "angular-ui/ui-leaflet";
 import leafletMarkerCluster from "Leaflet/Leaflet.markercluster";
 import leafletEasyButton from "leaflet-easybutton";
-import leafletLabel from "leaflet-label"
+import leafletLabel from "Leaflet/Leaflet.label"
 
 // services
 import helpersSrv from "./services/helpers.service.js";

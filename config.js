@@ -14,23 +14,23 @@ System.config({
   },
 
   map: {
+    "Leaflet/Leaflet": "github:Leaflet/Leaflet@1.0.0-rc.1",
     "Leaflet/Leaflet.label": "github:Leaflet/Leaflet.label@0.2.1",
-    "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@0.5.0",
+    "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
     "angular": "github:angular/bower-angular@1.5.5",
     "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
+    "angular-ui/ui-leaflet": "github:angular-ui/ui-leaflet@leaflet-1.X",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
     "jquery": "npm:jquery@2.2.3",
-    "leaflet": "npm:leaflet@0.7.7",
     "leaflet-easybutton": "npm:leaflet-easybutton@1.2.0",
     "leaflet-fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "leaflet-label": "github:Leaflet/Leaflet.label@0.2.1",
     "leaflet.fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "materialize-css": "npm:materialize-css@0.97.6",
     "ng-file-upload": "npm:ng-file-upload@12.0.4",
-    "ui-leaflet": "npm:ui-leaflet@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -352,15 +352,6 @@ System.config({
     },
     "npm:timers-browserify@1.4.2": {
       "process": "npm:process@0.11.3"
-    },
-    "npm:ui-leaflet@1.0.0": {
-      "angular": "npm:angular@1.5.5",
-      "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "leaflet": "npm:leaflet@0.7.7",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

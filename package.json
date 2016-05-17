@@ -10,18 +10,18 @@
   },
   "jspm": {
     "dependencies": {
+      "Leaflet/Leaflet": "github:Leaflet/Leaflet@1.0.0-rc.1",
       "Leaflet/Leaflet.label": "github:Leaflet/Leaflet.label@^0.2.1",
-      "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@^0.5.0",
+      "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
       "angular": "github:angular/bower-angular@^1.5.5",
       "angular-leaflet-directive": "npm:angular-leaflet-directive@^0.10.0",
       "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
+      "angular-ui/ui-leaflet": "github:angular-ui/ui-leaflet@leaflet-1.X",
       "jquery": "npm:jquery@^2.2.3",
-      "leaflet": "npm:leaflet@^0.7.7",
       "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
       "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
       "materialize-css": "npm:materialize-css@^0.97.6",
-      "ng-file-upload": "npm:ng-file-upload@^12.0.4",
-      "ui-leaflet": "npm:ui-leaflet@^1.0.0"
+      "ng-file-upload": "npm:ng-file-upload@^12.0.4"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

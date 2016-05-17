@@ -8,7 +8,7 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 	// A button the user has to click to switch to 'add skatepark' modes
 	$scope.isEditing 			= false;
 	$scope.isMarkerInProg 		= false;
-	$scope.markers 				= {};
+	$scope.markers 				= [];
 
 	$rootScope.$on("parseMarkers", function(event, response){
 		parseMarkers($scope, response);
@@ -45,7 +45,7 @@ function toggleEditButton($scope, helpersSrv)
 function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 {
 	// where default images are stored
-	//L.Icon.Default.imagePath = '../../img/leaflet/';
+	L.Icon.Default.imagePath = '../../img/leaflet/';
 
 	angular.extend($scope, {
 
@@ -63,7 +63,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 				apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
 				mapid: 'mapbox://styles/intheon/cinzqpcbf001cb7m7isotj0nz'
 			},
-			tileSize: 512,
+
 		},
 
 
@@ -112,6 +112,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			}
 		})
 
+
 		// Add the edit button
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
@@ -152,15 +153,12 @@ function createTempMarker($scope, $compile, position)
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
 function parseMarkers($scope, markers)
 {
+
 	for (marker of markers)
 	{
 
-		Object.defineProperty($scope.markers, marker._id, {
+		$scope.markers.push({
 
-			enumerable: true,
-			writable: true,
-			configurable: true,
-			value: {
 				lat: marker.skateparkLocation[1],
 				lng: marker.skateparkLocation[0],
 				title: marker.skateparkName,
@@ -170,12 +168,16 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				group: "group"
-			}
+				message: "<existing-skatepark-info></existing-skatepark-info>",
+				focus: true,
+				group: "group",
 
 		});
 
 	}
+
+
+
 
 }
 
