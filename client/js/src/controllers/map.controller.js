@@ -38,59 +38,10 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 	L.Icon.Default.imagePath = '../../img/leaflet/';
 
 
-	$scope.markers = {
-		taipei: {
-			group: "northTaiwan",
-			lat: 25.0391667,
-			lng: 121.525,
-		},
-		yangmei: {
-			group: "northTaiwan",
-			lat: 24.9166667,
-			lng: 121.1333333
-		},
-		hsinchu: {
-			group: "northTaiwan",
-			lat: 24.8047222,
-			lng: 120.9713889
-		},
-		miaoli: {
-			group: "northTaiwan",
-			lat: 24.5588889,
-			lng: 120.8219444
-		},
-		tainan: {
-			group: "southTaiwan",
-			lat: 22.9933333,
-			lng: 120.2036111,
-			label: {
-				message: "Marker2",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		puzi: {
-			group: "southTaiwan",
-			lat: 23.4611,
-			lng: 120.242
-		},
-		kaohsiung: {
-			group: "southTaiwan",
-			lat: 22.6252777778,
-			lng: 120.3088888889
-		},
-		taitun: {
-			group: "southTaiwan",
-			lat: 22.75,
-			lng: 121.15
-		}
-	};
-
 	// Map center
 	$scope.init = {
-		lat: 25.0391667,
-		lng: 121.525,
+		lat: 51.5,
+		lng: 0,
 		zoom: 7
 	}
 
@@ -166,9 +117,6 @@ function createTempMarker($scope, $compile, position)
 function parseMarkers($scope, markers)
 {
 
-
-
-	/*
 	$scope.markers = {
 		m1: {
 			lat: 51.5,
@@ -181,7 +129,8 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		},
 		m2: {
 			lat: 51,
@@ -194,7 +143,8 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		},
 		m3: {
 			lat: 50.6,
@@ -207,7 +157,8 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		},
 		m4: {
 			lat: 51.6,
@@ -220,7 +171,8 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		},
 		m5: {
 			lat: 53,
@@ -233,7 +185,8 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		},
 		m6: {
 			lat: 51.4,
@@ -246,11 +199,11 @@ function parseMarkers($scope, markers)
 				options: {
 					noHide: true
 				}
-			}
+			},
+			group: "skate"
 		}
 	}
 
-	*/
 
 
 	/*
