@@ -8,10 +8,18 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 	// A button the user has to click to switch to 'add skatepark' modes
 	$scope.isEditing 			= false;
 	$scope.isMarkerInProg 		= false;
+	$scope.markers 				= {};
 
 	$rootScope.$on("parseMarkers", function(event, response){
 		parseMarkers($scope, response);
 	});
+
+	$rootScope.$on("destroyPopup", function(event){
+		
+		toggleEditButton($scope, helpersSrv);
+
+	});
+
 
 
 }
@@ -26,7 +34,9 @@ function toggleEditButton($scope, helpersSrv)
 	}
 	else if ($scope.isEditing)
 	{
-		$scope.lastMarker.remove();
+		$scope.mapInstance.removeLayer($scope.lastMarker);
+
+		//$scope.lastMarker.remove();
 		$scope.isEditing = false;
 		helpersSrv.toggleEditOff();
 	}
@@ -107,14 +117,6 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 
-		L.tileLayer(map, {
-			tileSize: 512,
-			zoomOffset: -1
-		})
-
-		console.log(L.tileLayer);
-
-
 	});
 
 }
@@ -128,7 +130,9 @@ function createTempMarker($scope, $compile, position)
 {
 	if ($scope.lastMarker)
 	{
-		$scope.lastMarker.remove();
+		//console.log($scope.lastMarker);
+		//$scope.lastMarker.remove();
+		$scope.mapInstance.removeLayer($scope.lastMarker);
 	}
 		
 	$scope.isMarkerInProg = true;
@@ -146,102 +150,30 @@ function createTempMarker($scope, $compile, position)
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
 function parseMarkers($scope, markers)
 {
-
-	$scope.markers = {
-		m1: {
-			lat: 51.5,
-			lng: 0,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker1",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		},
-		m2: {
-			lat: 51,
-			lng: 0,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker2",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		},
-		m3: {
-			lat: 50.6,
-			lng: 0,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker3",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		},
-		m4: {
-			lat: 51.6,
-			lng: 0.1,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker4",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		},
-		m5: {
-			lat: 53,
-			lng: 0,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker5",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		},
-		m6: {
-			lat: 51.4,
-			lng: -0.1,
-			focus: true,
-			title: "Marker",
-			draggable: true,
-			label: {
-				message: "Marker6",
-				options: {
-					noHide: true
-				}
-			},
-			group: "skate"
-		}
-	}
-
-
-
-	/*
 	for (marker of markers)
 	{
+		Object.defineProperty($scope.markers, marker._id, {
+
+			enumerable: true,
+			writable: true,
+			configurable: true,
+			value: {
+				lat: marker.skateparkLocation[1],
+				lng: marker.skateparkLocation[0],
+				title: marker.skateparkName,
+				label: {
+					message: marker.skateparkName,
+					options: {
+						noHide: true
+					}
+				},
+				group: "skate"
+			}
+
+		});
 
 	}
-	*/
+
 }
 
 

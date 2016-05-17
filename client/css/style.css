@@ -89,10 +89,15 @@ html, body
 	box-shadow: none;
 }
 
+.leaflet-popup
+{
+	z-index:5000;
+}
+
 .leaflet-popup-content
 {
-	min-width:420px;
-	padding: 2%;
+	min-width:472px;
+	padding: 1.2%;
 }
 
 .easy-button-button

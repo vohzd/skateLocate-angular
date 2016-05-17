@@ -1,7 +1,7 @@
 "use strict";
 // yes this is ugly. its also pretty confusing! 
 // basically you can either: not submit screenshots, submit local files, submit files retreived from url, or both.
-function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
+function addNewSkatepark($scope, $rootScope, helpersSrv, uploadImageToCloud, sendToDB){
 
 	/*
 		Stuff with 'this' means its called by the viewmodel
@@ -10,6 +10,7 @@ function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
 	*/
 
 	this.submitNewSkatepark = function(event){
+
 		let validation = isMandatoryFieldsFilled();
 
 		if (validation)

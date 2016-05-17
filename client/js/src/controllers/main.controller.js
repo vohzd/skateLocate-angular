@@ -9,10 +9,16 @@ function MainCtrl($scope, $rootScope, $compile, getFromDB){
 		// Store the response in the array
 		this.allData = response;
 
+
 	}).then((response) => {
 
 		// Parse Markers
 		$rootScope.$broadcast("parseMarkers", response.data);
+
+	});
+
+	$rootScope.$on("pushLastToScope", function(event, response){
+		$scope.main.allData.push(response);
 
 	});
 
