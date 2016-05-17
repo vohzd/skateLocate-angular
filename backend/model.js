@@ -4,7 +4,7 @@ const Schema      = mongoose.Schema;
 
 // Create a schema
 const SkateParkSchema = new Schema({
-	skateparkName: {type: String, required: true},
+	skateparkName: {type: String, required: false},
 	skateparkDesc: {type: String, required: false},
 	skateparkRating: {type: Number, required: false},
 	skateparkLocation: {type: [Number], required: false}, // [Long, Lat]

@@ -43,8 +43,11 @@ module.exports = function(app) {
 	// Provides method for saving new skateparks to the db
 	app.post('/skateparks', (req, res) => {
 
+		console.log("you are here");
 		// Creates a new skatepark based on the Mongoose Schema
 		const newSkatepark = new Skateparks(req.body);
+
+		console.log(req);
 
 		// New skatepark is saved to the db
 		newSkatepark.save((err) => {

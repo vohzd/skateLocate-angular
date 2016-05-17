@@ -1,6 +1,6 @@
 "use strict";
 
-function sendToDB ($http, $rootScope){
+function sendToDB ($http, $q, $rootScope){
 
 	// Object to be returned to Controller
 	let parkDBLayer = {
@@ -9,12 +9,10 @@ function sendToDB ($http, $rootScope){
 		submitNewPark: (payload) => {
 
 			// Saves the skatepark data to the db
-			$http.post("/skateparks", payload)
-				.success((data) => {
+			$http.post("/skateparks", payload).success((data) => {
 
 					// the _id will be returned
-					$http.get("/skateparks/" + data)
-						.success((response) => {
+					$http.get("/skateparks/" + data).success((response) => {
 
 							// Emit the success to the controller
 							$rootScope.$emit("pushLastToScope", response);

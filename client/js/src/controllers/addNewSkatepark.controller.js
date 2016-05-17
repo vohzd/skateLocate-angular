@@ -22,7 +22,7 @@ function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
 				submitMetaToMongoDb(
 					$scope.addNew.skateparkName,
 					$scope.addNew.skateparkDesc,
-					$scope.lastMarkerPosition,
+					[$scope.lastMarkerPosition.lng, $scope.lastMarkerPosition.lat],
 					$scope.addNew.skateparkAdder,
 					null);
 				$("#uploadScrollbar div").width("100%");
@@ -80,7 +80,6 @@ function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
 		let arrOfTags = [];
 
 		$(tags).each((pointer, value) => {
-
 			arrOfTags.push($(value).context.innerText)
 		});
 
@@ -155,7 +154,6 @@ function addNewSkatepark($scope, helpersSrv, uploadImageToCloud, sendToDB){
 	// Submits metadata to internal database - The final stage
 	function submitMetaToMongoDb(skateparkName, skateparkDesc, skateparkLocation, skateparkAdder, cloudinaryImageMeta)
 	{
-
 		const skateparkImages = [];
 
 		if (cloudinaryImageMeta)
