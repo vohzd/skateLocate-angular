@@ -1,6 +1,6 @@
 "use strict";
 
-function MapCtrl($scope, $log, $compile, leafletData, helpersSrv){
+function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 
 	// Bootstrap the mofo
 	configureLeaflet($scope, $log, $compile, leafletData, helpersSrv);
@@ -8,6 +8,10 @@ function MapCtrl($scope, $log, $compile, leafletData, helpersSrv){
 	// A button the user has to click to switch to 'add skatepark' modes
 	$scope.isEditing 			= false;
 	$scope.isMarkerInProg 		= false;
+
+	$rootScope.$on("parseMarkers", function(event, response){
+		parseMarkers($scope, response);
+	});
 
 
 }
@@ -50,6 +54,8 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			mapid: 'mapbox://styles/intheon/cinz0kw8i0006bgnmykeq58x6'
 		}
 	}
+
+	// markers
 
 	// store the map instance
 	// returns a promise, which is ensures you dont run anything on 'undefined'
@@ -103,6 +109,36 @@ function createTempMarker($scope, $compile, position)
 
 	$scope.lastMarker.bindPopup(compiledDirective[0]).openPopup()
 }
+
+// translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
+function parseMarkers($scope, markers)
+{
+
+	$scope.markers = {
+		main_marker: {
+			lat: 51.5,
+			lng: 0,
+			focus: true,
+			title: "Marker",
+			draggable: true,
+			label: {
+				message: "Hey, drag me if you want",
+				options: {
+ 					noHide: true
+				}
+			}
+		}
+	}
+
+
+	/*
+	for (marker of markers)
+	{
+
+	}
+	*/
+}
+
 
 
 

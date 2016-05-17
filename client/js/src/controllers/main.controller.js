@@ -1,6 +1,6 @@
 "use strict";
 
-function MainCtrl($scope, $compile, getFromDB){
+function MainCtrl($scope, $rootScope, $compile, getFromDB){
 
 	// This is fired on page init to get ALL the skateparks
 
@@ -11,7 +11,8 @@ function MainCtrl($scope, $compile, getFromDB){
 
 	}).then((response) => {
 
-
+		// Parse Markers
+		$rootScope.$broadcast("parseMarkers", response.data);
 
 	});
 
