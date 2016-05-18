@@ -17,8 +17,6 @@ function MainCtrl($scope, $rootScope, $compile, getFromDB, tagsSrv){
 		// Parse Markers
 		$rootScope.$broadcast("parseMarkers", response.data);
 
-		console.log($scope.markers);
-
 	});
 
 	$rootScope.$on("pushLastToScope", function(event, response){
