@@ -135,6 +135,8 @@ function parseMarkers($scope, markers)
 
 	for (markerinfo of markers)
 	{
+	let test = markerinfo;
+	console.log(test);
 		$scope.markers.push({
 
 				lat: markerinfo.skateparkLocation[1],
@@ -146,7 +148,7 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				message: "<existing-skatepark-info markerinfo=markerinfo></existing-skatepark-info>",
+				message: "<existing-skatepark-info markerinfo=test></existing-skatepark-info>",
 				focus: false,
 				group: "group",
 
