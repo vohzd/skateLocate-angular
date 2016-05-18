@@ -52,7 +52,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 		init : {
 			lat: 51.5,
 			lng: 0,
-			zoom: 11
+			zoom: 7
 		},
 
 		tiles : {
@@ -69,27 +69,6 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 
 	});
 
-	/*
-	// Map center
-	$scope.init = {
-		lat: 51.5,
-		lng: 0,
-		zoom: 7
-	}
-
-	// Map 'tiles' (which is another name for a skin) + api keys
-	$scope.tiles = {
-		name: 'basic',
-		url: 'https://api.mapbox.com/styles/v1/intheon/ciobor26g00aevemcqytkj4e9/tiles/{z}/{x}/{y}?access_token={apikey}',
-		type: 'xyz',
-		options: {
-			apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
-			mapid: 'mapbox://styles/intheon/ciobor26g00aevemcqytkj4e9'
-		},
-		tileSize: 1024
-	}
-
-	*/
 
 	// markers
 
@@ -154,82 +133,6 @@ function createTempMarker($scope, $compile, position)
 function parseMarkers($scope, markers)
 {
 
-	$scope.markers = [
-		{
-			lat: 49.1,
-			lng: 0.1,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		{
-			lat: 50,
-			lng: -0.1,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		{
-			lat: 50.1,
-			lng: -0.2,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		{
-			lat: 50.1,
-			lng: 0.2,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		{
-			lat: 50.2,
-			lng: -0.2,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		},
-		{
-			lat: 49.1,
-			lng: -0.23,
-			message: "<existing-skatepark-info></existing-skatepark-info>",
-			group: "group",
-			label: {
-				message: "marker",
-				options: {
-					noHide: true
-				}
-			}
-		}
-	]
-
-	/*
 	for (marker of markers)
 	{
 
@@ -252,7 +155,6 @@ function parseMarkers($scope, markers)
 
 	}
 
-*/
 
 
 
