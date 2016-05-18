@@ -147,7 +147,7 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				message: "<existing-skatepark-info></existing-skatepark-info>",
+				message: "<existing-skatepark-info particular-info='marker'></existing-skatepark-info>",
 				focus: true,
 				group: "group",
 
