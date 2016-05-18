@@ -1,7 +1,7 @@
 "use strict";
 // yes this is ugly. its also pretty confusing! 
 // basically you can either: not submit screenshots, submit local files, submit files retreived from url, or both.
-function addNewSkatepark($scope, $rootScope, helpersSrv, uploadImageToCloud, sendToDB){
+function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, sendToDB){
 
 	/*
 		Stuff with 'this' means its called by the viewmodel
@@ -128,22 +128,22 @@ function addNewSkatepark($scope, $rootScope, helpersSrv, uploadImageToCloud, sen
 	// Submits urls OR local files to Cloudinary
 	function submitToCloudAndDB(data)
 	{
+
 			const defer 		= $q.defer();
 			const toSubmit 		= helpersSrv.returnArray(data);
-			const cloudPromise 	= addImageToCloud.uploadImages(toSubmit);
+			const cloudPromise 	= uploadImageToCloud.uploadImages(toSubmit);
 
-			cloudPromise.then((response) => {
+			cloudPromise.then((imageUrlResponse) => {
 
 				// name, desc, longLat, adder, and images
 				submitMetaToMongoDb(
 					$scope.addNew.skateparkName,
 					$scope.addNew.skateparkDesc,
-					$scope.lastMarkerPosition,
+					[$scope.lastMarkerPosition.lng, $scope.lastMarkerPosition.lat],
 					$scope.addNew.skateparkAdder,
-					response
+					imageUrlResponse
 				);
 
-				$scope.makeFieldsBlank();
 				defer.resolve();
 
 			});

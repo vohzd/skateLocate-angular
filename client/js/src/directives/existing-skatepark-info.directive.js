@@ -2,13 +2,16 @@ function existingSkateparkInfo(){
 	
 	return {
 
-		"restrict": "E",
-		"templateUrl": "../../../views/existing-skatepark-info.view.html",
-		"replace": true,
-		"scope": "=",
-		controller: function(){
-			console.log("if this works ill be amazed");
-			console.log();
+		restrict: "E",
+		templateUrl: "../../../views/existing-skatepark-info.view.html",
+		replace: true,
+		scope: {
+			markerinfo: "=markerinfo"
+		},
+		link: function(scope, element, attrs){
+
+			scope.currentSkatepark = markerinfo;
+
 		}
 
 	}

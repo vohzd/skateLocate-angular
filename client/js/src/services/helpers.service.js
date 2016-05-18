@@ -32,7 +32,7 @@ function helpers(){
 		return isIt;
 	}
 
-	helpers.returnArray = function(string){
+	helpers.returnArray = function(data){
 		let toReturn = [];
 
 		if (typeof data === "string"){
