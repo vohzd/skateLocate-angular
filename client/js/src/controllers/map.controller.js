@@ -112,8 +112,6 @@ function createTempMarker($scope, $compile, position)
 {
 	if ($scope.lastMarker)
 	{
-		//console.log($scope.lastMarker);
-		//$scope.lastMarker.remove();
 		$scope.mapInstance.removeLayer($scope.lastMarker);
 	}
 		
@@ -132,11 +130,11 @@ function createTempMarker($scope, $compile, position)
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
 function parseMarkers($scope, markers)
 {
-
 	for (markerinfo of markers)
 	{
-	let test = markerinfo;
-	console.log(test);
+
+		let asString = JSON.stringify(markerinfo);
+
 		$scope.markers.push({
 
 				lat: markerinfo.skateparkLocation[1],
@@ -148,7 +146,7 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				message: "<existing-skatepark-info markerinfo=test></existing-skatepark-info>",
+				message: "<existing-skatepark-info asString='" + asString + "'></existing-skatepark-info>",
 				focus: false,
 				group: "group",
 
