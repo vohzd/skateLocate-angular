@@ -1,7 +1,7 @@
 <li class="nudged-menu full-width">
-	<h5 class="active collapsible-header "><i class="material-icons align faded">present_to_all</i>  Highest Voted <i class="material-icons grn-colour">swap_vert</i></h5>
+	<h5 class="collapsible-header active"><i class="material-icons align faded">present_to_all</i>  Highest Voted <i class="material-icons grn-colour">swap_vert</i></h5>
 
-	<div class="collapsible-body">
+	<div class="collapsible-body " >
 
 		<div ng-repeat="item in main.allData | orderBy: '-skateparkRating' | limitTo: 4" class="list-of-highest-rated-items collection mouse-clickable ">
 

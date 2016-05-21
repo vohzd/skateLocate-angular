@@ -1,6 +1,6 @@
 "use strict";
 
-function MainCtrl($scope, $rootScope, $compile, getFromDB, tagsSrv){
+function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
 
 	// This is fired on page init to get ALL the skateparks
 
@@ -23,6 +23,7 @@ function MainCtrl($scope, $rootScope, $compile, getFromDB, tagsSrv){
 		$scope.main.allData.push(response);
 	});
 
+	// Simulate a click to open one of the side panels by default
 
 
 }
