@@ -34,15 +34,15 @@ html, body
 .sidebar
 {
 	position: absolute;
-	background: rgba(255,255,255,0.3);
+	background: rgba(255,255,255,0.66);
 	margin: 0;
 	padding: 0;
 	right: 0;
 	z-index: 2;
 	height: 100vh;
-	width: 38.2%;
+	width: 22.2%;
 	max-width: 650px;
-	border-left: 2px solid rgba(255,255,255,0.3);
+	border-left: 2px solid rgba(255,255,255,0.7);
 }
 
 .search-for-items
@@ -235,19 +235,6 @@ html, body
 	color: #85A374;
 }
 
-.sidebar
-{
-	position: absolute;
-	background: rgba(255,255,255,0.5);
-	margin: 0;
-	padding: 0;
-	right: 0;
-	z-index: 2;
-	height: 100vh;
-	width: 38.2%;
-	max-width: 650px;
-	border-left: 2px solid rgba(255,255,255,0.3);
-}
 
 
 .skate-icon
@@ -479,16 +466,18 @@ input[type="text"]
 {
 	background: none!important;
 	border: none !important;
+	font-size: 1.4rem;
 }
 
 .collapsible 
 {
-	background: rgba(255,255,255,0.2) !important;
+	background: rgba(255,255,255,0.3) !important;
 	border: none !important;
 	margin: 0 !important;
 	padding: 0% !important;
 	box-shadow: none !important;
 	margin-top: -2% !important;
+	padding-bottom:3%;
 }
 
 .collection .collection-item 
@@ -501,6 +490,9 @@ input[type="text"]
 {
 	margin-top: 4px;
 	padding-left: 2.1rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow:hidden;
 }
 
 .collapsible-header:first-child
@@ -509,13 +501,13 @@ input[type="text"]
 }
 .collection .collection-item.avatar i.circle
 {
-	background: rgba(255,255,255,0.8) !important;
+	background: rgba(255,255,255,0.9) !important;
 }
 
 .absolute-label
 {
 	position: absolute;
-	margin-left: -42px;
+	margin-left: -47px;
 	margin-top: 9px;
 	z-index: 28;
 	font-size: 1.4em;
@@ -579,16 +571,15 @@ input[type="text"]
 
 }
 
-.item-name .time-labels
+.time-labels
 {
 	position: absolute;
-	margin-left: -16px;
-	margin-top: 24px;
+	margin-left: 2px;
+	margin-top: -1px;
 	z-index: 3;
-	font-size: 0.7em;
+	font-size: 0.48em;
 	opacity: 0.7;
 	text-transform: uppercase;
-
 }
 
 
@@ -598,14 +589,119 @@ input[type="text"]
 	margin-left: 7.1rem;
 }
 
-.item-name summary 
+summary 
 {
-	margin-left: 9.1rem;
+	margin-left: 2.1rem;
 	font-size: 0.8em;
 	opacity: 0.8;
+}
+
+.tags-list
+{
+	padding: 2%;
 }
 
 .tags-list .chip 
 {
 	background: rgba(255,255,255,0.8);
+}
+
+
+@media ( max-width: 1800px )
+{
+	.main-header
+	{
+		font-size:3em;
+	}
+}
+
+@media ( max-width: 1650px )
+{
+	.main-header
+	{
+		font-size:2.5em;
+	}
+
+	.collapsible-header
+	{
+		font-size:1.5em;
+	}
+}
+
+@media ( max-width: 1550px )
+{
+	.main-header
+	{
+		font-size:2em;
+	}
+}
+
+@media ( max-width: 1350px )
+{
+	.main-header
+	{
+		font-size:1.8em;
+	}
+
+	.collapsible-header
+	{
+		font-size:1em;
+	}
+
+	.collection .collection-item.avatar .title
+	{
+		font-size:0.8em !important;
+
+	}
+}
+
+@media ( max-width: 1000px )
+{
+	.main-header
+	{
+		font-size:1.3em;
+	}
+
+	.collapsible-header
+	{
+		font-size:0.8em;
+	}
+
+	.skate-icon
+	{
+		display:none;
+	}
+
+	.collection .collection-item .title
+	{
+		padding-left: 0 !important;
+	}
+
+	summary
+	{
+		margin-left: 0 !important;
+	}
+}
+
+
+@media ( max-width: 870px )
+{
+	.grn-colour
+	{
+		display:none !important;
+	}
+}
+
+@media ( max-width: 670px )
+{
+	.sidebar
+	{
+		background: rgba(255,255,255,0.8);
+		width: 57%;
+	}
+
+	.collection .collection-item.avatar i.circle
+	{
+		background: rgba(255,255,255,1);
+	}
 }

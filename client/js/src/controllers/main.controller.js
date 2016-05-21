@@ -23,7 +23,14 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
 		$scope.main.allData.push(response);
 	});
 
-	// Simulate a click to open one of the side panels by default
+	// Minimise the panel when clicked
+
+	// Make the panels fade in when clicked
+	this.fadeInBody = function(event){
+
+		console.log(event);
+
+	}
 
 
 }

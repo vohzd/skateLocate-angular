@@ -1,17 +1,17 @@
 <li class="nudged-menu full-width">
-<h5 class="collapsible-header"><i class="material-icons align faded">forward_10</i> Recently Added <i class="material-icons grn-colour">swap_vert</i></h5>
-<div class="list-of-most-recent-items collapsible-body">
-	<div ng-repeat="item in main.allData | limitTo: 10">
+	<h5 class="collapsible-header" ng-click="main.fadeInBody()"><i class="material-icons align faded">forward_10</i>  Recently Added <i class="material-icons grn-colour">swap_vert</i></h5>
 
-		<div class="item-name" ng-click="showSkateparkDetails(item._id, item)">
-			<div class="circle"></div>
-			<time class="absolute">{{ item.createdAt | date: 'd' }}</time>
-			<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time>
+	<div class="collapsible-body " >
 
-			<header>{{ item.skateparkName }}</header>
-			<summary>by {{ item.skateparkAdder }}</summary>
+		<div ng-repeat="item in main.allData | limitTo: 10" class="list-of-highest-rated-items collection mouse-clickable ">
+
+			<div class="collection-item avatar" ng-click="showSkateparkDetails(item._id, item)">
+				<span class="absolute-label">{{ item.createdAt | date: 'd' }}			<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time></span><i class=" circle"></i>
+				<span class="title">{{ item.skateparkName }}</span>
+				<summary>by {{ item.skateparkAdder }}</summary>
+			</div>
+
 		</div>
 
 	</div>
-</div>
 </li>
