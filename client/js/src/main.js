@@ -21,7 +21,6 @@ import getFromDB from "./services/getFromDB.service.js";
 import tagsSrv from "./services/tags.service.js";
 
 
-
 // directives
 import headerGraphic from "./directives/header.directive.js";
 import highestRankedItems from "./directives/highest-ranked-items.directive.js";
@@ -36,6 +35,7 @@ import searchBar from "./directives/search.directive.js";
 import MainCtrl from "./controllers/main.controller.js";
 import MapCtrl from "./controllers/map.controller.js";
 import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
+import ToggleCtrl from "./controllers/toggle.controller.js";
 
 
 // GO
@@ -43,6 +43,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
 	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
+	.controller("ToggleCtrl", ToggleCtrl)
 	.directive("headerGraphic", headerGraphic)
 	.directive("highestRankedItems", highestRankedItems)
 	.directive("recentlyAddedItems", recentlyAddedItems)

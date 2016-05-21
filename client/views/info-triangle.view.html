@@ -1,15 +1,15 @@
 <div>
 
-	<div class="info-triangle"></div>
 
 	<div class="bottom-right">
+	<div class="info-triangle"></div>
 
 		<!-- a toggle switch -->
-		<div class="switch" id="responsive-panel">
+		<div class="switch" id="responsive-panel" ng-controller="ToggleCtrl as toggle">
 			<label>
 				Show
 				<input type="checkbox">
-				<span class="lever" ng-click="togglePanel()" id="resizeSwitch"></span>
+				<span class="lever" ng-click="toggle.togglePanel()" id="resizeSwitch"></span>
 				Hide
 			</label>
 		</div>
