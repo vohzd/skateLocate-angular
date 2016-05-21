@@ -4,8 +4,12 @@
 	<div ng-repeat="item in main.allData | limitTo: 10">
 
 		<div class="item-name" ng-click="showSkateparkDetails(item._id, item)">
-			{{ item.skateparkName }}
-			<span class="small">{{ item.createdAt | date: 'h:mm a, MMM d' }} by {{ item.skateparkAdder }} </span>
+			<div class="circle"></div>
+			<time class="absolute">{{ item.createdAt | date: 'd' }}</time>
+			<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time>
+
+			<header>{{ item.skateparkName }}</header>
+			<summary>by {{ item.skateparkAdder }}</summary>
 		</div>
 
 	</div>

@@ -47,6 +47,7 @@ html, body
 
 .search-for-items
 {
+	transition: 1s all;
 	background: rgba(255,255,255,0.5);
 	padding: 2%;
 }
@@ -485,9 +486,9 @@ input[type="text"]
 	background: rgba(255,255,255,0.2) !important;
 	border: none !important;
 	margin: 0 !important;
-	padding: 2% !important;
+	padding: 0% !important;
 	box-shadow: none !important;
-
+	margin-top: -2% !important;
 }
 
 .collection .collection-item 
@@ -496,9 +497,19 @@ input[type="text"]
 
 }
 
+.collection .collection-item .title
+{
+	margin-top: 4px;
+	padding-left: 2.1rem;
+}
+
+.collapsible-header:first-child
+{
+	margin-top: 2% !important;
+}
 .collection .collection-item.avatar i.circle
 {
-	background: rgba(255,255,255,0.6) !important;
+	background: rgba(255,255,255,0.8) !important;
 }
 
 .absolute-label
@@ -519,4 +530,82 @@ input[type="text"]
 {
 	cursor: pointer;
 	opacity: 0.5;
+}
+
+.collapsible .active
+{
+	transition: 1s all;
+	background: rgba(255,255,255,0.64) !important;
+}
+
+.search-for-items:hover
+{
+	cursor: pointer;
+	background: rgba(255,255,255,0.75) !important;
+}
+
+.item-name header 
+{
+	font-size: 16px;
+}
+.item-name .circle 
+{
+	position: relative;
+	width: 42px;
+	height: 42px;
+	left: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	background: rgba(255,255,255,0.8) !important;
+	border-radius: 50%;
+	margin-top: -3px !important;
+	margin-left: -48px;
+
+}
+
+.item-name 
+{
+	padding-bottom: 5%;
+	min-height: 84px;
+}
+
+.item-name .absolute 
+{
+	position: relative;
+	margin-left: 23px;
+	z-index: 3;
+	font-size: 1.4em;
+	float: left;
+
+}
+
+.item-name .time-labels
+{
+	position: absolute;
+	margin-left: -16px;
+	margin-top: 24px;
+	z-index: 3;
+	font-size: 0.7em;
+	opacity: 0.7;
+	text-transform: uppercase;
+
+}
+
+
+.item-name header 
+{
+	margin-top:-41px;
+	margin-left: 7.1rem;
+}
+
+.item-name summary 
+{
+	margin-left: 9.1rem;
+	font-size: 0.8em;
+	opacity: 0.8;
+}
+
+.tags-list .chip 
+{
+	background: rgba(255,255,255,0.8);
 }
