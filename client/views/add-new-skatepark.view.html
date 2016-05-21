@@ -1,4 +1,4 @@
-<form action="#" class="add-skate-location">
+<form action="#" class="add-skate-location" ng-controller="addNewSkateparkCtrl as addNew">
 	<!-- Ask for the skatepark name -->
 	<div class="input-field row" >
 		<i class="material-icons prefix">room</i>
@@ -21,7 +21,6 @@
 	</div>
 
 
-
 	<!-- Ask for a remote url -->
 	<div class="input-field row">
 		<i class="material-icons prefix">link</i>
@@ -29,41 +28,29 @@
 		<label for="screenshotURL">Image URL</label>
 	</div>
 
-	<!-- Ask for screenshots -->
-	<div class="file-field input-field row">
-		<div class="btn waves-effect waves-light">
-			<div>File</div>
-			<input type="file" ngf-select ng-model="addNew.screenshots" ngf-multiple="true" accept="image/*" ngf-max-size="4MB">
-		</div>
-		<div class="file-path-wrapper">
-			<input class="file-path validate" type="text"  placeholder="Upload Screenshots">
-		</div>
-	</div>
 
 	<!-- Ask for tags -->
 	<div class="input-field row">
 		<span>Add some tags</span> <br />
 
-		<!-- TODO: Figure out cunting scoping issue -->
-
-		<div class="chip" ng-click="addTag('Outdoor', $event)">Outdoor</div>
-		<div class="chip" ng-click="addTag('Indoor', $event)">Indoor</div>
-		<div class="chip" ng-click="addTag('Concrete', $event)">Concrete</div>
-		<div class="chip" ng-click="addTag('Wooden', $event)">Wooden</div>
-		<div class="chip" ng-click="addTag('No Lighting', $event)">No Lighting</div>
-		<div class="chip" ng-click="addTag('Stairs', $event)">Stairs</div>
-		<div class="chip" ng-click="addTag('Mini', $event)">Mini</div>
-		<div class="chip" ng-click="addTag('Skatepark', $event)">Skatepark</div>
-		<div class="chip" ng-click="addTag('Street spot', $event)">Street spot</div>
-		<div class="chip" ng-click="addTag('Bowl', $event)">Bowl</div>
-		<div class="chip" ng-click="addTag('Has shop', $event)">Has shop</div>
+		<div class="chip" ng-click="addNew.addTag('Outdoor', $event)">Outdoor</div>
+		<div class="chip" ng-click="addNew.addTag('Indoor', $event)">Indoor</div>
+		<div class="chip" ng-click="addNew.addTag('Concrete', $event)">Concrete</div>
+		<div class="chip" ng-click="addNew.addTag('Wooden', $event)">Wooden</div>
+		<div class="chip" ng-click="addNew.addTag('No Lighting', $event)">No Lighting</div>
+		<div class="chip" ng-click="addNew.addTag('Stairs', $event)">Stairs</div>
+		<div class="chip" ng-click="addNew.addTag('Mini', $event)">Mini</div>
+		<div class="chip" ng-click="addNew.addTag('Skatepark', $event)">Skatepark</div>
+		<div class="chip" ng-click="addNew.addTag('Street spot', $event)">Street spot</div>
+		<div class="chip" ng-click="addNew.addTag('Bowl', $event)">Bowl</div>
+		<div class="chip" ng-click="addNew.addTag('Has shop', $event)">Has shop</div>
 
 	</div>
 
 
 	<!-- Submit button -->
 	<div class="row extraWidth">
-		<input type="button" value="Submit!" class="btn col s12" ng-click="submitNewSkateparkForm()">
+		<input type="button" value="Submit!" class="btn col s12" ng-click="addNew.submitNewSkatepark()">
 	</div>
 
 	<!-- Is hidden initially, but the Upload Service will command the width -->

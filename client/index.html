@@ -4,9 +4,9 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Beautify</title>
+	<title>skateLocate</title>
 	<meta name="description" content="An app to find and locate skateparks and skate spots">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- fav icon -->
 	<link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-icon-57x57.png">
@@ -30,7 +30,9 @@
 	<!-- Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="./css/leaflet.css" />
-	<link rel="stylesheet" href="./css/markerCluster.css" />
+	<link rel="stylesheet" href="./css/leaflet-label.css" />
+	<link rel="stylesheet" href="./css/marker-cluster.css" />
+	<link rel="stylesheet" href="./css/swiper.css" />
 	<link rel="stylesheet" href="./css/style.css" />
 
 </head>
@@ -39,19 +41,29 @@
 
 	<!-- The main map wrapper -->
 	<div ng-controller="MapCtrl as map">
-		<div id="map-core">
+	
+		<leaflet lf-center="init" tiles="tiles" defaults="defaults" markers="markers" controls="controls" id="map-core">
+			
 
-		</div>
-
+		</leaflet>
 
 	</div>
 
 	<!-- Sidebar view -->
 	<div class="sidebar">
+	
 		<header-graphic></header-graphic>
+		<search-bar></search-bar>
+
+		<ul class="collapsible" data-collapsible="accordion">
+			<highest-ranked-items></highest-ranked-items>
+			<recently-added-items></recently-added-items>
+			<filter-items-by-tag></filter-items-by-tag>
+		</ul>
 
 	</div>
 
+	<info-triangle></info-triangle>
 
 
 <!-- for dev, keep these uncommented -->
@@ -65,6 +77,7 @@
 	});
 
 </script>
+
 
 
 <!-- for prod, comment out the 3 above and just use this

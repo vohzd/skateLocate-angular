@@ -5,7 +5,6 @@ function addNewSkatepark(){
 		"restrict": "E",
 		"templateUrl": "../../../views/add-new-skatepark.view.html",
 		"replace": true
-
 	}
 
 }

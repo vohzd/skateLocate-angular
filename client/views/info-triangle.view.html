@@ -1,30 +1,22 @@
 <div>
 
-	<div class="info-triangle"></div>
 
 	<div class="bottom-right">
-
-		<div class="modal-settings-help"></div>
-
-		<div class="users-connected">
-			<div class="number-connected-users"></div>
-		</div>
-
-		<i class="material-icons green-icon mouseover" ng-click="launchHelp()">help</i>
-
-		<!-- proposed for settings: chase colour scheme, allow toggling between clusters/individual pins -->
-		<i class="material-icons green-icon">settings</i>
-		<i class="material-icons green-icon">people</i>
+	<div class="info-triangle"></div>
 
 		<!-- a toggle switch -->
-		<div class="switch" id="responsive-panel">
+		<div class="switch" id="responsive-panel" ng-controller="ToggleCtrl as toggle">
 			<label>
 				Show
 				<input type="checkbox">
-				<span class="lever" ng-click="togglePanel()" id="resizeSwitch"></span>
+				<span class="lever" ng-click="toggle.togglePanel()" id="resizeSwitch"></span>
 				Hide
 			</label>
 		</div>
+
+
+		<i class="material-icons green-icon mouseover" ng-click="launchHelp()">help</i>
+
 	</div>
 
 </div>

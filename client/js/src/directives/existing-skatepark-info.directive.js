@@ -2,9 +2,16 @@ function existingSkateparkInfo(){
 	
 	return {
 
-		"restrict": "E",
-		"templateUrl": "../../../views/existing-skatepark-info.view.html",
-		"replace": true
+		restrict: "EA",
+		templateUrl: "../../../views/existing-skatepark-info.view.html",
+		replace: true,
+		link: function(scope, element, attrs){
+
+			let parsed = JSON.parse(attrs.asstring);
+
+			scope.currentSkatepark = parsed;
+
+		}
 
 	}
 
