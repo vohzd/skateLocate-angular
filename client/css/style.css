@@ -44,7 +44,7 @@ html, body
 	width: 22.2%;
 	max-width: 650px;
 	border-left: 2px solid rgba(255,255,255,0.7);
-	transition: 0.6s opacity;
+	transition: 0.4s opacity;
 }
 
 .search-for-items
