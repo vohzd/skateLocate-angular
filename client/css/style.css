@@ -653,6 +653,11 @@ summary
 		font-size:0.8em !important;
 
 	}
+
+	.sidebar
+	{
+		width: 30%;
+	}
 }
 
 @media ( max-width: 1000px )
@@ -681,6 +686,12 @@ summary
 	{
 		margin-left: 0 !important;
 	}
+
+		.sidebar
+	{
+		width: 40%;
+	}
+
 }
 
 
@@ -690,6 +701,7 @@ summary
 	{
 		display:none !important;
 	}
+
 }
 
 @media ( max-width: 670px )
@@ -704,4 +716,14 @@ summary
 	{
 		background: rgba(255,255,255,1);
 	}
+}
+
+@media ( max-width: 400px )
+{
+	.sidebar
+	{
+		background: rgba(255,255,255,0.8);
+		width: 100%;
+	}
+
 }
