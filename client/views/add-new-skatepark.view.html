@@ -1,61 +1,66 @@
 <form action="#" class="add-skate-location" ng-controller="addNewSkateparkCtrl as addNew">
 	<!-- Ask for the skatepark name -->
-	<div class="input-field row" >
+	<div class="input-field" >
 		<i class="material-icons prefix">room</i>
-		<input type="text" ng-model="addNew.skateparkName" id="skateparkName">
+		<input type="text" ng-model="addNew.skateparkName" id="skateparkName" class="prevent">
 		<label for="skateparkName">Skatepark Name</label>
 	</div>
 
 	<!-- Ask for a description -->
-	<div class="input-field row">
+	<div class="input-field">
 		<i class="material-icons prefix">mode_edit</i>
 		<textarea class="materialize-textarea" ng-model="addNew.skateparkDesc" id="skateparkDesc"></textarea>
 		<label for="skateparkDesc">A description - Optional.</label>
 	</div>
 
 	<!-- Ask for your name -->
-	<div class="input-field row">
+	<div class="input-field">
 		<i class="material-icons prefix">person_pin</i>
-		<input type="text" ng-model="addNew.skateparkAdder" id="skateparkAdder">
+		<input type="text" ng-model="addNew.skateparkAdder" id="skateparkAdder" class="prevent">
 		<label for="skateparkAdder">Your Name</label>
 	</div>
 
 
 	<!-- Ask for a remote url -->
-	<div class="input-field row">
+	<div class="input-field">
 		<i class="material-icons prefix">link</i>
-		<input type="text" ng-model="addNew.screenshotURL" id="screenshotURL">
+		<input type="text" ng-model="addNew.screenshotURL" id="screenshotURL" class="prevent">
 		<label for="screenshotURL">Image URL</label>
 	</div>
 
 
 	<!-- Ask for tags -->
-	<div class="input-field row">
-		<span>Add some tags</span> <br />
-
-		<div class="chip" ng-click="addNew.addTag('Outdoor', $event)">Outdoor</div>
-		<div class="chip" ng-click="addNew.addTag('Indoor', $event)">Indoor</div>
-		<div class="chip" ng-click="addNew.addTag('Concrete', $event)">Concrete</div>
-		<div class="chip" ng-click="addNew.addTag('Wooden', $event)">Wooden</div>
-		<div class="chip" ng-click="addNew.addTag('No Lighting', $event)">No Lighting</div>
-		<div class="chip" ng-click="addNew.addTag('Stairs', $event)">Stairs</div>
-		<div class="chip" ng-click="addNew.addTag('Mini', $event)">Mini</div>
-		<div class="chip" ng-click="addNew.addTag('Skatepark', $event)">Skatepark</div>
-		<div class="chip" ng-click="addNew.addTag('Street spot', $event)">Street spot</div>
-		<div class="chip" ng-click="addNew.addTag('Bowl', $event)">Bowl</div>
-		<div class="chip" ng-click="addNew.addTag('Has shop', $event)">Has shop</div>
+	<div class="input-field fullWidth">
+		<div class="aligned-left">
+			<i class="material-icons prefix">local_offer</i>
+		</div>
+		<div class="aligned-right">
+			<div class="chip" ng-click="addNew.addTag('Outdoor', $event)">Outdoor</div>
+			<div class="chip" ng-click="addNew.addTag('Indoor', $event)">Indoor</div>
+			<div class="chip" ng-click="addNew.addTag('Concrete', $event)">Concrete</div>
+			<div class="chip" ng-click="addNew.addTag('Wooden', $event)">Wooden</div>
+			<div class="chip" ng-click="addNew.addTag('No Lighting', $event)">No Lighting</div>
+			<div class="chip" ng-click="addNew.addTag('Stairs', $event)">Stairs</div>
+			<div class="chip" ng-click="addNew.addTag('Mini', $event)">Mini</div>
+			<div class="chip" ng-click="addNew.addTag('Skatepark', $event)">Skatepark</div>
+			<div class="chip" ng-click="addNew.addTag('Street spot', $event)">Street spot</div>
+			<div class="chip" ng-click="addNew.addTag('Bowl', $event)">Bowl</div>
+			<div class="chip" ng-click="addNew.addTag('Has shop', $event)">Has shop</div>
+		</div>
 
 	</div>
 
+	<div class="pad">
+		<!-- Submit button -->
+		<div class="row extraWidth">
+			<input type="button" value="Submit!" class="btn col s12 prevent" ng-click="addNew.submitNewSkatepark()">
+		</div>
 
-	<!-- Submit button -->
-	<div class="row extraWidth">
-		<input type="button" value="Submit!" class="btn col s12" ng-click="addNew.submitNewSkatepark()">
+		<!-- Is hidden initially, but the Upload Service will command the width -->
+		<div class="progress extraWidth">
+			<div class="determinate loadingBar" style="width: 0%"></div>
+		</div>
 	</div>
 
-	<!-- Is hidden initially, but the Upload Service will command the width -->
-	<div class="progress extraWidth">
-		<div class="determinate loadingBar" style="width: 0%"></div>
-	</div>
 
 </form>

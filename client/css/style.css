@@ -34,6 +34,28 @@ html, body
 	overflow: hidden;
 }
 
+.input-field
+{
+	width: 88%;
+}
+.input-field .prefix ~ input
+{
+	margin-left: 4.3rem !important;
+}
+
+.input-field .prefix ~ textarea
+{
+	margin-left: 4.3rem !important;
+		border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+	color: black !important;
+}
+
+.input-field .prefix ~ label
+{
+	margin-left: 3.5rem !important;
+	color: black ;
+}
+
 
 #map-core
 {
@@ -95,17 +117,6 @@ html, body
 }
 
 
-.toggleControl
-{
-	position: absolute !important;
-	z-index: 5 !important;
-	top: 0 !important;
-	left: 0 !important;
-	margin: 1% !important;
-	margin-right: 3% !important;
-}
-
-
 .leaflet-control-attribution
 {
 	display: none;
@@ -129,13 +140,6 @@ html, body
 .leaflet-popup
 {
 	z-index: 5000;
-}
-
-
-.leaflet-popup-content
-{
-	min-width: 472px;
-	padding: 1.2%;
 }
 
 
@@ -282,17 +286,6 @@ html, body
 }
 
 
-.toggleControl
-{
-	position: absolute !important;
-	z-index: 5 !important;
-	top: 0 !important;
-	left: 0 !important;
-	margin: 1% !important;
-	margin-right: 3% !important;
-}
-
-
 .leaflet-control-attribution
 {
 	display: none;
@@ -312,17 +305,103 @@ html, body
 	box-shadow: none;
 }
 
-
+.aligned-left 
+{
+	width:10%;
+	float:left;
+}
+.aligned-right 
+{
+	width: 90%;
+	margin-left: 14%;
+	float: left;
+}
 .leaflet-popup
 {
 	z-index: 5000;
 }
 
+.add-skate-location 
+{
+	background: rgba(255,255,255,0.95);
+	padding: 4%;
+	border-radius: 8px;
+}
+
+.pad 
+{
+	width: 100%;
+	margin-top: 33%;
+}
+h6
+{
+	-webkit-margin-before: 2.33em !important;
+	-webkit-margin-after: 2.33em !important;
+	-webkit-margin-start: 0px !important;
+	-webkit-margin-end: 0px !important;
+}
 
 .leaflet-popup-content
 {
 	min-width: 472px;
-	padding: 1.2%;
+	margin: 0;
+}
+
+.leaflet-popup-content-wrapper
+{
+	background:none;
+	padding:0px;
+}
+
+.card-wrapper main 
+{
+	background: rgba(255,255,255,0.9);
+	margin-top: -4px;
+	position: relative;
+}
+
+.card-wrapper footer 
+{
+	padding:2%;
+	border-top: 1px solid rgba(0,0,0,0.15);
+	background: rgba(255,255,255,0.95);
+	float: left;
+	width: 100%;
+}
+
+.card-wrapper footer section
+{	
+	float: left;
+}
+
+.card-wrapper footer .tags
+{	
+	float: left;
+	width: 50%;
+	padding-left: 2%;
+}
+.main-info-fixed 
+{
+	min-width:100px;
+	width: auto;
+	margin-top: -106px;
+	z-index: 5000;
+	position: absolute;
+	background: rgba(255,255,255,0.96);
+	padding: 2%;
+	border-top-right-radius: 4px;
+}
+
+.description 
+{
+	padding: 2%;
+	padding-bottom: 5%;
+	font-size: 1.3rem;
+}
+
+.hidden-tools
+{
+	display:none;
 }
 
 
@@ -449,22 +528,8 @@ html, body
 
 input[type="text"]
 {
-	border-bottom: 1px solid black !important;
+	border-bottom: 1px solid rgba(0,0,0,0.1) !important;
 	color: black !important;
-}
-
-.input-field
-{
-	width: 92%;
-}
-.input-field .prefix ~ input
-{
-	margin-left: 4.3rem !important;
-}
-.input-field .prefix ~ label
-{
-	margin-left: 3.5rem !important;
-	color: black ;
 }
 
 
@@ -635,6 +700,12 @@ summary
 	margin-top:-150%;
 }
 
+.fullWidth 
+{
+	width: 100% !important;
+}
+
+
 .hidden-help
 {
 	margin-top:0%;
@@ -773,10 +844,16 @@ summary p
 		margin-left: 0 !important;
 	}
 
-		.sidebar
+	.sidebar
 	{
 		width: 40%;
 	}
+
+	.leaflet-popup-content
+	{
+		min-width: 400px;
+	}
+
 
 }
 
@@ -786,6 +863,11 @@ summary p
 	.grn-colour
 	{
 		display:none !important;
+	}
+
+	.leaflet-popup-content
+	{
+		min-width: 300px;
 	}
 
 }

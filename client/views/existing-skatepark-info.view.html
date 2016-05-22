@@ -1,78 +1,55 @@
-<div class="card-wrapper" ng-non-bindable="">
+<div class="card-wrapper">
+
+
 	<header class="layered-info">
 		<!-- only show if theres images in the slideshow -->
-	<div ng-if="currentSkatepark.skateparkImages.length > 0">
-
-		<figure class="slideshow slideshowOfImages">
-
-			<div class="swiper-container">
-
-				<div class="swiper-wrapper" >
-
-					<div class="swiper-slide keep-aspect" ng-repeat="imageSrc in currentSkatepark.skateparkImages" >
-
-						<img ng-src="{{ imageSrc }}"  class="swiper-lazy fixed-height">
-
-						<div class="swiper-lazy-preloader"></div>
-
+		<div ng-if="currentSkatepark.skateparkImages.length > 0">
+			<figure class="slideshow slideshowOfImages">
+				<div class="swiper-container">
+					<div class="swiper-wrapper" >
+						<div class="swiper-slide keep-aspect" ng-repeat="imageSrc in currentSkatepark.skateparkImages" >
+							<img ng-src="{{ imageSrc }}"  class="swiper-lazy fixed-height">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
 					</div>
-
+					<div class="swiper-pagination swiper-pagination-white" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
+					<div class="swiper-button-next swiper-button-white swiper-nav" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
+					<div class="swiper-button-prev swiper-button-white swiper-nav" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
 				</div>
-				
+			</figure>
+		</div>
 
-				<div class="swiper-pagination swiper-pagination-white" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
-				<div class="swiper-button-next swiper-button-white swiper-nav" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
-				<div class="swiper-button-prev swiper-button-white swiper-nav" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
-			</div>
+		<!-- only show if theres NO images -->
+		<div ng-if="currentSkatepark.skateparkImages.length === 0">
+			<img src="/img/defaultSkatepark.jpg" width="100%" alt="">
+		</div>
+	</header>
 
-		</figure>
+	<main>
+		<section class="main-info-fixed">
+			<h5>{{ currentSkatepark.skateparkName }}</h5>
+			<time><i class="material-icons prefix tiny">face</i> {{ currentSkatepark.skateparkAdder }} added on {{ currentSkatepark.createdAt | date: 'MMM d' }} </time>
+			<div class="tool-image" ng-click="showTools('')"><i class="material-icons prefix tiny">add</i> Add Screenshot</div>
+			<div class="tool-image" ng-if="currentSkatepark.skateparkImages.length > 0" ng-click="showSlideshowFullscreen(currentSkatepark)"><i class="material-icons prefix tiny">launch</i> View Images fullscreen</div>
+		</section>
 
-	</div>
+		<section class="description">
+			{{ currentSkatepark.skateparkDesc }}
+		</section>
 
-	<!-- only show if theres NO images -->
-	<div ng-if="currentSkatepark.skateparkImages.length === 0">
-		<img src="/img/defaultSkatepark.jpg" width="100%" alt="">
-	</div>
-
-</header>
-
-<main>
-	<section class="main-info-fixed">
-		<h4>{{ currentSkatepark.skateparkName }}</h4>
-
-		<time><i class="material-icons prefix tiny">face</i> {{ currentSkatepark.skateparkAdder }} added on {{ currentSkatepark.createdAt | date: 'MMM d' }} </time>
-
-		<div class="tool-image" ng-click="showTools('')"><i class="material-icons prefix tiny">add</i> Add Screenshot</div>
-		<div class="tool-image" ng-if="currentSkatepark.skateparkImages.length > 0" ng-click="showSlideshowFullscreen(currentSkatepark)"><i class="material-icons prefix tiny">launch</i> View Images fullscreen</div>
-
-	</section>
-
-	<section class="description">
-
-		{{ currentSkatepark.skateparkDesc }}
-
-	</section>
-
-	<section class="hidden-tools">
-
+		<section class="hidden-tools">
 			<form action="#" class="add-skate-images">
-
 				<!-- Ask for a remote url -->
 				<div class="input-field">
 					<input type="text" ng-model="addAmendment.screenshotURL">
 					<label for="screenshotURL">Add Link here!</label>
 				</div>
-
 				<input type="button" value="Submit!" class="waves-effect light-blue lighten-4 btn-flat nudge" ng-click="updateSkateparkImages(currentSkatepark)">
-
-		</form>
-
-	</section>
-
-</main>
+			</form>
+		</section>
+	</main>
 
 	<footer>
-
 		<!-- Votes section -->
 		<section class="votes">
 			<div class="waves-effect light-blue lighten-4 btn-flat small" ng-click="incrementRating(currentSkatepark)" ng-hide="currentSkatepark.hasVote">
@@ -85,12 +62,10 @@
 		</section>
 
 		<!-- Tags section -->
-		<section>
-			<div class="chip" ng-repeat="tag in currentSkatepark.skateparkTags">
+		<section class="tags">
+			<div class="chip " ng-repeat="tag in currentSkatepark.skateparkTags">
 				{{ tag }}
 			</div>
 		</section>
-
 	</footer>
-
 </div>

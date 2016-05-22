@@ -80,15 +80,24 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 		// Set a listener on the map instance
 
 		$scope.mapInstance.on("click", (event) => {
-			// Dont do anything if edit mode is off
-			if (!$scope.isEditing)
+
+			if (event.originalEvent.type == "keypress")
 			{
-				return;
+				return false;
 			}
 			else
 			{
-				createTempMarker($scope, $compile, event.latlng);
+				// Dont do anything if edit mode is off
+				if (!$scope.isEditing)
+				{
+					return;
+				}
+				else
+				{
+					createTempMarker($scope, $compile, event.latlng);
+				}
 			}
+
 		})
 
 
@@ -110,12 +119,19 @@ function popUpContent()
 
 function createTempMarker($scope, $compile, position)
 {
+
+	if (position)
+	{
+		const closedPos = position;
+		console.log(position);
+	}
 	if ($scope.lastMarker)
 	{
 		$scope.mapInstance.removeLayer($scope.lastMarker);
 	}
 		
 	$scope.isMarkerInProg = true;
+
 	$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.mapInstance);
 	$scope.lastMarkerPosition = position;
 

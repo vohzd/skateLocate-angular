@@ -9,6 +9,17 @@ function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud,
 		The other functions are internal
 	*/
 
+	$(".prevent").on('keydown', function(e) {
+		if (e.keyCode == 13)
+		{
+			// this could do with being handled a little more elegantly, but it works for now!
+			return false;
+		}
+	});
+
+
+
+
 	this.submitNewSkatepark = function(event){
 
 		let validation = isMandatoryFieldsFilled();
@@ -157,6 +168,8 @@ function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud,
 	{
 		const skateparkImages = [];
 
+		const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
+
 		if (cloudinaryImageMeta)
 		{
 			$.each(cloudinaryImageMeta, (pointer, image) => {
@@ -166,7 +179,7 @@ function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud,
 	
 		const payload = {
 			skateparkName : skateparkName,
-			skateparkDesc : skateparkDesc,
+			skateparkDesc : descWithBreaks,
 			skateparkLocation : skateparkLocation,
 			skateparkAdder : skateparkAdder,
 			skateparkRating : 1,
