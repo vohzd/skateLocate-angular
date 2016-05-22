@@ -33,18 +33,18 @@
 		<section class="main-info-fixed">
 			<h5>{{ currentSkatepark.skateparkName }}</h5>
 			<time><i class="material-icons prefix tiny">face</i> {{ currentSkatepark.skateparkAdder }} added on {{ currentSkatepark.createdAt | date: 'MMM d' }} </time>
-			<div class="tool-image" ng-click="showTools('')"><i class="material-icons prefix tiny">add</i> Add Screenshot</div>
+			<div class="tool-image add-skatepark-image" ng-click="showUploadImage()"><i class="material-icons prefix tiny">add</i> Add Screenshot</div>
 		</section>
 
 		<section class="description">
 			<pre>{{ currentSkatepark.skateparkDesc }}</pre>
 		</section>
 
-		<section class="hidden-tools">
+		<section class="hidden-tools upload-new-images">
 			<form action="#" class="add-skate-images">
 				<!-- Ask for a remote url -->
 				<div class="input-field">
-					<input type="text" ng-model="addAmendment.screenshotURL">
+					<input type="text" ng-model="currentSkatepark.screenshotURL">
 					<label for="screenshotURL">Add Link here!</label>
 				</div>
 				<input type="button" value="Submit!" class="waves-effect light-blue lighten-4 btn-flat nudge" ng-click="updateSkateparkImages(currentSkatepark)">

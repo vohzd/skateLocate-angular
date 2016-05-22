@@ -20,8 +20,6 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 
 	});
 
-
-
 }
 						
 function toggleEditButton($scope, helpersSrv)

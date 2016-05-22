@@ -41,6 +41,7 @@ import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
 import VoteCtrl from "./controllers/vote.controller.js";
 import ToggleCtrl from "./controllers/toggle.controller.js";
 import fullscreenSlideshowCtrl from "./controllers/fullscreenSlideshow.controller.js";
+import SearchCtrl from "./controllers/search.controller.js";
 
 // GO
 angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
@@ -49,6 +50,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
 	.controller("fullscreenSlideshowCtrl", fullscreenSlideshowCtrl)
 	.controller("VoteCtrl", VoteCtrl)
+	.controller("SearchCtrl", SearchCtrl)
 	.controller("ToggleCtrl", ToggleCtrl)
 	.directive("headerGraphic", headerGraphic)
 	.directive("highestRankedItems", highestRankedItems)

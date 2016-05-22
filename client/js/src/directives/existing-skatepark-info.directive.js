@@ -22,6 +22,26 @@ function existingSkateparkInfo($rootScope){
 				// Tell the vote controller to do its thing
 				$rootScope.$broadcast("showFullScreenSlideshow", images);
 			}
+
+			scope.showUploadImage = function(){
+
+				let state = $(".upload-new-images").hasClass("hidden-tools");
+
+				if (state)
+				{
+					$(".upload-new-images").removeClass("hidden-tools");
+				}
+				else if (!state)
+				{
+					$(".upload-new-images").addClass("hidden-tools");
+				}
+			}
+
+			scope.updateSkateparkImages = function(current){
+
+				console.log(screenshotURL);
+			}
+
 		}
 	}
 
