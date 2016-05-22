@@ -168,7 +168,7 @@ function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud,
 	{
 		const skateparkImages = [];
 
-		const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		//const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
 		if (cloudinaryImageMeta)
 		{
@@ -179,7 +179,7 @@ function addNewSkatepark($scope, $q, $rootScope, helpersSrv, uploadImageToCloud,
 	
 		const payload = {
 			skateparkName : skateparkName,
-			skateparkDesc : descWithBreaks,
+			skateparkDesc : skateparkDesc,
 			skateparkLocation : skateparkLocation,
 			skateparkAdder : skateparkAdder,
 			skateparkRating : 1,

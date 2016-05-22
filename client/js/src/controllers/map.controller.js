@@ -120,11 +120,6 @@ function popUpContent()
 function createTempMarker($scope, $compile, position)
 {
 
-	if (position)
-	{
-		const closedPos = position;
-		console.log(position);
-	}
 	if ($scope.lastMarker)
 	{
 		$scope.mapInstance.removeLayer($scope.lastMarker);

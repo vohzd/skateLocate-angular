@@ -396,7 +396,16 @@ h6
 {
 	padding: 2%;
 	padding-bottom: 5%;
-	font-size: 1.3rem;
+	font-size: 1rem;
+}
+
+.description pre
+{
+line-height: 1.5;
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	color: rgba(0, 0, 0, 0.87);
+	white-space: pre-wrap;
 }
 
 .hidden-tools
