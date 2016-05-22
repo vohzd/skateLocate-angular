@@ -30,6 +30,7 @@ import addNewSkatepark from "./directives/add-new-skatepark.directive.js";
 import filterItemsByTag from "./directives/filter-items-by-tag.directive.js";
 import infoTriangle from "./directives/info-triangle.directive.js";
 import searchBar from "./directives/search.directive.js";
+import fullscreen from "./directives/fullscreen.directive.js";
 
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
@@ -51,6 +52,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.directive("infoTriangle", infoTriangle)
 	.directive("filterItemsByTag", filterItemsByTag)
 	.directive("existingSkateparkInfo", existingSkateparkInfo)
+	.directive("fullscreen", fullscreen)
 	.directive("searchBar", searchBar)
 	.service("helpersSrv", helpersSrv)
 	.service("sendToDB", sendToDB)

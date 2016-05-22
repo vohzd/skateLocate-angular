@@ -4,12 +4,24 @@
 {
 	font-family: 'coming';
 	font-style: normal;
-	src: url('../font/coming/coming.eot?#iefix') format('embedded-opentype'),
-		local('coming'),
-		local('coming'),
-		url('../font/coming/coming.woff2') format('woff2'),
-		url('../font/coming/coming.woff') format('woff'),
-		url('../font/coming/coming.ttf') format('truetype'),
+	src: url('../font/coming/coming.eot?#iefix') format('embedded-opentype'),
+
+
+		local('coming'),
+
+
+		local('coming'),
+
+
+		url('../font/coming/coming.woff2') format('woff2'),
+
+
+		url('../font/coming/coming.woff') format('woff'),
+
+
+		url('../font/coming/coming.ttf') format('truetype'),
+
+
 		url('../font/coming/coming.svg#coming') format('svg');
 }
 
@@ -612,6 +624,74 @@ summary
 	background: rgba(255,255,255,0.8);
 }
 
+.full-screen-help
+{
+	position: absolute;
+	z-index: 5000;
+	width: 100%;
+	height: 100%;
+	background: white;
+	transition: 0.4s all;
+	margin-top:-150%;
+}
+
+.hidden-help
+{
+	margin-top:0%;
+	display: block;
+}
+
+.mouseover
+{
+	transition: 0.7s opacity;
+	opacity: 1;
+}
+
+.mouseover:hover
+{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.inline-sharing
+{
+	position: relative;
+	left: 0;
+	float: left;
+	z-index: 6000;
+}
+
+
+summary
+{
+	padding:2%;
+	width:80%;
+}
+
+summary p 
+{
+	font-size: 1rem;
+}
+
+.behind
+{
+	float:left;
+	position:absolute;
+}
+
+.bottom-img 
+{
+	float: left;
+	z-index: 200;
+}
+
+.close-icon 
+{
+	position:absolute;
+	top: 0;
+	right: 0;
+	padding:2%;
+}
 
 @media ( max-width: 1800px )
 {

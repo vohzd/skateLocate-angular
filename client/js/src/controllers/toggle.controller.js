@@ -3,6 +3,7 @@
 function ToggleCtrl(){
 
 	this.panelShown = true;
+	this.helpShown = false;
 
 	this.togglePanel = function(){
 
@@ -15,6 +16,22 @@ function ToggleCtrl(){
 		{
 			$(".sidebar").removeClass("no-sidebar");
 			this.panelShown = true;
+		}
+
+	}
+
+
+	this.toggleHelp = function(){
+
+		const truth = $(".full-screen-help").hasClass("hidden-help");
+
+		if (truth)
+		{
+			$(".full-screen-help").removeClass("hidden-help");
+		}
+		else if (!truth)
+		{
+			$(".full-screen-help").addClass("hidden-help");
 		}
 
 	}

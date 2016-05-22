@@ -1,11 +1,11 @@
-<div>
+<div  ng-controller="ToggleCtrl as toggle">
 
 
 	<div class="bottom-right">
 	<div class="info-triangle"></div>
 
 		<!-- a toggle switch -->
-		<div class="switch" id="responsive-panel" ng-controller="ToggleCtrl as toggle">
+		<div class="switch" id="responsive-panel">
 			<label>
 				Show
 				<input type="checkbox">
@@ -15,7 +15,7 @@
 		</div>
 
 
-		<i class="material-icons green-icon mouseover" ng-click="launchHelp()">help</i>
+		<i class="material-icons green-icon mouseover" ng-click="toggle.toggleHelp()">help</i>
 
 	</div>
 
