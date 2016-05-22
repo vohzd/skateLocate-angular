@@ -29,8 +29,9 @@ System.config({
     "leaflet.fullscreen": "npm:leaflet.fullscreen@1.4.2",
     "materialize-css": "npm:materialize-css@0.97.6",
     "ng-file-upload": "npm:ng-file-upload@12.0.4",
+    "swiper": "npm:swiper@3.3.1",
     "github:jspm/nodelibs-assert@0.1.0": {
-      "assert": "npm:assert@1.3.0"
+      "assert": "npm:assert@1.4.0"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.6.0"
@@ -109,7 +110,11 @@ System.config({
       "minimalistic-assert": "npm:minimalistic-assert@1.0.0",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:assert@1.3.0": {
+    "npm:assert@1.4.0": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "buffer-shims": "npm:buffer-shims@1.0.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
     },
     "npm:babel-runtime@5.8.38": {
@@ -161,6 +166,9 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "parse-asn1": "npm:parse-asn1@5.0.0",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
+    },
+    "npm:buffer-shims@1.0.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:buffer-xor@1.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -347,6 +355,12 @@ System.config({
     },
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
+    },
+    "npm:swiper@3.3.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:timers-browserify@1.4.2": {
       "process": "npm:process@0.11.3"

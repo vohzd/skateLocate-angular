@@ -6,6 +6,7 @@ import $ from "jquery";
 import material from "materialize-css";
 import nemLogging from "angular-simple-logger";
 import ngFileUpload from "ng-file-upload";
+import swiper from "swiper";
 
 import leaflet from "Leaflet/Leaflet";
 import uiLeaflet from "angular-ui/ui-leaflet";
@@ -31,19 +32,23 @@ import filterItemsByTag from "./directives/filter-items-by-tag.directive.js";
 import infoTriangle from "./directives/info-triangle.directive.js";
 import searchBar from "./directives/search.directive.js";
 import fullscreen from "./directives/fullscreen.directive.js";
+import fullscreenSlideshow from "./directives/fullscreen-slideshow.directive.js";
 
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
 import MapCtrl from "./controllers/map.controller.js";
 import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
+import VoteCtrl from "./controllers/vote.controller.js";
 import ToggleCtrl from "./controllers/toggle.controller.js";
-
+import fullscreenSlideshowCtrl from "./controllers/fullscreenSlideshow.controller.js";
 
 // GO
 angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
 	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
+	.controller("fullscreenSlideshowCtrl", fullscreenSlideshowCtrl)
+	.controller("VoteCtrl", VoteCtrl)
 	.controller("ToggleCtrl", ToggleCtrl)
 	.directive("headerGraphic", headerGraphic)
 	.directive("highestRankedItems", highestRankedItems)
@@ -53,6 +58,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
 	.directive("filterItemsByTag", filterItemsByTag)
 	.directive("existingSkateparkInfo", existingSkateparkInfo)
 	.directive("fullscreen", fullscreen)
+	.directive("fullscreenSlideshow", fullscreenSlideshow)
 	.directive("searchBar", searchBar)
 	.service("helpersSrv", helpersSrv)
 	.service("sendToDB", sendToDB)

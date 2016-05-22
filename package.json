@@ -21,7 +21,8 @@
       "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
       "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
       "materialize-css": "npm:materialize-css@^0.97.6",
-      "ng-file-upload": "npm:ng-file-upload@^12.0.4"
+      "ng-file-upload": "npm:ng-file-upload@^12.0.4",
+      "swiper": "npm:swiper@^3.3.1"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

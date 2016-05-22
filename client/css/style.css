@@ -380,6 +380,38 @@ h6
 	width: 50%;
 	padding-left: 2%;
 }
+
+.card-wrapper figure 
+{
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	color: #FFFFFF;
+	z-index: 400;
+}
+.swiper-slide img
+{
+	width:100%;
+}
+
+.over-top
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+	z-index: 600;
+	padding: 1%;
+	transition: 0.4s opacity;
+	opacity: 1;
+}
+.over-top:hover
+{
+	opacity: 0.6;
+	cursor: pointer;
+}
 .main-info-fixed 
 {
 	min-width:100px;
@@ -698,7 +730,7 @@ summary
 	background: rgba(255,255,255,0.8);
 }
 
-.full-screen-help
+.full-screen-help, .full-screen-slideshow
 {
 	position: absolute;
 	z-index: 5000;
@@ -715,7 +747,7 @@ summary
 }
 
 
-.hidden-help
+.show-help, .show-slideshow
 {
 	margin-top:0%;
 	display: block;
@@ -771,6 +803,7 @@ summary p
 	top: 0;
 	right: 0;
 	padding:2%;
+	z-index:800;
 }
 
 @media ( max-width: 1800px )

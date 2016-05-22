@@ -23,24 +23,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
 		$scope.main.allData.push(response);
 	});
 
-	// Minimise the panel when clicked
-
-	// Make the panels fade in when clicked
-	this.fadeInBody = function(event){
-
-		// bit unsmooth this
-
-		/*
-		const availableElements = event.currentTarget.nextElementSibling.children;
-		$(availableElements).hide();
-
-		$(availableElements).each(function(index) {
-
-			$(this).delay(130*index).fadeIn(1110);
-		});
-
-		*/
-	}
 
 
 }

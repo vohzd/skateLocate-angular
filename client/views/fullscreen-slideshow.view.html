@@ -1,0 +1,17 @@
+<div class="full-screen-slideshow" ng-controller="fullscreenSlideshowCtrl">
+
+	<div class="fullscreen-swiper-container">
+		<div class="swiper-wrapper" >
+			<div class="swiper-slide keep-aspect" ng-repeat="imageSrc in skateparkImages" >
+				<img ng-src="{{ imageSrc }}"  class="swiper-lazy fixed-height">
+				<div class="swiper-lazy-preloader"></div>
+			</div>
+		</div>
+		<div class="swiper-pagination swiper-pagination-white" ng-if="skateparkImages.length > 1"></div>
+		<div class="swiper-button-next swiper-button-white swiper-nav" ng-if="skateparkImages.length > 1"></div>
+		<div class="swiper-button-prev swiper-button-white swiper-nav" ng-if="skateparkImages.length > 1"></div>
+	</div>
+
+	<div class="close-icon" ng-controller="ToggleCtrl as slideshow"><img src="./img/close.png" ng-click="slideshow.toggleSlideshow()"></div>
+
+</div>

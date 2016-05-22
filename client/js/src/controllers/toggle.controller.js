@@ -3,7 +3,6 @@
 function ToggleCtrl(){
 
 	this.panelShown = true;
-	this.helpShown = false;
 
 	this.togglePanel = function(){
 
@@ -23,15 +22,30 @@ function ToggleCtrl(){
 
 	this.toggleHelp = function(){
 
-		const truth = $(".full-screen-help").hasClass("hidden-help");
+		const truth = $(".full-screen-help").hasClass("show-help");
 
 		if (truth)
 		{
-			$(".full-screen-help").removeClass("hidden-help");
+			$(".full-screen-help").removeClass("show-help");
 		}
 		else if (!truth)
 		{
-			$(".full-screen-help").addClass("hidden-help");
+			$(".full-screen-help").addClass("show-help");
+		}
+
+	}
+
+	this.toggleSlideshow = function(){
+
+		const truth = $(".full-screen-slideshow").hasClass("show-slideshow");
+
+		if (truth)
+		{
+			$(".full-screen-slideshow").removeClass("show-slideshow");
+		}
+		else if (!truth)
+		{
+			$(".full-screen-slideshow").addClass("show-slideshow");
 		}
 
 	}

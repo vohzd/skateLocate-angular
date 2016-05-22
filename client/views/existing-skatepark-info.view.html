@@ -17,6 +17,10 @@
 					<div class="swiper-button-prev swiper-button-white swiper-nav" ng-if="currentSkatepark.skateparkImages.length > 1"></div>
 				</div>
 			</figure>
+			<div class="tool-image over-top" ng-if="currentSkatepark.skateparkImages.length > 0" ng-click="showSlideshowFullscreen(currentSkatepark.skateparkImages)">
+				<i class="material-icons prefix">launch</i>
+			</div>
+
 		</div>
 
 		<!-- only show if theres NO images -->
@@ -30,7 +34,6 @@
 			<h5>{{ currentSkatepark.skateparkName }}</h5>
 			<time><i class="material-icons prefix tiny">face</i> {{ currentSkatepark.skateparkAdder }} added on {{ currentSkatepark.createdAt | date: 'MMM d' }} </time>
 			<div class="tool-image" ng-click="showTools('')"><i class="material-icons prefix tiny">add</i> Add Screenshot</div>
-			<div class="tool-image" ng-if="currentSkatepark.skateparkImages.length > 0" ng-click="showSlideshowFullscreen(currentSkatepark)"><i class="material-icons prefix tiny">launch</i> View Images fullscreen</div>
 		</section>
 
 		<section class="description">
@@ -51,8 +54,8 @@
 
 	<footer>
 		<!-- Votes section -->
-		<section class="votes">
-			<div class="waves-effect light-blue lighten-4 btn-flat small" ng-click="incrementRating(currentSkatepark)" ng-hide="currentSkatepark.hasVote">
+		<section class="votes" ng-controller="VoteCtrl as vote">
+			<div class="waves-effect light-blue lighten-4 btn-flat small" ng-click="vote.incrementRating(currentSkatepark)" ng-hide="currentSkatepark.hasVote">
 				<i class="material-icons left">backup</i>
 				{{ currentSkatepark.skateparkRating }} votes
 			</div>
