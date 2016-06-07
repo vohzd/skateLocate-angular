@@ -1,6 +1,6 @@
 "use strict";
 
-function ToggleCtrl(){
+function ToggleCtrl($timeout){
 
 	this.panelShown = true;
 
@@ -13,6 +13,7 @@ function ToggleCtrl(){
 		}
 		else if (!this.panelShown)
 		{
+
 			$(".sidebar").removeClass("no-sidebar");
 			this.panelShown = true;
 		}

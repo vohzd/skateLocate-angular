@@ -3,7 +3,7 @@
 
 	<div class="collapsible-body " >
 
-		<div ng-repeat="item in main.allData | limitTo: 10" class="list-of-highest-rated-items collection mouse-clickable ">
+		<div ng-repeat="item in main.allData | limitTo: 5" class="list-of-highest-rated-items collection mouse-clickable ">
 
 			<div class="collection-item avatar" ng-click="showSkateparkDetails(item._id, item)">
 				<span class="absolute-label">{{ item.createdAt | date: 'd' }}			<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time></span><i class=" circle"></i>

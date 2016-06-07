@@ -78,7 +78,7 @@ html, body
 	width: 22.2%;
 	max-width: 650px;
 	border-left: 2px solid rgba(255,255,255,0.7);
-	transition: 0.4s opacity;
+	transition: 0.4s all;
 }
 
 .search-for-items
@@ -713,6 +713,7 @@ summary
 .no-sidebar
 {
 	opacity:0;
+	margin-right:-20%;
 }
 
 .tags-list
