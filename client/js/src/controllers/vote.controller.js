@@ -27,6 +27,10 @@ function VoteCtrl($http, localStorageService){
 
 	}
 
+	this.votedSkateparks = localStorageService.get("userSkateparkVotes");
+
+	console.log(this.votedSkateparks);
+
 }
 
 
@@ -47,30 +51,8 @@ function localStorageHandler(localStorageService, item){
 	// now set the local item to have a vote so the button becomes inactive
 	item.hasVote = true;
 
+	// now get the ones stored in localstorage
 	const existing = localStorageService.get("userSkateparkVotes");
-
-
-
-	/*
-			// init new localstorage
-			if (!localStorageService.get("spUsrHasAdded"))
-			{
-				localStorageService.set("spUsrHasAdded", [response]);
-				$rootScope.$broadcast("runVoteCtrl");
-			}
-			else
-			{
-				// append to existing
-				let currents = localStorageService.get("spUsrHasAdded");
-					currents.push(response);
-
-					localStorageService.set("spUsrHasAdded", currents);
-
-				// Tell the vote controller to do its thing
-				$rootScope.$broadcast("runVoteCtrl");
-			}
-			*/
-
 
 }
 

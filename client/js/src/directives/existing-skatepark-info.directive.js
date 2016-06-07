@@ -5,13 +5,12 @@ function existingSkateparkInfo($rootScope){
 		restrict: "EA",
 		templateUrl: "../../../views/existing-skatepark-info.view.html",
 		replace: true,
-		scope: {},
+		scope: {
+			currentSkatepark: "=",
+		},
 		link: function(scope, element, attrs){
 
-			let parsed = JSON.parse(attrs.asstring);
-
-			scope.currentSkatepark = parsed;
-
+			console.log(scope.currentSkatepark);
 			if (scope.currentSkatepark.skateparkImages.length > 0)
 			{
 				let images = scope.currentSkatepark.skateparkImages;
@@ -41,6 +40,10 @@ function existingSkateparkInfo($rootScope){
 
 				console.log(screenshotURL);
 			}
+
+		},
+		controller: function(){
+			console.log();
 
 		}
 	}

@@ -11,7 +11,7 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 	$scope.markers 				= [];
 
 	$rootScope.$on("parseMarkers", function(event, response){
-		parseMarkers($scope, response);
+		parseMarkers($scope, $compile, response);
 	});
 
 	$rootScope.$on("destroyPopup", function(event){
@@ -137,12 +137,19 @@ function createTempMarker($scope, $compile, position)
 }
 
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
-function parseMarkers($scope, markers)
+function parseMarkers($scope, $compile, markers)
 {
 	for (markerinfo of markers)
 	{
 
 		let asString = JSON.stringify(markerinfo);
+
+		let test = "<existing-skatepark-info current-skatepark='" + asString + "'></existing-skatepark-info>";
+
+		//let dir = $("<existing-skatepark-info asString='" + asString + "' blah='dog'></existing-skatepark-info>");
+		//let compiledDirective = $compile(dir)($scope);
+
+		//console.log(compiledDirective);
 
 		$scope.markers.push({
 
@@ -155,7 +162,7 @@ function parseMarkers($scope, markers)
 						noHide: true
 					}
 				},
-				message: "<existing-skatepark-info asString='" + asString + "'></existing-skatepark-info>",
+				message: test,
 				focus: false,
 				group: "group",
 
