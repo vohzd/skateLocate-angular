@@ -19,6 +19,7 @@ System.config({
     "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
     "angular": "github:angular/bower-angular@1.5.5",
     "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
+    "angular-local-storage": "npm:angular-local-storage@0.2.7",
     "angular-simple-logger": "npm:angular-simple-logger@0.1.7",
     "angular-ui/ui-leaflet": "github:angular-ui/ui-leaflet@1.0.0",
     "babel": "npm:babel-core@5.8.38",

@@ -1,6 +1,6 @@
 "use strict";
 
-function VoteCtrl($http){
+function VoteCtrl($http, localStorageService){
 
 	this.incrementRating = function(item){
 
@@ -19,7 +19,9 @@ function VoteCtrl($http){
 		$http.put("/skateparks/" + item._id, item).success((response) => {
 
 			// upon success set a flag in localStorage to say this has been voted for from this machine
-			allowOnlyOneVote();
+			if (!item.hasVote){
+				localStorageHandler(localStorageService, item);
+			}
 
 		});
 
@@ -28,12 +30,86 @@ function VoteCtrl($http){
 }
 
 
-function allowOnlyOneVote(){
+function localStorageHandler(localStorageService, item){
 
-	console.log("add me to localstorage");
+	// get a list of all votes the user has cast
+	let doesLsExist = localStorageService.get("userSkateparkVotes");
+
+	// if 'null' is returned, create new localstorage
+	if (!doesLsExist){
+		localStorageService.set("userSkateparkVotes", [item]);
+	}
+	else {
+		doesLsExist.push(item);
+		localStorageService.set("userSkateparkVotes", doesLsExist);
+	}
+
+	// now set the local item to have a vote so the button becomes inactive
+	item.hasVote = true;
+
+	const existing = localStorageService.get("userSkateparkVotes");
+
+
+
+	/*
+			// init new localstorage
+			if (!localStorageService.get("spUsrHasAdded"))
+			{
+				localStorageService.set("spUsrHasAdded", [response]);
+				$rootScope.$broadcast("runVoteCtrl");
+			}
+			else
+			{
+				// append to existing
+				let currents = localStorageService.get("spUsrHasAdded");
+					currents.push(response);
+
+					localStorageService.set("spUsrHasAdded", currents);
+
+				// Tell the vote controller to do its thing
+				$rootScope.$broadcast("runVoteCtrl");
+			}
+			*/
 
 
 }
+
+function getCurrentLocalStorageItems(keyName){
+	return localStorageService.get("userSkateparkVotes");
+}
+
+/*
+
+// Vote Controller - to allow the user only be able to vote on an item once
+app.controller("VoteCtrl", ($scope, $rootScope, localStorageService) => {
+
+	$rootScope.$on("runVoteCtrl", () => {
+
+		// add a prop to each element in the allData array to mention if it matches the id of that in LocalStorage
+		let votedFor = localStorageService.get("spUsrHasAdded");
+
+		// NOTE, this can definitely be optimised, but i need to read up on the big O to find out the best way
+		// Cycle through all data 
+		$.each($scope.allData, (allDataPointer, allDataVal) => {
+
+			// sub-list: cycle through localstorage data
+			$.each(votedFor, (lsPointer, lsVal) => {
+
+				if (allDataVal._id === lsVal._id)
+				{
+					$scope.allData[allDataPointer].hasVote = true;
+				}
+
+			});
+
+		});
+	})
+
+});
+
+
+*/
+
 
 export default VoteCtrl;
 

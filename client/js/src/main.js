@@ -6,7 +6,9 @@ import $ from "jquery";
 import material from "materialize-css";
 import nemLogging from "angular-simple-logger";
 import ngFileUpload from "ng-file-upload";
+import LocalStorageModule from "angular-local-storage";
 import swiper from "swiper";
+
 
 import leaflet from "Leaflet/Leaflet";
 import uiLeaflet from "angular-ui/ui-leaflet";
@@ -20,7 +22,6 @@ import uploadImageToCloud from "./services/uploadImageToCloud.service.js";
 import sendToDB from "./services/sendToDB.service.js";
 import getFromDB from "./services/getFromDB.service.js";
 import tagsSrv from "./services/tags.service.js";
-
 
 // directives
 import headerGraphic from "./directives/header.directive.js";
@@ -45,7 +46,7 @@ import fullscreenSlideshowCtrl from "./controllers/fullscreenSlideshow.controlle
 import SearchCtrl from "./controllers/search.controller.js";
 
 // GO
-angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload"])
+angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload", "LocalStorageModule"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
 	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
