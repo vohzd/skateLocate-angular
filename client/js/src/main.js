@@ -33,6 +33,7 @@ import infoTriangle from "./directives/info-triangle.directive.js";
 import searchBar from "./directives/search.directive.js";
 import fullscreen from "./directives/fullscreen.directive.js";
 import fullscreenSlideshow from "./directives/fullscreen-slideshow.directive.js";
+import voteButton from "./directives/vote-button.directive.js";
 
 // controllers
 import MainCtrl from "./controllers/main.controller.js";

@@ -65,12 +65,15 @@ module.exports = function(app) {
 	// Method for updating a particular skatepark
 	app.put("/skateparks/:id", (req, res) => {
 
+		// what is the id of the document you want to update?
 		const q = { "_id": req.params.id};
+		// what is the content you want to update the document with?
 		const b = req.body;
 
+		// call findOneAndUpdate with the info required
 		Skateparks.findOneAndUpdate(q, b, (err, doc) => {
 
-			if (err) return res.send(500, { error: err });
+			if (err) return res.send(500, { error: err }); // bad times
 
 			res.json(b);
 
