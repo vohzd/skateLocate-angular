@@ -1,4 +1,4 @@
-function existingSkateparkInfo($rootScope){
+function existingSkateparkInfo( $rootScope, localStorageService){
 
 	return {
 
@@ -8,9 +8,9 @@ function existingSkateparkInfo($rootScope){
 		scope: {
 			currentSkatepark: "=",
 		},
+		require: "^MainCtrl",
 		link: function(scope, element, attrs){
 
-			console.log(scope.currentSkatepark);
 			if (scope.currentSkatepark.skateparkImages.length > 0)
 			{
 				let images = scope.currentSkatepark.skateparkImages;
@@ -43,8 +43,26 @@ function existingSkateparkInfo($rootScope){
 
 		},
 		controller: function(){
-			console.log();
 
+			console.log("blarg");
+			console.log(this.currentSkatepark);
+
+			/*
+			console.log(this);
+
+			this.incrementRating = function(){
+				console.log("no chance");
+			}
+			*/
+			/*
+			scope.incrementRating = function(skatepark){
+
+
+				console.log("clicking");
+				//scope.currentSkatepark.skateparkRating += 1;
+
+			}
+			*/
 		}
 	}
 
@@ -69,3 +87,60 @@ function activateSlideshow(){
 }
 
 export default existingSkateparkInfo;
+
+/*
+function VoteCtrl($rootScope, $scope, $http, localStorageService){
+
+	this.incrementRating = function(item){
+
+		// Increment the item rating
+		// This has two-way binding so saves having to do a get request once the below PUT is done
+
+		item.skateparkRating += 1;
+
+		$scope.$parent.currentSkatepark.hasVote = true;
+
+		// call the function to update the skateparks rating
+		this.updateRating(item);
+
+
+	}
+
+
+	this.updateRating = function(item){
+
+		// This updates the particular document on MongoDb via http PUT
+		$http.put("/skateparks/" + item._id, item).success((response) => {
+
+			// upon success set a flag in localStorage to say this has been voted for from this machine
+			if (!item.hasVote){
+				localStorageHandler($scope, localStorageService, item);
+			}
+
+		});
+
+	}
+
+}
+
+function localStorageHandler($scope, localStorageService, item){
+
+	// get a list of all votes the user has cast
+	let local = localStorageService.get("userSkateparkVotes");
+
+	// if 'null' is returned, create new localstorage
+	if (!local){
+		localStorageService.set("userSkateparkVotes", [item]);
+	}
+	else {
+		local.push(item);
+		localStorageService.set("userSkateparkVotes", local);
+	}
+
+	// now set the local item to have a vote so the button becomes inactive
+	//item.hasVote = true;
+
+
+}
+
+*/

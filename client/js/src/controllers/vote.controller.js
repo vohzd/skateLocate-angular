@@ -1,15 +1,20 @@
 "use strict";
 
-function VoteCtrl($http, localStorageService){
+function VoteCtrl($rootScope, $scope, $http, localStorageService){
 
 	this.incrementRating = function(item){
 
 		// Increment the item rating
 		// This has two-way binding so saves having to do a get request once the below PUT is done
+
 		item.skateparkRating += 1;
+
+		$scope.$parent.currentSkatepark.hasVote = true;
 
 		// call the function to update the skateparks rating
 		this.updateRating(item);
+
+
 	}
 
 
@@ -20,45 +25,52 @@ function VoteCtrl($http, localStorageService){
 
 			// upon success set a flag in localStorage to say this has been voted for from this machine
 			if (!item.hasVote){
-				localStorageHandler(localStorageService, item);
+				localStorageHandler($scope, localStorageService, item);
 			}
 
 		});
 
 	}
 
-	this.votedSkateparks = localStorageService.get("userSkateparkVotes");
-
-	console.log(this.votedSkateparks);
-
 }
 
-
-function localStorageHandler(localStorageService, item){
+function localStorageHandler($scope, localStorageService, item){
 
 	// get a list of all votes the user has cast
-	let doesLsExist = localStorageService.get("userSkateparkVotes");
+	let local = localStorageService.get("userSkateparkVotes");
 
 	// if 'null' is returned, create new localstorage
-	if (!doesLsExist){
+	if (!local){
 		localStorageService.set("userSkateparkVotes", [item]);
 	}
 	else {
-		doesLsExist.push(item);
-		localStorageService.set("userSkateparkVotes", doesLsExist);
+		local.push(item);
+		localStorageService.set("userSkateparkVotes", local);
 	}
 
 	// now set the local item to have a vote so the button becomes inactive
-	item.hasVote = true;
+	//item.hasVote = true;
 
-	// now get the ones stored in localstorage
-	const existing = localStorageService.get("userSkateparkVotes");
 
 }
 
-function getCurrentLocalStorageItems(keyName){
-	return localStorageService.get("userSkateparkVotes");
+function oneVote(){
+	// get the ones this particular client/end-user has voted for
+	const votedSkateparks = localStorageService.get("userSkateparkVotes");
+
+	console.log(votedSkateparks);
+
+	/*
+	if (votedSkateparks){
+		votedSkateparks.forEach(function(value, pointer){
+			if (value._id === markerinfo._id){
+				markerinfo.hasVote = true;
+			}
+		});
+	}
+	*/
 }
+
 
 /*
 

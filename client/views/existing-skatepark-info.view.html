@@ -54,7 +54,7 @@
 	<footer>
 		<!-- Votes section -->
 		<section class="votes" ng-controller="VoteCtrl as vote">
-			<div class="waves-effect light-blue lighten-4 btn-flat small" ng-click="vote.incrementRating(currentSkatepark)" ng-hide="currentSkatepark.hasVote">
+			<div class="waves-effect light-blue lighten-4 btn-flat small" ng-click="incrementRating(currentSkatepark)" ng-hide="currentSkatepark.hasVote">
 				<i class="material-icons left">backup</i>
 				{{ currentSkatepark.skateparkRating }} votes
 			</div>

@@ -1,6 +1,6 @@
 "use strict";
 
-function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
+function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, localStorageService){
 
 	// Bootstrap the mofo
 	configureLeaflet($scope, $log, $compile, leafletData, helpersSrv);
@@ -11,13 +11,11 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv){
 	$scope.markers 				= [];
 
 	$rootScope.$on("parseMarkers", function(event, response){
-		parseMarkers($scope, $compile, response);
+		parseMarkers($scope, $compile, $scope.$parent.main.allData, localStorageService);
 	});
 
 	$rootScope.$on("destroyPopup", function(event){
-		
 		toggleEditButton($scope, helpersSrv);
-
 	});
 
 }
@@ -137,19 +135,25 @@ function createTempMarker($scope, $compile, position)
 }
 
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
-function parseMarkers($scope, $compile, markers)
+function parseMarkers($scope, $compile, markers, localStorageService)
 {
+	// get the ones this particular client/end-user has voted for
+	const votedSkateparks = localStorageService.get("userSkateparkVotes");
+
+	// loop through the markers and add to the map
 	for (markerinfo of markers)
 	{
+		if (votedSkateparks){
+			votedSkateparks.forEach(function(value, pointer){
+				if (value._id === markerinfo._id){
+					markerinfo.hasVote = true;
+				}
+			});
+		}
 
 		let asString = JSON.stringify(markerinfo);
 
-		let test = "<existing-skatepark-info current-skatepark='" + asString + "'></existing-skatepark-info>";
-
-		//let dir = $("<existing-skatepark-info asString='" + asString + "' blah='dog'></existing-skatepark-info>");
-		//let compiledDirective = $compile(dir)($scope);
-
-		//console.log(compiledDirective);
+		let popup = "<existing-skatepark-info current-skatepark='" + asString + "'></existing-skatepark-info>";
 
 		$scope.markers.push({
 
@@ -162,15 +166,13 @@ function parseMarkers($scope, $compile, markers)
 						noHide: true
 					}
 				},
-				message: test,
+				message: popup,
 				focus: false,
 				group: "group",
 
 		});
 
 	}
-
-
 
 
 }

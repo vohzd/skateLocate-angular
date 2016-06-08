@@ -1,6 +1,6 @@
 "use strict";
 
-function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
+function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, localStorageService){
 
 	// This is fired on page init to get ALL the skateparks
 
@@ -8,14 +8,20 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
 
 	getFromDB.getAll().success((response) => {
 
-		// Store the response in the array
+		// Store the response in the array from the server
 		this.allData = response;
 
 
-	}).then((response) => {
+	}).then(() => {
+
+
+		// Once the server has the result, add in an extra property if the user has already voted on it
+		// This should be determined by grabbing the localStorage object on the end-users browser to see what they've voted on.
+		this.addVotedProp(this.allData);
 
 		// Parse Markers
-		$rootScope.$broadcast("parseMarkers", response.data);
+		$rootScope.$broadcast("parseMarkers", this.allData);
+
 
 	});
 
@@ -24,7 +30,32 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv){
 	});
 
 
+	this.addVotedProp = function(){
+		// get the ones this particular client/end-user has voted for
+		const votedSkateparks = localStorageService.get("userSkateparkVotes");
+
+		if (votedSkateparks){
+
+			// Loop through ALL skateparks
+			this.allData.forEach((skatepark, count) => {
+
+				// Within this, loop through all the client-saved votes
+				votedSkateparks.forEach((voted, pointer) => {
+
+					// If a match is found, add a prop to the obj
+					if (skatepark._id === voted._id){
+
+						this.allData[count].hasVote = true;
+
+					}
+
+				});
+			});
+
+		}
+	}
 
 }
+
 
 export default MainCtrl;
