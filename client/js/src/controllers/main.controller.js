@@ -14,7 +14,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 
 	}).then(() => {
 
-
 		// Once the server has the result, add in an extra property if the user has already voted on it
 		// This should be determined by grabbing the localStorage object on the end-users browser to see what they've voted on.
 		this.addVotedProp(this.allData);
@@ -38,6 +37,14 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 
 	});
 
+
+	this.showSkateparkDetails = function(id, item){
+
+		$rootScope.$broadcast("focusPopup", id);
+	}
+
+	// Cycles through all the skateparks, and compares them against whats in localstorage
+	// If it finds items in localstorage, then it means that the user has already voted for it.
 	this.addVotedProp = function(){
 
 		// get the ones this particular client/end-user has voted for

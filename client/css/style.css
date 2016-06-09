@@ -5,23 +5,11 @@
 	font-family: 'coming';
 	font-style: normal;
 	src: url('../font/coming/coming.eot?#iefix') format('embedded-opentype'),
-
-
 		local('coming'),
-
-
 		local('coming'),
-
-
 		url('../font/coming/coming.woff2') format('woff2'),
-
-
 		url('../font/coming/coming.woff') format('woff'),
-
-
 		url('../font/coming/coming.ttf') format('truetype'),
-
-
 		url('../font/coming/coming.svg#coming') format('svg');
 }
 
@@ -598,6 +586,11 @@ input[type="text"]
 {
 	background: none!important;
 
+}
+
+.collection .collection-item:hover
+{
+	cursor: pointer;
 }
 
 .collection .collection-item .title

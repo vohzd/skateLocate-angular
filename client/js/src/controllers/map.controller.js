@@ -18,6 +18,10 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 		toggleEditButton($scope, helpersSrv);
 	});
 
+	$rootScope.$on("focusPopup", function(event, targetId){
+		focusOnParticularSkatepark($scope, targetId);
+	});
+
 }
 						
 function toggleEditButton($scope, helpersSrv)
@@ -158,6 +162,7 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 				message: popup,
 				focus: false,
 				group: "group",
+				internalId: marker._id
 
 		});
 
@@ -165,6 +170,19 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 
 }
 
+function focusOnParticularSkatepark($scope, popupId){
+
+	$scope.markers.forEach((val, point) => {
+
+		if (val.internalId === popupId){
+			val.focus = true;
+		}
+		else{
+			val.focus = false;
+		}
+	})
+
+}
 
 
 
