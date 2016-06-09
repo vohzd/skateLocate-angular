@@ -1,4 +1,4 @@
-function existingSkateparkInfo( $rootScope, localStorageService){
+function existingSkateparkInfo($rootScope, $timeout, localStorageService){
 
 	return {
 
@@ -8,7 +8,6 @@ function existingSkateparkInfo( $rootScope, localStorageService){
 		scope: {
 			currentSkatepark: "=",
 		},
-		require: "^MainCtrl",
 		link: function(scope, element, attrs){
 
 			if (scope.currentSkatepark.skateparkImages.length > 0)
@@ -41,28 +40,15 @@ function existingSkateparkInfo( $rootScope, localStorageService){
 				console.log(screenshotURL);
 			}
 
-		},
-		controller: function(){
+			scope.incrementRating = function(currentSkatepark){
 
-			console.log("blarg");
-			console.log(this.currentSkatepark);
+				currentSkatepark.skateparkRating += 1;
 
-			/*
-			console.log(this);
-
-			this.incrementRating = function(){
-				console.log("no chance");
-			}
-			*/
-			/*
-			scope.incrementRating = function(skatepark){
-
-
-				console.log("clicking");
-				//scope.currentSkatepark.skateparkRating += 1;
+				$rootScope.$broadcast("incrementVote", currentSkatepark);
 
 			}
-			*/
+
+
 		}
 	}
 

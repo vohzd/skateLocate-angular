@@ -29,6 +29,26 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 		$scope.main.allData.push(response);
 	});
 
+	$rootScope.$on("incrementVote", (event, response) => {
+
+		this.allData.forEach((value, pointer) => {
+			if (value._id === response._id){
+				value.skateparkRating += 1;
+			}
+		})
+
+	});
+
+	/*
+
+	$rootScope.$on("incrementVote", function(event, response){
+		// work pls
+		console.log(response);
+		console.log(this.allData);
+	});
+
+	*/
+
 
 	this.addVotedProp = function(){
 		// get the ones this particular client/end-user has voted for

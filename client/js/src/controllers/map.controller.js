@@ -11,7 +11,7 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 	$scope.markers 				= [];
 
 	$rootScope.$on("parseMarkers", function(event, response){
-		parseMarkers($scope, $compile, $scope.$parent.main.allData, localStorageService);
+		parseMarkers($scope, $compile, localStorageService);
 	});
 
 	$rootScope.$on("destroyPopup", function(event){
@@ -122,7 +122,6 @@ function createTempMarker($scope, $compile, position)
 	}
 		
 	$scope.isMarkerInProg = true;
-
 	$scope.lastMarker = L.marker([position.lat, position.lng]).addTo($scope.mapInstance);
 	$scope.lastMarkerPosition = position;
 
@@ -138,30 +137,20 @@ function createTempMarker($scope, $compile, position)
 function parseMarkers($scope, $compile, markers, localStorageService)
 {
 	// get the ones this particular client/end-user has voted for
-	const votedSkateparks = localStorageService.get("userSkateparkVotes");
-
 	// loop through the markers and add to the map
-	for (markerinfo of markers)
-	{
-		if (votedSkateparks){
-			votedSkateparks.forEach(function(value, pointer){
-				if (value._id === markerinfo._id){
-					markerinfo.hasVote = true;
-				}
-			});
-		}
+	for (marker of $scope.$parent.main.allData){
 
-		let asString = JSON.stringify(markerinfo);
+		let asString = JSON.stringify(marker);
 
 		let popup = "<existing-skatepark-info current-skatepark='" + asString + "'></existing-skatepark-info>";
 
 		$scope.markers.push({
 
-				lat: markerinfo.skateparkLocation[1],
-				lng: markerinfo.skateparkLocation[0],
-				title: markerinfo.skateparkName,
+				lat: marker.skateparkLocation[1],
+				lng: marker.skateparkLocation[0],
+				title: marker.skateparkName,
 				label: {
-					message: markerinfo.skateparkName,
+					message: marker.skateparkName,
 					options: {
 						noHide: true
 					}
@@ -173,7 +162,6 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 		});
 
 	}
-
 
 }
 
