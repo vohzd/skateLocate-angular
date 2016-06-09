@@ -22,7 +22,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 		// Parse Markers
 		$rootScope.$broadcast("parseMarkers", this.allData);
 
-
 	});
 
 	$rootScope.$on("pushLastToScope", function(event, response){
@@ -39,18 +38,8 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 
 	});
 
-	/*
-
-	$rootScope.$on("incrementVote", function(event, response){
-		// work pls
-		console.log(response);
-		console.log(this.allData);
-	});
-
-	*/
-
-
 	this.addVotedProp = function(){
+
 		// get the ones this particular client/end-user has voted for
 		const votedSkateparks = localStorageService.get("userSkateparkVotes");
 

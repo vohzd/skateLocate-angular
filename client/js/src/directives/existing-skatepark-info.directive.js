@@ -40,13 +40,6 @@ function existingSkateparkInfo($rootScope, $timeout, localStorageService){
 				console.log(screenshotURL);
 			}
 
-			scope.incrementRating = function(currentSkatepark){
-
-				currentSkatepark.skateparkRating += 1;
-
-				$rootScope.$broadcast("incrementVote", currentSkatepark);
-
-			}
 
 
 		}
