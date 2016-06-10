@@ -9,6 +9,7 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 	$scope.isEditing 			= false;
 	$scope.isMarkerInProg 		= false;
 	$scope.markers 				= [];
+	$scope.markersClone			= [];
 
 	$rootScope.$on("parseMarkers", function(event, response){
 		parseMarkers($scope, $compile, localStorageService);
@@ -21,6 +22,12 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 	$rootScope.$on("focusPopup", function(event, targetId){
 		focusOnParticularSkatepark($scope, targetId);
 	});
+
+	$rootScope.$on("filterMarkers", function(event, searchedString){
+		filterMarkersByString($scope, searchedString);
+	});
+
+	
 
 }
 						
@@ -168,6 +175,10 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 
 	}
 
+	console.log("clone");
+	$scope.markersClone = $scope.markers;
+
+
 }
 
 function focusOnParticularSkatepark($scope, popupId){
@@ -181,6 +192,28 @@ function focusOnParticularSkatepark($scope, popupId){
 			val.focus = false;
 		}
 	})
+
+}
+
+
+function filterMarkersByString($scope, searchedString){
+
+	// Will try to match markers based on title
+	let matched = [];
+
+	$scope.markersClone.forEach((marker, pointer) => {
+
+		const lower = marker.title.toLowerCase();
+		const search = searchedString.toLowerCase();
+		const result = lower.indexOf(search);
+
+		if (result > -1){
+			matched.push(marker);
+		}
+
+	});
+
+	$scope.markers = matched;
 
 }
 

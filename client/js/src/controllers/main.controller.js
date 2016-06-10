@@ -37,6 +37,10 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 
 	});
 
+	$scope.$watch('searchString', function(newValue, oldValue) {
+		$rootScope.$broadcast("filterMarkers", newValue);
+    });
+
 
 	this.showSkateparkDetails = function(id, item){
 
