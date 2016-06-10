@@ -217,6 +217,10 @@ function filterMarkersByString($scope, searchedString){
 
 }
 
+function filterMarkersByTag($scope, selectedTags){
 
+	// selected tags is an array, so match with whatevers in the markers
+
+} 
 
 export default MapCtrl;
