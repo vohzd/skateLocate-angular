@@ -27,6 +27,9 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 		filterMarkersByString($scope, searchedString);
 	});
 
+	$rootScope.$on("matchMarkersToTags", function(event, tagsArr){
+		filterMarkersByTags($scope, tagsArr);
+	});
 	
 
 }
@@ -166,7 +169,8 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 				message: popup,
 				focus: false,
 				group: "group",
-				internalId: marker._id
+				internalId: marker._id,
+				descTags: marker.skateparkTags
 
 		});
 
@@ -214,9 +218,31 @@ function filterMarkersByString($scope, searchedString){
 
 }
 
-function filterMarkersByTag($scope, selectedTags){
+function filterMarkersByTags($scope, selectedTags){
 
-	// selected tags is an array, so match with whatevers in the markers
+	// Will try to match markers based on tags
+	let matched = [];
+
+	if (selectedTags.length === 0){
+		$scope.markers = $scope.markersClone
+	}
+	else {
+
+		$scope.markersClone.forEach((marker, pointer) => {
+			// option one -- http://stackoverflow.com/questions/15514907/determining-whether-one-array-contains-the-contents-of-another-array-in-javascri
+			let testForMatches = marker.descTags.filter((cur) => {
+				return selectedTags.indexOf(cur) > -1;
+			}).length == selectedTags.length;
+
+			if (testForMatches){
+				matched.push(marker);
+			}
+		});
+
+		$scope.markers = matched;
+
+	}
+
 
 } 
 

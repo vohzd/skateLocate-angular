@@ -36,18 +36,9 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 		else
 		{
 			this.filteredTags.push(tag);
-
 		}
 
-		console.log(this.filteredTags);
-/*
-		this.filteredTags.forEach((t, pointer) => {
-
-			//if (t == tag)
-
-		});
-*/
-
+		$rootScope.$broadcast("matchMarkersToTags", this.filteredTags);
 
 	}
 
