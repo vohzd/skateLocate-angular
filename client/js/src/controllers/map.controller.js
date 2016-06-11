@@ -88,47 +88,32 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 
 		$scope.mapInstance.on("click", (event) => {
 
-			if (event.originalEvent.type == "keypress")
-			{
+			if (event.originalEvent.type == "keypress"){
 				return false;
 			}
-			else
-			{
+			else {
 				// Dont do anything if edit mode is off
-				if (!$scope.isEditing)
-				{
+				if (!$scope.isEditing){
 					return;
 				}
-				else
-				{
+				else {
 					createTempMarker($scope, $compile, event.latlng);
 				}
 			}
-
 		})
-
 
 		// Add the edit button
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 
-
-
 	});
 
 }
 
-function popUpContent()
-{
-	return "<header-graphic></header-graphic>";
-}
+function createTempMarker($scope, $compile, position){
 
-function createTempMarker($scope, $compile, position)
-{
-
-	if ($scope.lastMarker)
-	{
+	if ($scope.lastMarker){
 		$scope.mapInstance.removeLayer($scope.lastMarker);
 	}
 		
@@ -145,8 +130,7 @@ function createTempMarker($scope, $compile, position)
 }
 
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
-function parseMarkers($scope, $compile, markers, localStorageService)
-{
+function parseMarkers($scope, $compile, markers, localStorageService){
 	// get the ones this particular client/end-user has voted for
 	// loop through the markers and add to the map
 	for (marker of $scope.$parent.main.allData){
@@ -176,10 +160,8 @@ function parseMarkers($scope, $compile, markers, localStorageService)
 
 	}
 
-	console.log("clone");
+	// the clone is the original array, so you can always retreive all markers if you undo a search, tag etc
 	$scope.markersClone = $scope.markers;
-
-
 }
 
 function focusOnParticularSkatepark($scope, popupId){
@@ -243,7 +225,6 @@ function filterMarkersByTags($scope, selectedTags){
 
 	}
 
-
-} 
+}
 
 export default MapCtrl;

@@ -1,4 +1,4 @@
-function existingSkateparkInfo($rootScope, $timeout, localStorageService){
+function existingSkateparkInfo($rootScope, $timeout, $q, localStorageService, sendToDB, uploadImageToCloud, helpersSrv){
 
 	return {
 
@@ -10,8 +10,7 @@ function existingSkateparkInfo($rootScope, $timeout, localStorageService){
 		},
 		link: function(scope, element, attrs){
 
-			if (scope.currentSkatepark.skateparkImages.length > 0)
-			{
+			if (scope.currentSkatepark.skateparkImages.length > 0){
 				let images = scope.currentSkatepark.skateparkImages;
 				activateSlideshow();
 			}
@@ -35,16 +34,41 @@ function existingSkateparkInfo($rootScope, $timeout, localStorageService){
 				}
 			}
 
-			scope.updateSkateparkImages = function(current){
+			scope.updateSkateparkImages = function(url){
 
-				console.log(screenshotURL);
+				if (!url){
+					helpersSrv.createToast("Please enter a correct URL :)");
+				}
+				else {
+					if (helpersSrv.testIsValidURL(url)){
+
+						const defer 			= $q.defer();
+						const cloudPromise 		= uploadImageToCloud.uploadImages([url]);
+
+						cloudPromise.then((imageUrlResponse) => {
+
+							scope.currentSkatepark.skateparkImages.push(imageUrlResponse[0]);
+							delete scope.currentSkatepark.skateparkURL;
+
+							sendToDB.updateExistingPark(scope.currentSkatepark._id, scope.currentSkatepark);
+
+							this.showUploadImage();
+							defer.resolve();
+
+							activateSlideshow();
+
+
+						});
+
+					}
+					else {
+						helpersSrv.createToast("Please enter a correct URL :)");
+						scope.screenshotURL = "";
+					}
+				}
 			}
-
-
-
 		}
 	}
-
 }
 
 function activateSlideshow(){
@@ -66,60 +90,3 @@ function activateSlideshow(){
 }
 
 export default existingSkateparkInfo;
-
-/*
-function VoteCtrl($rootScope, $scope, $http, localStorageService){
-
-	this.incrementRating = function(item){
-
-		// Increment the item rating
-		// This has two-way binding so saves having to do a get request once the below PUT is done
-
-		item.skateparkRating += 1;
-
-		$scope.$parent.currentSkatepark.hasVote = true;
-
-		// call the function to update the skateparks rating
-		this.updateRating(item);
-
-
-	}
-
-
-	this.updateRating = function(item){
-
-		// This updates the particular document on MongoDb via http PUT
-		$http.put("/skateparks/" + item._id, item).success((response) => {
-
-			// upon success set a flag in localStorage to say this has been voted for from this machine
-			if (!item.hasVote){
-				localStorageHandler($scope, localStorageService, item);
-			}
-
-		});
-
-	}
-
-}
-
-function localStorageHandler($scope, localStorageService, item){
-
-	// get a list of all votes the user has cast
-	let local = localStorageService.get("userSkateparkVotes");
-
-	// if 'null' is returned, create new localstorage
-	if (!local){
-		localStorageService.set("userSkateparkVotes", [item]);
-	}
-	else {
-		local.push(item);
-		localStorageService.set("userSkateparkVotes", local);
-	}
-
-	// now set the local item to have a vote so the button becomes inactive
-	//item.hasVote = true;
-
-
-}
-
-*/

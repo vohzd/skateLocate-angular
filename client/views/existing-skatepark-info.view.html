@@ -43,10 +43,10 @@
 			<form action="#" class="add-skate-images">
 				<!-- Ask for a remote url -->
 				<div class="input-field">
-					<input type="text" ng-model="currentSkatepark.screenshotURL">
+					<input type="text" ng-model="currentSkatepark.screenshotURL" id="screenshotURL">
 					<label for="screenshotURL">Add Link here!</label>
 				</div>
-				<input type="button" value="Submit!" class="waves-effect light-blue lighten-4 btn-flat nudge" ng-click="updateSkateparkImages(currentSkatepark)">
+				<input type="button" value="Submit!" class="waves-effect light-blue lighten-4 btn-flat nudge" ng-click="updateSkateparkImages(currentSkatepark.screenshotURL)">
 			</form>
 		</section>
 	</main>

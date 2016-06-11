@@ -6,7 +6,6 @@ function VoteCtrl($rootScope, $scope, $http, localStorageService){
 
 		// Increment the item rating
 		// This has two-way binding so saves having to do a get request once the below PUT is done
-
 		item.skateparkRating += 1;
 		item.hasVote = true;
 
@@ -16,7 +15,6 @@ function VoteCtrl($rootScope, $scope, $http, localStorageService){
 		$rootScope.$broadcast("incrementVote", item);
 
 	}
-
 
 	this.updateRating = function(item){
 
@@ -47,10 +45,6 @@ function localStorageHandler($scope, localStorageService, item){
 		local.push(item);
 		localStorageService.set("userSkateparkVotes", local);
 	}
-
-	// now set the local item to have a vote so the button becomes inactive
-	//item.hasVote = true;
-
 
 }
 

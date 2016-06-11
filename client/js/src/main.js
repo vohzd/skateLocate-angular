@@ -39,7 +39,7 @@ import voteButton from "./directives/vote-button.directive.js";
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
 import MapCtrl from "./controllers/map.controller.js";
-import addNewSkateparkCtrl from "./controllers/addNewSkatepark.controller.js";
+import skateparkCtrl from "./controllers/skatepark.controller.js";
 import VoteCtrl from "./controllers/vote.controller.js";
 import ToggleCtrl from "./controllers/toggle.controller.js";
 import fullscreenSlideshowCtrl from "./controllers/fullscreenSlideshow.controller.js";
@@ -49,7 +49,7 @@ import SearchCtrl from "./controllers/search.controller.js";
 angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload", "LocalStorageModule"])
 	.controller("MainCtrl", MainCtrl)
 	.controller("MapCtrl", MapCtrl)
-	.controller("addNewSkateparkCtrl", addNewSkateparkCtrl)
+	.controller("skateparkCtrl", skateparkCtrl)
 	.controller("fullscreenSlideshowCtrl", fullscreenSlideshowCtrl)
 	.controller("VoteCtrl", VoteCtrl)
 	.controller("SearchCtrl", SearchCtrl)
