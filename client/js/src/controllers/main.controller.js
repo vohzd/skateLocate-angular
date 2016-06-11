@@ -29,8 +29,17 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 		// allow the view (frontened) to have its tag toggle from green/grey
 		helpersSrv.toggleTag($btnClicked);
 
+		if (this.filteredTags.indexOf(tag) !== -1){
+			let pos = this.filteredTags.indexOf(tag);
+			this.filteredTags.splice(pos, 1);
+		}
+		else
+		{
+			this.filteredTags.push(tag);
 
-		filteredTags.push(tag)
+		}
+
+		console.log(this.filteredTags);
 /*
 		this.filteredTags.forEach((t, pointer) => {
 
