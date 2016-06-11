@@ -33,16 +33,13 @@ function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, lo
 						
 function toggleEditButton($scope, helpersSrv)
 {
-	if (!$scope.isEditing)
-	{
+	if (!$scope.isEditing){
 		$scope.isEditing = true;
 		helpersSrv.createToast("Click or tap on the map to add a new park!");
 		helpersSrv.toggleEditOn();
 	}
-	else if ($scope.isEditing)
-	{
+	else if ($scope.isEditing){
 		$scope.mapInstance.removeLayer($scope.lastMarker);
-
 		//$scope.lastMarker.remove();
 		$scope.isEditing = false;
 		helpersSrv.toggleEditOff();

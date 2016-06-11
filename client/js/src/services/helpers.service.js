@@ -25,6 +25,21 @@ function helpers(){
 		$(".toggleControl").text("ADD")
 	}
 
+	helpers.toggleTag = function(domElement){
+
+	// takes a dom element, and adds a class to it... if the class already exists, remove it
+	// (used to make the buttons go green when clicked on)
+	if (!domElement.hasClass("active-chip")){
+		domElement.addClass("active-chip");
+	}
+	else {
+		domElement.removeClass("active-chip");
+	}
+
+
+		
+	}
+
 	helpers.testIsValidURL = function(string){
 		// This regex probably sucks and will probably break
 		const testRegEx = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
@@ -44,6 +59,7 @@ function helpers(){
 
 		return toReturn;
 	}
+
 
 	return helpers;
 }

@@ -1,9 +1,10 @@
 "use strict";
 
-function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, localStorageService){
+function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, helpersSrv, localStorageService){
 
 	// This is fired on page init to get ALL the skateparks
 	this.tags = tagsSrv;
+	this.filteredTags = [];
 
 	getFromDB.getAll().success((response) => {
 		// Store the response in the array from the server
@@ -20,11 +21,25 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, lo
 		$rootScope.$broadcast("focusPopup", id);
 	}
 
-	this.filterByTag = function(id, event){
-		console.log(id);
-		console.log(event);
-		console.log(this);
-		$(event).addClass("active-chip");
+	this.filterByTag = function(tag, event){
+
+		// dom element so i dont need to continually retreive
+		const $btnClicked = $(event.currentTarget);
+
+		// allow the view (frontened) to have its tag toggle from green/grey
+		helpersSrv.toggleTag($btnClicked);
+
+
+		filteredTags.push(tag)
+/*
+		this.filteredTags.forEach((t, pointer) => {
+
+			//if (t == tag)
+
+		});
+*/
+
+
 	}
 
 	// Cycles through all the skateparks, and compares them against whats in localstorage
