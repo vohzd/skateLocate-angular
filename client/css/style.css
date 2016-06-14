@@ -95,6 +95,25 @@ html, body
 }
 
 
+.keep-aspect
+{
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 40%;
+}
+
+.keep-aspect img
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+
 .main-header
 {
 	font-family: coming;
@@ -331,7 +350,7 @@ h6
 
 .leaflet-popup-content
 {
-	min-width: 472px;
+	min-width: 495px;
 	margin: 0;
 }
 
@@ -362,11 +381,17 @@ h6
 	float: left;
 }
 
+.card-wrapper footer .votes
+{	
+	float: left;
+	width: 33%;
+}
+
+
 .card-wrapper footer .tags
 {	
 	float: left;
-	width: 50%;
-	padding-left: 2%;
+	width: 67%;
 }
 
 .card-wrapper figure 
@@ -404,7 +429,7 @@ h6
 {
 	min-width:100px;
 	width: auto;
-	margin-top: -106px;
+	margin-top: -102px;
 	z-index: 5000;
 	position: absolute;
 	background: rgba(255,255,255,0.96);
