@@ -63,12 +63,12 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 		},
 
 		tiles : {
-			name: 'skate-clean',
-			url: 'https://api.mapbox.com/styles/v1/intheon/cinzqpcbf001cb7m7isotj0nz/tiles/{z}/{x}/{y}?access_token={apikey}',
+			name: 'skatev2',
+			url: 'https://api.mapbox.com/styles/v1/intheon/cippeqrwl003me9nliwhu6mtz/tiles/{z}/{x}/{y}?access_token={apikey}',
 			type: 'xyz',
 			options: {
 				apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
-				mapid: 'mapbox://styles/intheon/cinzqpcbf001cb7m7isotj0nz'
+				mapid: 'mapbox://styles/intheon/cippeqrwl003me9nliwhu6mtz'
 			},
 
 		},
