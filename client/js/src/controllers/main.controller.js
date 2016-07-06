@@ -8,6 +8,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 
 	getFromDB.getAll().success((response) => {
 		// Store the response in the array from the server
+		//console.log(response);
 		this.allData = response;
 	}).then(() => {
 		// Once the server has the result, add in an extra property if the user has already voted on it

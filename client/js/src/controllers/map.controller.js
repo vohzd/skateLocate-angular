@@ -136,8 +136,12 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	for (marker of $scope.$parent.main.allData){
 
 		let asString = JSON.stringify(marker);
+		//let asString = JSON.stringify(marker);
 
-		let popup = "<existing-skatepark-info current-skatepark='" + asString + "'></existing-skatepark-info>";
+		//console.log(asString);
+
+		let popup = "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>";
+
 
 		$scope.markers.push({
 
@@ -151,6 +155,8 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 					}
 				},
 				message: popup,
+				compileMessage: true,
+				getMessageScope: function(){ return $scope },
 				focus: false,
 				group: "group",
 				internalId: marker._id,

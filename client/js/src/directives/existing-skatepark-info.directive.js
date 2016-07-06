@@ -10,6 +10,14 @@ function existingSkateparkInfo($rootScope, $timeout, $q, localStorageService, se
 		},
 		link: function(scope, element, attrs){
 
+			//console.log("INSIDE THE LINK FUNCTION");
+
+			//const parsed = $eval(attrs.currentSkatepark);
+			//console.log(parsed);
+
+			console.log(scope);
+			console.log(attrs);
+
 			if (scope.currentSkatepark.skateparkImages.length > 0){
 				let images = scope.currentSkatepark.skateparkImages;
 				activateSlideshow();
