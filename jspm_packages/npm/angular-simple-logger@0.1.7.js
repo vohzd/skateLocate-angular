@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-simple-logger@0.1.7/dist/index.js");

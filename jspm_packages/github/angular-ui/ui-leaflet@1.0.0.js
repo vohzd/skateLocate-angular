@@ -1,0 +1,1 @@
+module.exports = require("github:angular-ui/ui-leaflet@1.0.0/dist/ui-leaflet.js");

@@ -1,0 +1,1 @@
+module.exports = require("npm:leaflet.fullscreen@1.4.2/Control.FullScreen.js");

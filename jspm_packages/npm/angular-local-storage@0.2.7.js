@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-local-storage@0.2.7/index.js");

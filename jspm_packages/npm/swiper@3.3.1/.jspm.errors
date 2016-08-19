@@ -1,0 +1,22 @@
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/core.js:245:13: Illegal return statement
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/core.js:299:31: Illegal return statement
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/core.js:306:5: Illegal return statement
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/swiper-intro.js:5:73: Unexpected token End of File
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/swiper-outro.js:3:5: Illegal return statement
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/swiper-outro.js:4:1: Unexpected token }
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/swiper-intro-f7.js:5:73: Unexpected token End of File
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-end.js:2:1: Unexpected token }
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-start-umd.js:18:1: Unexpected token End of File
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-start-umd.js:18:1: Unexpected token End of File
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-start-umd.js:18:1: Unexpected token End of File
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-start.js:3:11: Unexpected token End of File
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-start.js:3:11: Unexpected token End of File
+
+MultipleErrors: C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-end-umd.js:1:2: Illegal return statement
+C:/Users/Padraig/AppData/Local/.jspm/packages/npm/swiper@3.3.1/src/js/wrap-end-umd.js:2:1: Unexpected token }

@@ -1,0 +1,1 @@
+module.exports = require("npm:swiper@3.3.1/dist/js/swiper.js");

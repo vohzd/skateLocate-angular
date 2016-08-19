@@ -1,0 +1,1 @@
+module.exports = require("github:Leaflet/Leaflet.label@master/dist/leaflet.label.js");

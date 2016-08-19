@@ -1,0 +1,1 @@
+module.exports = require("npm:leaflet-easybutton@1.2.0/src/easy-button.js");
