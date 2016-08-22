@@ -103,7 +103,5 @@
   },
   "github:jspm/nodelibs-child_process@0.1.0": {},
   "github:systemjs/plugin-json@0.1.2": {},
-  "npm:leaflet-label@0.2.1-0": {
-    "fs": "github:jspm/nodelibs-fs@^0.1.0"
-  }
+  "github:Leaflet/Leaflet.label@master": {}
 }

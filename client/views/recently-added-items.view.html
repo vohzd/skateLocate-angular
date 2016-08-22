@@ -6,7 +6,7 @@
 		<div ng-repeat="item in main.allData | limitTo: 5" class="list-of-highest-rated-items collection mouse-clickable ">
 
 			<div class="collection-item avatar" ng-click="main.showSkateparkDetails(item._id, item)">
-				<span class="absolute-label">{{ item.createdAt | date: 'd' }}			<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time></span><i class=" circle"></i>
+				<span class="absolute-label">{{ item.createdAt | date: 'd' }}<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time></span>
 				<span class="title">{{ item.skateparkName }}</span>
 				<summary>by {{ item.skateparkAdder }}</summary>
 			</div>
