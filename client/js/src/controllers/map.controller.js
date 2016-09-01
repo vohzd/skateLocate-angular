@@ -57,9 +57,9 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 	angular.extend($scope, {
 
 		init : {
-			lat: 51.5,
-			lng: 0,
-			zoom: 7
+			lat: 40.275335,
+			lng: -37.880859,
+			zoom: 4
 		},
 
 		tiles : {

@@ -10,7 +10,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 		// Store the response in the array from the server
 		//console.log(response);
 		this.allData = response;
-		console.log(this.allData);
 	}).then(() => {
 		// Once the server has the result, add in an extra property if the user has already voted on it
 		// This should be determined by grabbing the localStorage object on the end-users browser to see what they've voted on.
