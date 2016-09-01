@@ -14,8 +14,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js 1337",
-    /*"postinstall": "jspm install"*/
+    "start": "nodemon server.js 1337"
   },
   "repository": {
     "type": "git",
