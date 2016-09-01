@@ -68,7 +68,9 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			type: 'xyz',
 			options: {
 				apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
-				mapid: 'mapbox://styles/intheon/cippeqrwl003me9nliwhu6mtz'
+				mapid: 'mapbox://styles/intheon/cippeqrwl003me9nliwhu6mtz',
+				tileSize: 512,
+				zoomOffset: -1
 			},
 
 		},
