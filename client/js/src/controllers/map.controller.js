@@ -138,12 +138,11 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	for (marker of $scope.$parent.main.allData){
 
 		let asString = JSON.stringify(marker);
-		//let asString = JSON.stringify(marker);
 
-		//console.log(asString);
+			// fixes issue with this breaking the string
+			asString = asString.replace(/'/g, "\\&#39;");
 
 		let popup = "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>";
-
 
 		$scope.markers.push({
 
