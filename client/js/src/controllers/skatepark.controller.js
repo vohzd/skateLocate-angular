@@ -36,7 +36,15 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 
 			}
 			else if (hasImages){
-				// Handle JUST local screenshots
+				if (helpersSrv.testIsValidURL($scope.addNew.screenshotURL)){
+					submitToCloudAndDB($scope.addNew.screenshotURL);
+				}
+				else{
+					helpersSrv.createToast("Please enter a correct URL :)");
+					$scope.addNew.screenshotURL = "";
+				}
+
+				/*
 				if (hasImages == "files"){
 					// TODO - virus checking etc!!
 					submitToCloudAndDB($scope.addNew.screenshots);
@@ -56,6 +64,7 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 						submitToCloudAndDB($scope.addNew.screenshots);
 					});
 				}
+				*/
 			}
 		}
 		else if (!validation){
@@ -141,6 +150,7 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 
 	// Submits metadata to internal database - The final stage
 	function submitMetaToMongoDb(skateparkName, skateparkDesc, skateparkLocation, skateparkAdder, cloudinaryImageMeta){
+
 		const skateparkImages = [];
 
 		const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
@@ -151,9 +161,6 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 			});
 		}
 
-		console.log(descWithBreaks);
-
-	
 		const payload = {
 			skateparkName : skateparkName,
 			skateparkDesc : skateparkDesc,
@@ -164,9 +171,14 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 			skateparkTags: getTags()
 		}
 
-		console.log(payload);
-
+		// submit
 		sendToDB.submitNewPark(payload);
+
+		helpersSrv.createToast("Thank you for adding " + skateparkName + ", " + skateparkAdder + "!");
+
+
+		// tidy up as well
+		$rootScope.$emit("destroyPopup");
 
 	}
 

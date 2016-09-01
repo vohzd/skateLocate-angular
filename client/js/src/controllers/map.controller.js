@@ -1,9 +1,9 @@
 "use strict";
 
-function MapCtrl($scope, $log, $rootScope, $compile, leafletData, helpersSrv, localStorageService){
+function MapCtrl($rootScope, $scope, $log, $compile, leafletData, helpersSrv, localStorageService){
 
 	// Bootstrap the mofo
-	configureLeaflet($scope, $log, $compile, leafletData, helpersSrv);
+	configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv);
 
 	// A button the user has to click to switch to 'add skatepark' modes
 	$scope.isEditing 			= false;
@@ -49,7 +49,7 @@ function toggleEditButton($scope, helpersSrv)
 	}
 }
 
-function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
+function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv)
 {
 	// where default images are stored
 	L.Icon.Default.imagePath = '../../img/leaflet/';
@@ -99,7 +99,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 					return;
 				}
 				else {
-					createTempMarker($scope, $compile, event.latlng);
+					createTempMarker($rootScope, $scope, $compile, event.latlng);
 				}
 			}
 		})
@@ -113,7 +113,7 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 
 }
 
-function createTempMarker($scope, $compile, position){
+function createTempMarker($rootScope, $scope, $compile, position){
 
 	if ($scope.lastMarker){
 		$scope.mapInstance.removeLayer($scope.lastMarker);
@@ -128,7 +128,11 @@ function createTempMarker($scope, $compile, position){
 	let directiveTag = $("<add-new-skatepark></add-new-skatepark>");
 	let compiledDirective = $compile(directiveTag)($scope);
 
-	$scope.lastMarker.bindPopup(compiledDirective[0]).openPopup()
+	$scope.lastMarker.bindPopup(compiledDirective[0]).openPopup();
+
+	$(".leaflet-popup-close-button").click(() => {
+		$rootScope.$emit("destroyPopup");
+	})
 }
 
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.

@@ -151,7 +151,7 @@ font-family: 'Pontano Sans', sans-serif !important;
 
 .easy-button-button
 {
-	background: rgba(255,255,255,0.4) !important;
+	background: none;
 	outline: none !important;
 	border: none!important;
 	text-shadow: none;
@@ -401,7 +401,7 @@ h6
 }
 
 .leaflet-container a.leaflet-popup-close-button {
-	color: #FFFFFF;
+	color: #000000;
 	z-index: 400;
 }
 .swiper-slide img
@@ -451,16 +451,6 @@ line-height: 1.5;
 	color: rgba(0, 0, 0, 0.87);
 	white-space: pre-wrap;
 }
-
-
-.easy-button-button
-{
-	background: rgba(255,255,255,0.4) !important;
-	outline: none !important;
-	border: none!important;
-	text-shadow: none;
-}
-
 
 .easy-button-container
 {
