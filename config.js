@@ -15,7 +15,7 @@ System.config({
 
   map: {
     "Leaflet/Leaflet": "github:Leaflet/Leaflet@1.0.0-rc.1",
-    "Leaflet/Leaflet.label": "github:Leaflet/Leaflet.label@master",
+    "Leaflet/Leaflet.label": "github:intheon/leaflet.label-unbroken@master",
     "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
     "angular": "github:angular/bower-angular@1.5.5",
     "angular-leaflet-directive": "npm:angular-leaflet-directive@0.10.0",
