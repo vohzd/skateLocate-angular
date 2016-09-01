@@ -25,6 +25,7 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 
 			if (!hasImages){
 				// name, desc, longLat, adder, and images
+
 				submitMetaToMongoDb(
 					$scope.addNew.skateparkName,
 					$scope.addNew.skateparkDesc,
@@ -32,6 +33,7 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 					$scope.addNew.skateparkAdder,
 					null);
 				$("#uploadScrollbar div").width("100%");
+
 			}
 			else if (hasImages){
 				// Handle JUST local screenshots
@@ -141,13 +143,16 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 	function submitMetaToMongoDb(skateparkName, skateparkDesc, skateparkLocation, skateparkAdder, cloudinaryImageMeta){
 		const skateparkImages = [];
 
-		//const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		const descWithBreaks = skateparkDesc.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
 		if (cloudinaryImageMeta){
 			$.each(cloudinaryImageMeta, (pointer, image) => {
 				skateparkImages.push(image);
 			});
 		}
+
+		console.log(descWithBreaks);
+
 	
 		const payload = {
 			skateparkName : skateparkName,
@@ -158,6 +163,8 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 			skateparkImages : skateparkImages,
 			skateparkTags: getTags()
 		}
+
+		console.log(payload);
 
 		sendToDB.submitNewPark(payload);
 

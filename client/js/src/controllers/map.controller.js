@@ -68,7 +68,9 @@ function configureLeaflet($scope, $log, $compile, leafletData, helpersSrv)
 			type: 'xyz',
 			options: {
 				apikey: 'pk.eyJ1IjoiaW50aGVvbiIsImEiOiJjaW5lZ3RkaDUwMDc2d2FseHhldHl0Y3dyIn0.L1RWCbggwqkNegUc1ZIwJw',
-				mapid: 'mapbox://styles/intheon/cippeqrwl003me9nliwhu6mtz'
+				mapid: 'mapbox://styles/intheon/cippeqrwl003me9nliwhu6mtz',
+				tileSize: 512,
+				zoomOffset: -1
 			},
 
 		},
@@ -136,12 +138,11 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	for (marker of $scope.$parent.main.allData){
 
 		let asString = JSON.stringify(marker);
-		//let asString = JSON.stringify(marker);
 
-		//console.log(asString);
+			// fixes issue with this breaking the string
+			asString = asString.replace(/'/g, "\\&#39;");
 
 		let popup = "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>";
-
 
 		$scope.markers.push({
 

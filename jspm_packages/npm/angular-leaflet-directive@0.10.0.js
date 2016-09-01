@@ -1,1 +1,0 @@
-module.exports = require("npm:angular-leaflet-directive@0.10.0/dist/angular-leaflet-directive");
