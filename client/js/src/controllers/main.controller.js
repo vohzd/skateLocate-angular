@@ -81,5 +81,16 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 
 }
 
+MainCtrl.$inject = [
+	"$scope",
+	"$rootScope",
+	"$compile",
+	"$timeout",
+	"getFromDB",
+	"tagsSrv",
+	"helpersSrv",
+	"localStorageService"
+];
+
 
 export default MainCtrl;

@@ -1,6 +1,6 @@
 "use strict";
 
-function getFromDB ($http, $rootScope){
+function getFromDB($http, $rootScope){
 
 	let db = {}
 
@@ -12,6 +12,9 @@ function getFromDB ($http, $rootScope){
 
 }
 
-//allParksSrv.$inject["$http"];
+getFromDB.$inject = [
+	"$http",
+	"$rootScope"
+];
 
 export default getFromDB;

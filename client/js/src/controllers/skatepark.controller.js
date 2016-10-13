@@ -184,6 +184,13 @@ function skateparkCtrl($scope, $q, $rootScope, helpersSrv, uploadImageToCloud, s
 
 }
 
-
+skateparkCtrl.$inject = [
+	"$scope",
+	"$q",
+	"$rootScope",
+	"helpersSrv",
+	"uploadImageToCloud",
+	"sendToDB",
+];
 
 export default skateparkCtrl;

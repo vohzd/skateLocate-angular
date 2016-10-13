@@ -1,5 +1,7 @@
 "use strict";
 
+/*
+
 function uploadImageToCloud($http, $q, $rootScope, Upload){
 
 	let methods = {
@@ -55,7 +57,27 @@ function uploadImageToCloud($http, $q, $rootScope, Upload){
 
 }
 
-//allParksSrv.$inject["$http"];
+
+
+*/
+
+/*
+
+function uploadImageToCloud(["$http", "$q", "$rootScope", function($http, $q, $rootScope){
+	console.log("bl");
+}])
+*/
+
+function uploadImageToCloud(){
+
+	return {
+		"wat": "derp"
+	}
+
+}
+
+
+
 
 export default uploadImageToCloud;
 

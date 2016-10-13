@@ -29,4 +29,9 @@ function fullScreenSlideshow($scope, $rootScope){
 
 }
 
+fullScreenSlideshow.$inject = [
+	"$scope",
+	"$rootScope",
+];
+
 export default fullScreenSlideshow;

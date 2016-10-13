@@ -1,11 +1,13 @@
 "use strict";
 
-function allParksSrv ($http){
+function allParksSrv($http){
 
 	return $http.get("/skateparks");
 
 }
 
-//allParksSrv.$inject["$http"];
+allParksSrv.$inject = [
+	"$http"
+];
 
 export default allParksSrv;

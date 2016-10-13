@@ -48,5 +48,12 @@ function localStorageHandler($scope, localStorageService, item){
 
 }
 
+VoteCtrl.$inject = [
+	"$rootScope",
+	"$scope",
+	"$http",
+];
+
+
 export default VoteCtrl;
 

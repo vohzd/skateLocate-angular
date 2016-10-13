@@ -1,6 +1,6 @@
 "use strict";
 
-function sendToDB ($http, $q, $rootScope){
+function sendToDB($http, $q, $rootScope){
 
 	// Object to be returned to Controller
 	let parkDBLayer = {
@@ -51,6 +51,10 @@ function sendToDB ($http, $q, $rootScope){
 
 }
 
-//allParksSrv.$inject["$http"];
+sendToDB.$inject = [
+	"$http",
+	"$q",
+	"$rootScope"
+];
 
 export default sendToDB;

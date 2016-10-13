@@ -50,7 +50,11 @@ function ToggleCtrl($timeout){
 		}
 
 	}
-
 }
+
+ToggleCtrl.$inject = [
+	"$timeout"
+];
+
 
 export default ToggleCtrl;

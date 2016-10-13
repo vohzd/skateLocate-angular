@@ -9,7 +9,7 @@
     "morgan": "~1.2.2"
   },
   "name": "skatelocate",
-  "description": "skateLocate - A way of finding skateparks near to you, along with reviewing what they feature. https://skatelocate.herokuapp.com — Edit",
+  "description": "skateLocate - A way of finding skateparks near to you, along with reviewing what they feature. https://skatelocate.herokuapp.com",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -27,6 +27,7 @@
   "jspm": {
     "dependencies": {
       "Leaflet/Leaflet": "github:Leaflet/Leaflet@1.0.1",
+      "Leaflet/Leaflet.label": "github:intheon/leaflet.label-unbroken@master",
       "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
       "angular": "github:angular/bower-angular@^1.5.5",
       "angular-leaflet-directive": "npm:angular-leaflet-directive@^0.10.0",
