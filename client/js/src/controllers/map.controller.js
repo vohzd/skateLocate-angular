@@ -20,7 +20,7 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 	});
 
 	$rootScope.$on("focusPopup", function(event, targetId){
-		focusOnParticularSkatepark($scope, targetId);
+		focusOnParticularSkateparkMarker($scope, targetId);
 	});
 
 	$rootScope.$on("filterMarkers", function(event, searchedString){
@@ -33,35 +33,17 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 	
 
 }
-						
-function toggleEditButton($scope, helpersSrv)
-{
-	if (!$scope.isEditing){
-		$scope.isEditing = true;
-		helpersSrv.createToast("Click or tap on the map to add a new park!");
-		helpersSrv.toggleEditOn();
-	}
-	else if ($scope.isEditing){
-		$scope.mapInstance.removeLayer($scope.lastMarker);
-		//$scope.lastMarker.remove();
-		$scope.isEditing = false;
-		helpersSrv.toggleEditOff();
-	}
-}
 
-function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv)
-{
+function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv){
 	// where default images are stored
 	L.Icon.Default.imagePath = '../../img/leaflet/';
 
 	angular.extend($scope, {
-
 		init : {
 			lat: 40.275335,
 			lng: -37.880859,
 			zoom: 4
 		},
-
 		tiles : {
 			name: 'skatev2',
 			url: 'https://api.mapbox.com/styles/v1/intheon/ciu8pd4ly004j2imly4ombo2g/tiles/{z}/{x}/{y}?access_token={apikey}',
@@ -72,24 +54,14 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 				tileSize: 512,
 				zoomOffset: -1
 			},
-
 		},
-
-
 	});
 
-
-	// markers
-
-	// store the map instance
-	// returns a promise, which is ensures you dont run anything on 'undefined'
+	// store the map instance - returns a promise, which is ensures you dont run anything on 'undefined'
 	leafletData.getMap("map-core").then((map) => {
-
 		$scope.mapInstance = map;
 		// Set a listener on the map instance
-
 		$scope.mapInstance.on("click", (event) => {
-
 			if (event.originalEvent.type == "keypress"){
 				return false;
 			}
@@ -103,15 +75,27 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 				}
 			}
 		})
-
 		// Add the edit button
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
-
 	});
-
 }
+					
+function toggleEditButton($scope, helpersSrv){
+	if (!$scope.isEditing){
+		$scope.isEditing = true;
+		helpersSrv.createToast("Click or tap on the map to add a new park!");
+		helpersSrv.toggleEditOn();
+	}
+	else if ($scope.isEditing){
+		$scope.mapInstance.removeLayer($scope.lastMarker);
+		$scope.isEditing = false;
+		helpersSrv.toggleEditOff();
+	}
+}
+
+
 
 function createTempMarker($rootScope, $scope, $compile, position){
 
@@ -140,16 +124,12 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	// get the ones this particular client/end-user has voted for
 	// loop through the markers and add to the map
 	for (marker of $scope.$parent.main.allData){
-
 		let asString = JSON.stringify(marker);
-
 			// fixes issue with this breaking the string
 			asString = asString.replace(/'/g, "\\&#39;");
-
 		let popup = "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>";
 
 		$scope.markers.push({
-
 				lat: marker.skateparkLocation[1],
 				lng: marker.skateparkLocation[0],
 				title: marker.skateparkName,
@@ -166,7 +146,6 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 				group: "group",
 				internalId: marker._id,
 				descTags: marker.skateparkTags
-
 		});
 
 	}
@@ -175,17 +154,11 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	$scope.markersClone = $scope.markers;
 }
 
-function focusOnParticularSkatepark($scope, popupId){
+function focusOnParticularSkateparkMarker($scope, popupId){
 
-	$scope.markers.forEach((val, point) => {
-
-		if (val.internalId === popupId){
-			val.focus = true;
-		}
-		else{
-			val.focus = false;
-		}
-	})
+	$scope.markers.filter((input) => {
+		if (input.internalId === popupId) input.focus = !input.focus;
+	});
 
 }
 

@@ -26,18 +26,14 @@ function helpers(){
 	}
 
 	helpers.toggleTag = function(domElement){
-
-	// takes a dom element, and adds a class to it... if the class already exists, remove it
-	// (used to make the buttons go green when clicked on)
-	if (!domElement.hasClass("active-chip")){
-		domElement.addClass("active-chip");
-	}
-	else {
-		domElement.removeClass("active-chip");
-	}
-
-
-		
+		// takes a dom element, and adds a class to it... if the class already exists, remove it
+		// (used to make the buttons go green when clicked on)
+		if (!domElement.hasClass("active-chip")){
+			domElement.addClass("active-chip");
+		}
+		else {
+			domElement.removeClass("active-chip");
+		}
 	}
 
 	helpers.testIsValidURL = function(string){
