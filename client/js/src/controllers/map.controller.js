@@ -1,6 +1,7 @@
 "use strict";
 
-function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, localStorageService){
+function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, localStorageService, leafletMapEvents){
+
 
 	// Bootstrap the mofo
 	configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv);
@@ -31,7 +32,6 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 		filterMarkersByTags($scope, tagsArr);
 	});
 	
-
 }
 
 function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv){
@@ -71,7 +71,12 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 					createTempMarker($rootScope, $scope, $compile, event.latlng);
 				}
 			}
-		})
+		});
+
+		$scope.mapInstance.on("popupclose", (event) => {
+			console.log("there is no way this will wokr");
+		});
+		
 		// Add the edit button
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
@@ -92,10 +97,7 @@ function toggleEditButton($scope, helpersSrv){
 	}
 }
 
-
-
 function createTempMarker($rootScope, $scope, $compile, position){
-
 	if ($scope.lastMarker){
 		$scope.mapInstance.removeLayer($scope.lastMarker);
 	}
@@ -117,14 +119,13 @@ function createTempMarker($rootScope, $scope, $compile, position){
 }
 
 // translates my own DB format into a object format leaflet prefers to work with, specifically the lng lat are properties.
-function parseMarkers($scope, $compile, markers, localStorageService){
+function parseMarkers($scope, $compile, markers, localStorageService, leafletMapEvents){
 	// get the ones this particular client/end-user has voted for
 	// loop through the markers and add to the map
 	for (marker of $scope.$parent.main.allData){
 		let asString = JSON.stringify(marker);
 			// fixes issue with this breaking the string
 			asString = asString.replace(/'/g, "\\&#39;");
-		let popup = "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>";
 
 		$scope.markers.push({
 				lat: marker.skateparkLocation[1],
@@ -136,7 +137,13 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 						noHide: true
 					}
 				},
-				message: popup,
+				events: {
+					map: {
+                		enable: ['popupclose', 'drag', 'click', 'mousemove'],
+                		logic: 'emit'
+            		}
+        		},
+				message: "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>",
 				compileMessage: true,
 				getMessageScope: function(){ return $scope },
 				focus: false,
@@ -146,6 +153,7 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 		});
 
 	}
+
 
 	// the clone is the original array, so you can always retreive all markers if you undo a search, tag etc
 	$scope.markersClone = $scope.markers;
@@ -160,6 +168,8 @@ function focusOnParticularSkateparkMarker($scope, popupId, popup){
 	$scope.markers.filter((input) => {
 		if (input.internalId === popupId) input.focus = !input.focus;
 	});
+
+	console.log(popup);
 }	
 
 
@@ -218,7 +228,8 @@ MapCtrl.$inject = [
 	"$compile",
 	"leafletData",
 	"helpersSrv",
-	"localStorageService"
+	"localStorageService",
+	"leafletMapEvents"
 ];
 
 export default MapCtrl;

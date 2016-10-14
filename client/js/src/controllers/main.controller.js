@@ -1,21 +1,44 @@
 "use strict";
 
-function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, helpersSrv, localStorageService){
+function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, tagsSrv, helpersSrv, localStorageService){
+
+	$rootScope.$on("pushLastToScope", function(event, response){
+		$scope.main.allData.push(response);
+	});
+
+	$rootScope.$on("incrementVote", (event, response) => {
+		this.allData.forEach((value, pointer) => {
+			if (value._id === response._id){
+				value.skateparkRating += 1;
+			}
+		})
+	});
+
+	// adds the current id to the url of the page, so it can be shared!
+	$rootScope.$on("encodeIdentifierInURL", (event, id) => {
+		$location.path("park/" + id, false);
+	});
+
+	// adds the current id to the url of the page, so it can be shared!
+	$rootScope.$on("removeIdentifierInURL", (event) => {
+		$location.path("/", false);
+	});
+
+	$scope.$watch('searchString', function(newValue, oldValue) {
+		$rootScope.$broadcast("filterMarkers", newValue);
+    });
+
 
 	// This is fired on page init to get ALL the skateparks
 	this.tags = tagsSrv;
 	this.filteredTags = [];
-
-	getFromDB.getAll().success((response) => {
-		// Store the response in the array from the server
-		//console.log(response);
-		this.allData = response;
-	}).then(() => {
-		// Once the server has the result, add in an extra property if the user has already voted on it
-		// This should be determined by grabbing the localStorage object on the end-users browser to see what they've voted on.
-		this.addVotedProp(this.allData);
-		// Parse Markers
-		$rootScope.$broadcast("parseMarkers", this.allData);
+	getFromDB.getAll().success((response) => this.allData = response)
+		.then(() => {
+			// Once the server has the result, add in an extra property if the user has already voted on it
+			// This should be determined by grabbing the localStorage object on the end-users browser to see what they've voted on.
+			this.addVotedProp(this.allData);
+			// Parse Markers
+			$rootScope.$broadcast("parseMarkers", this.allData);
 	});
 
 	this.showSkateparkDetails = function(id, item){
@@ -63,21 +86,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 		}
 	}
 
-	$rootScope.$on("pushLastToScope", function(event, response){
-		$scope.main.allData.push(response);
-	});
 
-	$rootScope.$on("incrementVote", (event, response) => {
-		this.allData.forEach((value, pointer) => {
-			if (value._id === response._id){
-				value.skateparkRating += 1;
-			}
-		})
-	});
-
-	$scope.$watch('searchString', function(newValue, oldValue) {
-		$rootScope.$broadcast("filterMarkers", newValue);
-    });
 
 }
 
@@ -86,6 +95,7 @@ MainCtrl.$inject = [
 	"$rootScope",
 	"$compile",
 	"$timeout",
+	"$location",
 	"getFromDB",
 	"tagsSrv",
 	"helpersSrv",

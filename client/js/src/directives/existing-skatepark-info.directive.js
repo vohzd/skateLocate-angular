@@ -12,7 +12,8 @@ function existingSkateparkInfo(){
 		},
 
 		controller: ["$scope", "$rootScope", "uploadImageToCloud", function ($scope, $rootScope, uploadImageToCloud){
-
+			// when the popup appears, tell the main controller to encode the id in the url
+			$rootScope.$emit("encodeIdentifierInURL", $scope.currentSkatepark._id);
 
 			if ($scope.currentSkatepark.skateparkImages.length > 0){
 				let images = $scope.currentSkatepark.skateparkImages;
