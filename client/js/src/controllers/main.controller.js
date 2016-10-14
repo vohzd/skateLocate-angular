@@ -19,7 +19,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, getFromDB, tagsSrv, he
 	});
 
 	this.showSkateparkDetails = function(id, item){
-		$rootScope.$broadcast("focusPopup", id);
+		$rootScope.$broadcast("focusPopup", id, item);
 	}
 
 	this.filterByTag = function(tag, event){

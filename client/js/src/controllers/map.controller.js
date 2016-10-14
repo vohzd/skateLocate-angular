@@ -19,8 +19,8 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 		toggleEditButton($scope, helpersSrv);
 	});
 
-	$rootScope.$on("focusPopup", function(event, targetId){
-		focusOnParticularSkateparkMarker($scope, targetId);
+	$rootScope.$on("focusPopup", function(event, targetId, item){
+		focusOnParticularSkateparkMarker($scope, targetId, item);
 	});
 
 	$rootScope.$on("filterMarkers", function(event, searchedString){
@@ -35,9 +35,6 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 }
 
 function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv){
-	// where default images are stored
-	L.Icon.Default.imagePath = '../../img/leaflet/';
-
 	angular.extend($scope, {
 		init : {
 			lat: 40.275335,
@@ -154,13 +151,16 @@ function parseMarkers($scope, $compile, markers, localStorageService){
 	$scope.markersClone = $scope.markers;
 }
 
-function focusOnParticularSkateparkMarker($scope, popupId){
-
+function focusOnParticularSkateparkMarker($scope, popupId, popup){
+	$scope.init = {
+		lat: popup.skateparkLocation[1],
+		lng: popup.skateparkLocation[0],
+		zoom: 12
+	}
 	$scope.markers.filter((input) => {
 		if (input.internalId === popupId) input.focus = !input.focus;
 	});
-
-}
+}	
 
 
 function filterMarkersByString($scope, searchedString){
