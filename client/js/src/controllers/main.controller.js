@@ -21,13 +21,12 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 
 	// adds the current id to the url of the page, so it can be shared!
 	$rootScope.$on("removeIdentifierInURL", (event) => {
-		$location.path("/", false);
+		$location.path("", false);
 	});
 
 	$scope.$watch('searchString', function(newValue, oldValue) {
 		$rootScope.$broadcast("filterMarkers", newValue);
     });
-
 
 	// This is fired on page init to get ALL the skateparks
 	this.tags = tagsSrv;

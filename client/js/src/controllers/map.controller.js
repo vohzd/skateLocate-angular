@@ -74,9 +74,9 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		});
 
 		$scope.mapInstance.on("popupclose", (event) => {
-			console.log("there is no way this will wokr");
+			$rootScope.$emit("removeIdentifierInURL");
 		});
-		
+
 		// Add the edit button
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
