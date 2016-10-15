@@ -78,9 +78,29 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		});
 
 		// Add the edit button
+
+		/*
 		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
+		*/
+
+		// Add the edit button
+		L.easyButton( '<a class="align"><i class="material-icons">search</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
+
+		// Add the edit button
+		L.easyButton( '<a class="align"><i class="material-icons">build</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
+
+		// Add the edit button
+		L.easyButton( '<a class="align"><i class="material-icons">cached</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
+
+
 	});
 }
 					

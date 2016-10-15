@@ -157,13 +157,17 @@ font-family: 'Pontano Sans', sans-serif !important;
 	text-shadow: none;
 }
 
-
-.easy-button-container
+.leaflet-bar button
 {
-	left: 45px;
-	top: -62px;
+	padding: 0px !important;
 }
 
+
+.leaflet-bar a i
+{
+	padding-top: 4px;
+	font-size: 18px !important;
+}
 
 .chip
 {
@@ -452,11 +456,6 @@ line-height: 1.5;
 	white-space: pre-wrap;
 }
 
-.easy-button-container
-{
-	left: 45px;
-	top: -62px;
-}
 
 
 .chip
