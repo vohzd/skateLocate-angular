@@ -148,6 +148,42 @@ font-family: 'Pontano Sans', sans-serif !important;
 	z-index: 5000;
 }
 
+.easy-button-container
+{
+	margin-top: 0px !important;
+}
+.easy-button-container a
+{
+	height: 27px;
+}
+
+.no-round
+{
+	border-radius: 0px !important;
+}
+
+.easy-button-container a:hover
+{
+	height: 27px !important;
+}
+
+
+.top-round
+{
+	border-top-left-radius: 4px !important;
+	border-top-right-radius: 4px !important;
+}
+
+.bottom-round
+{
+	border-bottom-left-radius: 4px !important;
+	border-bottom-right-radius: 4px !important;
+}
+
+.leaflet-control-zoom
+{
+	margin-bottom: 20px;
+}
 
 .easy-button-button
 {

@@ -86,21 +86,39 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		*/
 
 		// Add the edit button
-		L.easyButton( '<a class="align"><i class="material-icons">search</i></a>', function(){
+		L.easyButton( '<a class="align no-round top-round"><i class="material-icons">search</i></a>', function(){
 			console.log("blargh");
 		}).addTo($scope.mapInstance);
 
 		// Add the edit button
-		L.easyButton( '<a class="align"><i class="material-icons">build</i></a>', function(){
+		L.easyButton( '<a class="align no-round"><i class="material-icons">filter_list</i></a>', function(){
 			console.log("blargh");
 		}).addTo($scope.mapInstance);
 
 		// Add the edit button
-		L.easyButton( '<a class="align"><i class="material-icons">cached</i></a>', function(){
+		L.easyButton( '<a class="align no-round"><i class="material-icons">trending_up</i></a>', function(){
 			console.log("blargh");
 		}).addTo($scope.mapInstance);
 
+		// Add the edit button
+		L.easyButton( '<a class="align no-round"><i class="material-icons">update</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
 
+		// Add the edit button
+		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
+
+		// Add the edit button
+		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
+
+		// Add the edit button
+		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
+			console.log("blargh");
+		}).addTo($scope.mapInstance);
 	});
 }
 					
