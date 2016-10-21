@@ -3,8 +3,8 @@
 		<input type="text" ng-model="searchString" id="search-parks"></input>
 		<label for="search-parks">Search</label>
 	</div>
-	<div class="search-results">
-		<h5 ng-show=main.visibleMarkers.length>Results  [{{main.visibleMarkers.length}}]</h5>
+	<div class="search-results" ng-show=main.visibleMarkers.length>
+		<h5>Results  [{{main.visibleMarkers.length}}]</h5>
 
 		<ul class="collection">
 			<li class="collection-item avatar" ng-repeat="result in main.visibleMarkers track by $index" ng-click="main.showSkateparkDetails(result.internalId, result)">

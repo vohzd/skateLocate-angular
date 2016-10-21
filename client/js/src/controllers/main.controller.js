@@ -13,6 +13,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 		"add": false
 	}
 
+
 	$scope.visibleMarkers = [];
 
 	$rootScope.$on("updateVisibleMarkers", function(event, response){
