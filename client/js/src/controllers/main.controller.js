@@ -2,6 +2,23 @@
 
 function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, tagsSrv, helpersSrv, localStorageService){
 
+	// whether the toolbar details are shown or not
+	this.panelsShown = {
+		"search": false,
+		"tags": false,
+		"highest": false,
+		"newest": false,
+		"geo": false,
+		"about": false,
+		"add": false
+	}
+
+	$scope.visibleMarkers = [];
+
+	$rootScope.$on("updateVisibleMarkers", function(event, response){
+		$scope.main.allData.push(response);
+	});
+
 	$rootScope.$on("pushLastToScope", function(event, response){
 		$scope.main.allData.push(response);
 	});
@@ -19,7 +36,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 		$location.path("park/" + id, false);
 	});
 
-	// adds the current id to the url of the page, so it can be shared!
+	// removes the current id from the url
 	$rootScope.$on("removeIdentifierInURL", (event) => {
 		$location.path("", false);
 	});
@@ -41,6 +58,8 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 	});
 
 	this.showSkateparkDetails = function(id, item){
+		console.log(id);
+		console.log(item);
 		$rootScope.$broadcast("focusPopup", id, item);
 	}
 

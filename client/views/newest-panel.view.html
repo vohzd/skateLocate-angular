@@ -1,0 +1,17 @@
+<li class="nudged-menu full-width toolbar-panel-background">
+	<h5 class="collapsible-header"><i class="material-icons align faded">forward_10</i>  Recently Added <i class="material-icons grn-colour">swap_vert</i></h5>
+
+	<div class="collapsible-body">
+
+		<div ng-repeat="item in main.allData | limitTo: 5" class="list-of-highest-rated-items collection mouse-clickable ">
+
+			<div class="collection-item avatar" ng-click="main.showSkateparkDetails(item._id, item)">
+				<span class="absolute-label">{{ item.createdAt | date: 'd' }}<time class="time-labels">{{ item.createdAt | date: 'MMM' }}</time></span>
+				<span class="title">{{ item.skateparkName }}</span>
+				<summary>by {{ item.skateparkAdder }}</summary>
+			</div>
+
+		</div>
+
+	</div>
+</li>

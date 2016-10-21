@@ -2,7 +2,6 @@
 
 function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, localStorageService, leafletMapEvents){
 
-
 	// Bootstrap the mofo
 	configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpersSrv);
 
@@ -21,6 +20,8 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 	});
 
 	$rootScope.$on("focusPopup", function(event, targetId, item){
+		console.log(targetId);
+		console.log(item);
 		focusOnParticularSkateparkMarker($scope, targetId, item);
 	});
 
@@ -85,41 +86,53 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		}).addTo($scope.mapInstance);
 		*/
 
-		// Add the edit button
+		// Search
 		L.easyButton( '<a class="align no-round top-round"><i class="material-icons">search</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.search = !$scope.$parent.main.panelsShown.search;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
-		L.easyButton( '<a class="align no-round"><i class="material-icons">filter_list</i></a>', function(){
-			console.log("blargh");
+		// Tags
+		L.easyButton( '<a class="align no-round"><i class="material-icons">label_outline</i></a>', function(){
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.tags = !$scope.$parent.main.panelsShown.tags;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
+		// Highest rated
 		L.easyButton( '<a class="align no-round"><i class="material-icons">trending_up</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.highest = !$scope.$parent.main.panelsShown.highest;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
+		// Newest
 		L.easyButton( '<a class="align no-round"><i class="material-icons">update</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.newest = !$scope.$parent.main.panelsShown.newest;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
+		// Geolocation
 		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.geo = !$scope.$parent.main.panelsShown.geo;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
+		// About / Help
 		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.about = !$scope.$parent.main.panelsShown.about;
 		}).addTo($scope.mapInstance);
 
-		// Add the edit button
+		// Add
 		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
-			console.log("blargh");
+			toggleHighlight(this);
+			$scope.$parent.main.panelsShown.add = !$scope.$parent.main.panelsShown.add;
 		}).addTo($scope.mapInstance);
 	});
+}
+	
+function toggleHighlight(el){
+	let element = el.button.children[0];
+	$(element).toggleClass("blue-toolbar-icon");
 }
 					
 function toggleEditButton($scope, helpersSrv){
@@ -175,12 +188,6 @@ function parseMarkers($scope, $compile, markers, localStorageService, leafletMap
 						noHide: true
 					}
 				},
-				events: {
-					map: {
-                		enable: ['popupclose', 'drag', 'click', 'mousemove'],
-                		logic: 'emit'
-            		}
-        		},
 				message: "<existing-skatepark-info current-skatepark='"+asString+"'></existing-skatepark-info>",
 				compileMessage: true,
 				getMessageScope: function(){ return $scope },
@@ -192,22 +199,35 @@ function parseMarkers($scope, $compile, markers, localStorageService, leafletMap
 
 	}
 
-
 	// the clone is the original array, so you can always retreive all markers if you undo a search, tag etc
+	// there is an edge case that if you add a marker, then the clones wont represent the updated source
 	$scope.markersClone = $scope.markers;
 }
 
 function focusOnParticularSkateparkMarker($scope, popupId, popup){
+
+	let lat, lng;
+
+	if (popup.skateparkLocation){
+		lat = popup.skateparkLocation[1];
+		lng = popup.skateparkLocation[0];
+	}
+	else if (popup.lat && popup.lng){
+		lat = popup.lat;
+		lng = popup.lng;
+	}
+
+
 	$scope.init = {
-		lat: popup.skateparkLocation[1],
-		lng: popup.skateparkLocation[0],
+		lat: lat,
+		lng: lng,
 		zoom: 12
 	}
 	$scope.markers.filter((input) => {
 		if (input.internalId === popupId) input.focus = !input.focus;
 	});
 
-	console.log(popup);
+
 }	
 
 
@@ -230,6 +250,13 @@ function filterMarkersByString($scope, searchedString){
 
 	$scope.markers = matched;
 
+	if (searchedString){
+		$scope.$parent.main.visibleMarkers = matched;
+	}
+	else {
+		$scope.$parent.main.visibleMarkers = [];
+	}
+
 }
 
 function filterMarkersByTags($scope, selectedTags){
@@ -238,6 +265,7 @@ function filterMarkersByTags($scope, selectedTags){
 	let matched = [];
 
 	if (selectedTags.length === 0){
+		// restores back to original
 		$scope.markers = $scope.markersClone
 	}
 	else {
@@ -257,6 +285,20 @@ function filterMarkersByTags($scope, selectedTags){
 
 	}
 
+}
+
+function showPanel($rootScope){
+
+	if (!$rootScope.panelShown){
+
+
+
+	}
+	else {
+
+	}
+
+	$rootScope.panelShown = !$rootScope.panelShown;
 }
 
 MapCtrl.$inject = [

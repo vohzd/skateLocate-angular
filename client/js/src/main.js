@@ -32,6 +32,14 @@ import addNewSkatepark from "./directives/add-new-skatepark.directive.js";
 import filterItemsByTag from "./directives/filter-items-by-tag.directive.js";
 import infoTriangle from "./directives/info-triangle.directive.js";
 import searchBar from "./directives/search.directive.js";
+import searchPanel from "./directives/search-panel.directive.js";
+import tagsPanel from "./directives/tags-panel.directive.js";
+import highestPanel from "./directives/highest-panel.directive.js";
+import newestPanel from "./directives/newest-panel.directive.js";
+import geoPanel from "./directives/geo-panel.directive.js";
+import aboutPanel from "./directives/about-panel.directive.js";
+import addPanel from "./directives/add-panel.directive.js";
+
 import fullscreen from "./directives/fullscreen.directive.js";
 import fullscreenSlideshow from "./directives/fullscreen-slideshow.directive.js";
 import voteButton from "./directives/vote-button.directive.js";
@@ -55,6 +63,13 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload", "Local
 	.controller("SearchCtrl", SearchCtrl)
 	.controller("ToggleCtrl", ToggleCtrl)
 	.directive("headerGraphic", headerGraphic)
+	.directive("searchPanel", searchPanel)
+	.directive("tagsPanel", tagsPanel)
+	.directive("highestPanel", highestPanel)
+	.directive("newestPanel", newestPanel)
+	.directive("geoPanel", geoPanel)
+	.directive("aboutPanel", aboutPanel)
+	.directive("addPanel", addPanel)
 	.directive("highestRankedItems", highestRankedItems)
 	.directive("recentlyAddedItems", recentlyAddedItems)
 	.directive("addNewSkatepark", addNewSkatepark)
