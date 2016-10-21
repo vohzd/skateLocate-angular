@@ -58,8 +58,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 	});
 
 	this.showSkateparkDetails = function(id, item){
-		console.log(id);
-		console.log(item);
 		$rootScope.$broadcast("focusPopup", id, item);
 	}
 

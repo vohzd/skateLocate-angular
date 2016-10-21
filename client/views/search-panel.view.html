@@ -1,15 +1,15 @@
 <div class="pad toolbar-panel-background">
 	<div class="input-field pad">
-		<i class="material-icons prefix nudged-icon">search</i>
 		<input type="text" ng-model="searchString" id="search-parks"></input>
 		<label for="search-parks">Search</label>
 	</div>
 	<div class="search-results">
 		<h5 ng-show=main.visibleMarkers.length>Results  [{{main.visibleMarkers.length}}]</h5>
 
-		<ul>
-			<li ng-repeat="result in main.visibleMarkers" ng-click="main.showSkateparkDetails(result.internalId, result)">
-				{{ result.title }}
+		<ul class="collection">
+			<li class="collection-item avatar" ng-repeat="result in main.visibleMarkers track by $index" ng-click="main.showSkateparkDetails(result.internalId, result)">
+				<div class="circle">{{ $index }}</div>
+				<span class="title">{{ result.title }}</span>
 			</li>
 		</ul>
 	</div>
