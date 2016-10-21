@@ -43,7 +43,6 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 	});
 
 	$scope.$watch('searchString', function(newValue, oldValue) {
-		console.log("watching?");
 		$rootScope.$broadcast("filterMarkers", newValue);
     });
 
