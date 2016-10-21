@@ -405,6 +405,11 @@ font-family: 'Pontano Sans', sans-serif !important;
 	padding-top: 20px;
 }
 
+.right-pad
+{
+	padding-right: 20px;
+}
+
 h6
 {
 	-webkit-margin-before: 2.33em !important;
@@ -718,10 +723,7 @@ summary
 
 .inline-sharing
 {
-	position: relative;
-	left: 0;
-	float: left;
-	z-index: 6000;
+	display:inline;
 }
 
 

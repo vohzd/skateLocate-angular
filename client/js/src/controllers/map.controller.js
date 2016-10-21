@@ -20,8 +20,6 @@ function MapCtrl($scope, $rootScope, $log, $compile, leafletData, helpersSrv, lo
 	});
 
 	$rootScope.$on("focusPopup", function(event, targetId, item){
-		console.log(targetId);
-		console.log(item);
 		focusOnParticularSkateparkMarker($scope, targetId, item);
 	});
 
@@ -90,6 +88,14 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		L.easyButton( '<a class="align no-round top-round"><i class="material-icons">search</i></a>', function(){
 			toggleHighlight(this);
 			$scope.$parent.main.panelsShown.search = !$scope.$parent.main.panelsShown.search;
+
+			if (!$scope.$parent.main.panelsShown.search){
+				$scope.$parent.searchString = null;
+				filterMarkersByString($scope, null);
+			}
+			
+
+
 		}).addTo($scope.mapInstance);
 
 		// Tags
@@ -125,7 +131,7 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		// Add
 		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
 			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.add = !$scope.$parent.main.panelsShown.add;
+			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 	});
 }
@@ -233,29 +239,32 @@ function focusOnParticularSkateparkMarker($scope, popupId, popup){
 
 function filterMarkersByString($scope, searchedString){
 
-	// Will try to match markers based on title
-	let matched = [];
-
-	$scope.markersClone.forEach((marker, pointer) => {
-
-		const lower = marker.title.toLowerCase();
-		const search = searchedString.toLowerCase();
-		const result = lower.indexOf(search);
-
-		if (result > -1){
-			matched.push(marker);
-		}
-
-	});
-
-	$scope.markers = matched;
-
-	if (searchedString){
-		$scope.$parent.main.visibleMarkers = matched;
-	}
-	else {
+	if (!searchedString){
+		$scope.markers = $scope.markersClone;
 		$scope.$parent.main.visibleMarkers = [];
 	}
+	else {
+
+		// Will try to match markers based on title
+		let matched = [];
+
+		$scope.markersClone.forEach((marker, pointer) => {
+
+			const lower = marker.title.toLowerCase();
+			const search = searchedString.toLowerCase();
+			const result = lower.indexOf(search);
+
+			if (result > -1){
+				matched.push(marker);
+			}
+
+		});
+
+		$scope.markers = matched;
+		$scope.$parent.main.visibleMarkers = matched;
+
+	}
+
 
 }
 
