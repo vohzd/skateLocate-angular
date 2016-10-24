@@ -24,6 +24,18 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 		$scope.main.allData.push(response);
 	});
 
+	// sets all props in panelsShown to false
+	$rootScope.$on("showOnlyOnePanel", (event, tagName) => {
+		this.dismissAllPanels();
+		this.panelsShown[tagName] = !this.panelsShown[tagName];
+	});
+
+	// sets all props in panelsShown to false
+	$rootScope.$on("dismissAllPanels", (event) => {
+		this.dismissAllPanels();
+	});
+
+
 	$rootScope.$on("incrementVote", (event, response) => {
 		this.allData.forEach((value, pointer) => {
 			if (value._id === response._id){
@@ -100,6 +112,12 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 					}
 				});
 			});
+		}
+	}
+
+	this.dismissAllPanels = () => {
+		for (let key in this.panelsShown){
+			this.panelsShown[key] = false
 		}
 	}
 

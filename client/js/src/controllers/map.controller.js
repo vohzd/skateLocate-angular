@@ -76,16 +76,11 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 			$rootScope.$emit("removeIdentifierInURL");
 		});
 
-		// Add the edit button
-
-		/*
-		L.easyButton( '<div class="waves-effect white lighten-4 btn-flat toggleControl">Add a park</div>', function(){
-			toggleEditButton($scope, helpersSrv);
-		}).addTo($scope.mapInstance);
-		*/
-
 		// Search
-		L.easyButton( '<a class="align no-round top-round"><i class="material-icons">search</i></a>', function(){
+		L.easyButton( '<a class="align no-round top-round" ng-class="{ blue-toolbar-icon : main.panelsShown.search}"> <i class="material-icons">search</i></a>', function(){
+			$rootScope.$emit("showOnlyOnePanel", "search");
+			toggleHighlight($rootScope, this);
+			/*
 			toggleHighlight(this);
 			$scope.$parent.main.panelsShown.search = !$scope.$parent.main.panelsShown.search;
 
@@ -93,52 +88,69 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 				$scope.$parent.searchString = null;
 				filterMarkersByString($scope, null);
 			}
-			
+			*/
 
 
 		}).addTo($scope.mapInstance);
 
 		// Tags
 		L.easyButton( '<a class="align no-round"><i class="material-icons">label_outline</i></a>', function(){
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.tags = !$scope.$parent.main.panelsShown.tags;
+			$rootScope.$emit("showOnlyOnePanel", "tags");
+			toggleHighlight($rootScope, this);
+
 		}).addTo($scope.mapInstance);
 
 		// Highest rated
 		L.easyButton( '<a class="align no-round"><i class="material-icons">trending_up</i></a>', function(){
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.highest = !$scope.$parent.main.panelsShown.highest;
+			$rootScope.$emit("showOnlyOnePanel", "highest");
+			toggleHighlight($rootScope, this);
+
 		}).addTo($scope.mapInstance);
 
 		// Newest
 		L.easyButton( '<a class="align no-round"><i class="material-icons">update</i></a>', function(){
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.newest = !$scope.$parent.main.panelsShown.newest;
+			$rootScope.$emit("showOnlyOnePanel", "newest");
+			toggleHighlight($rootScope, this);
+
 		}).addTo($scope.mapInstance);
 
 		// Geolocation
 		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.geo = !$scope.$parent.main.panelsShown.geo;
+			$rootScope.$emit("showOnlyOnePanel", "geo");
+			toggleHighlight($rootScope, this);
+
 		}).addTo($scope.mapInstance);
 
 		// About / Help
 		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.about = !$scope.$parent.main.panelsShown.about;
+			$rootScope.$emit("showOnlyOnePanel", "about");
+			toggleHighlight($rootScope, this);
+
 		}).addTo($scope.mapInstance);
 
 		// Add
 		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
-			toggleHighlight(this);
+			$rootScope.$emit("showOnlyOnePanel", "add");
+			toggleHighlight($rootScope, this);
+
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 	});
 }
 	
-function toggleHighlight(el){
+function toggleHighlight($rootScope, el){
 	let element = el.button.children[0];
-	$(element).toggleClass("blue-toolbar-icon");
+
+	if ( $(element).hasClass(("blue-toolbar-icon")) ){
+		$(element).removeClass(("blue-toolbar-icon"));
+		$rootScope.$emit("dismissAllPanels");
+	}
+	else
+	{
+		$(".easy-button-button span").removeClass("blue-toolbar-icon");
+		$(element).addClass(("blue-toolbar-icon"))
+	}
+
 }
 					
 function toggleEditButton($scope, helpersSrv){
