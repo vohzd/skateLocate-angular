@@ -147,6 +147,11 @@ function clearSearch($scope){
 		$scope.$parent.searchString = null;
 		filterMarkersByString($scope, null);
 	}
+	if (!$scope.$parent.main.panelsShown.tags){
+		$(".chip").removeClass("active-chip");
+		filterMarkersByTags($scope, []);
+	}
+
 }
 					
 function toggleEditButton($scope, helpersSrv){
