@@ -79,66 +79,53 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		// Search
 		L.easyButton( '<a class="align no-round top-round" ng-class="{ blue-toolbar-icon : main.panelsShown.search}"> <i class="material-icons">search</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "search");
-			toggleHighlight($rootScope, this);
-			/*
-			toggleHighlight(this);
-			$scope.$parent.main.panelsShown.search = !$scope.$parent.main.panelsShown.search;
-
-			if (!$scope.$parent.main.panelsShown.search){
-				$scope.$parent.searchString = null;
-				filterMarkersByString($scope, null);
-			}
-			*/
-
-
+			toggleHighlight($rootScope, $scope, this);
 		}).addTo($scope.mapInstance);
 
 		// Tags
 		L.easyButton( '<a class="align no-round"><i class="material-icons">label_outline</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "tags");
-			toggleHighlight($rootScope, this);
+			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
 
 		// Highest rated
 		L.easyButton( '<a class="align no-round"><i class="material-icons">trending_up</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "highest");
-			toggleHighlight($rootScope, this);
+			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
 
 		// Newest
 		L.easyButton( '<a class="align no-round"><i class="material-icons">update</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "newest");
-			toggleHighlight($rootScope, this);
+			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
 
 		// Geolocation
 		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "geo");
-			toggleHighlight($rootScope, this);
+			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
 
 		// About / Help
 		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "about");
-			toggleHighlight($rootScope, this);
+			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
 
 		// Add
 		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
-			$rootScope.$emit("showOnlyOnePanel", "add");
-			toggleHighlight($rootScope, this);
-
+			toggleHighlight($rootScope,  $scope,this);
 			toggleEditButton($scope, helpersSrv);
 		}).addTo($scope.mapInstance);
 	});
 }
 	
-function toggleHighlight($rootScope, el){
+function toggleHighlight($rootScope, $scope, el){
 	let element = el.button.children[0];
 
 	if ( $(element).hasClass(("blue-toolbar-icon")) ){
@@ -151,6 +138,15 @@ function toggleHighlight($rootScope, el){
 		$(element).addClass(("blue-toolbar-icon"))
 	}
 
+	clearSearch($scope);
+}
+
+
+function clearSearch($scope){
+	if (!$scope.$parent.main.panelsShown.search){
+		$scope.$parent.searchString = null;
+		filterMarkersByString($scope, null);
+	}
 }
 					
 function toggleEditButton($scope, helpersSrv){
