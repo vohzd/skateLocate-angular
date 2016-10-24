@@ -55,6 +55,11 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 
 	// store the map instance - returns a promise, which is ensures you dont run anything on 'undefined'
 	leafletData.getMap("map-core").then((map) => {
+
+		L.Icon.Default.prototype.options.iconRetinaUrl = "/img/leaflet/marker-icon-2x.png"
+		L.Icon.Default.prototype.options.iconUrl = "/img/leaflet/marker-icon.png"
+		L.Icon.Default.prototype.options.shadowUrl = "/img/leaflet/marker-shadow.png"
+
 		$scope.mapInstance = map;
 		// Set a listener on the map instance
 		$scope.mapInstance.on("click", (event) => {
@@ -119,13 +124,15 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 
 		// Add
 		L.easyButton( '<a class="align no-round  bottom-round"><i class="material-icons">add_location</i></a>', function(){
-			toggleHighlight($rootScope,  $scope,this);
+			toggleHighlight($rootScope,  $scope, this);
 			toggleEditButton($scope, helpersSrv);
+			$rootScope.$emit("dismissAllPanels");
 		}).addTo($scope.mapInstance);
 	});
 }
 	
 function toggleHighlight($rootScope, $scope, el){
+
 	let element = el.button.children[0];
 
 	if ( $(element).hasClass(("blue-toolbar-icon")) ){
@@ -161,7 +168,12 @@ function toggleEditButton($scope, helpersSrv){
 		helpersSrv.toggleEditOn();
 	}
 	else if ($scope.isEditing){
-		$scope.mapInstance.removeLayer($scope.lastMarker);
+		if (!$scope.lastMarker){
+			return;
+		}
+		else {
+			$scope.mapInstance.removeLayer($scope.lastMarker);
+		}
 		$scope.isEditing = false;
 		helpersSrv.toggleEditOff();
 	}
@@ -184,6 +196,7 @@ function createTempMarker($rootScope, $scope, $compile, position){
 	$scope.lastMarker.bindPopup(compiledDirective[0]).openPopup();
 
 	$(".leaflet-popup-close-button").click(() => {
+		$(".easy-button-button span").removeClass("blue-toolbar-icon");
 		$rootScope.$emit("destroyPopup");
 	})
 }
@@ -307,20 +320,6 @@ function filterMarkersByTags($scope, selectedTags){
 
 	}
 
-}
-
-function showPanel($rootScope){
-
-	if (!$rootScope.panelShown){
-
-
-
-	}
-	else {
-
-	}
-
-	$rootScope.panelShown = !$rootScope.panelShown;
 }
 
 MapCtrl.$inject = [
