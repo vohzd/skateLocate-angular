@@ -61,6 +61,7 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		L.Icon.Default.prototype.options.shadowUrl = "/img/leaflet/marker-shadow.png"
 
 		$scope.mapInstance = map;
+
 		// Set a listener on the map instance
 		$scope.mapInstance.on("click", (event) => {
 			if (event.originalEvent.type == "keypress"){
@@ -76,6 +77,8 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 				}
 			}
 		});
+
+
 
 		$scope.mapInstance.on("popupclose", (event) => {
 			$rootScope.$emit("removeIdentifierInURL");
@@ -109,11 +112,14 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		}).addTo($scope.mapInstance);
 
 		// Geolocation
+
+		/*
 		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "geo");
 			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
+		*/
 
 		// About / Help
 		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){

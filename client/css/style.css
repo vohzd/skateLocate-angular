@@ -439,7 +439,7 @@ h6
 
 .card-wrapper main 
 {
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,1);
 	margin-top: -4px;
 	position: relative;
 }
@@ -504,14 +504,7 @@ h6
 }
 .main-info-fixed 
 {
-	min-width:100px;
-	width: auto;
-	margin-top: -102px;
-	z-index: 5000;
-	position: absolute;
-	background: rgba(255,255,255,0.96);
 	padding: 2%;
-	border-top-right-radius: 4px;
 }
 
 .description 

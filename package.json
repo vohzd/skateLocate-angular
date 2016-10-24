@@ -36,6 +36,7 @@
       "angular-ui/ui-leaflet": "github:angular-ui/ui-leaflet@1.0.0",
       "jquery": "npm:jquery@^2.2.3",
       "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
+      "leaflet-geocoder-mapzen": "npm:leaflet-geocoder-mapzen@^1.7.1",
       "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
       "materialize-css": "npm:materialize-css@^0.97.6",
       "ng-file-upload": "npm:ng-file-upload@^12.0.4",
