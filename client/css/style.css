@@ -87,6 +87,14 @@ font-family: 'Pontano Sans', sans-serif !important;
 
 }
 
+.leaflet-label
+{
+	border-radius: 4px;
+	font-family: 'Pontano Sans', sans-serif !important;
+	font-size: 1.1em;
+	font-weight: normal;
+	z-index: 6;
+}
 
 .blue-toolbar-icon a
 {
