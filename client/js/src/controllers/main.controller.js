@@ -15,6 +15,7 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 
 
 	$scope.visibleMarkers = [];
+	$scope.returnedGeoResults = [];
 
 	$rootScope.$on("updateVisibleMarkers", function(event, response){
 		$scope.main.allData.push(response);
@@ -56,6 +57,10 @@ function MainCtrl($scope, $rootScope, $compile, $timeout, $location, getFromDB, 
 
 	$scope.$watch('searchString', function(newValue, oldValue) {
 		$rootScope.$broadcast("filterMarkers", newValue);
+    });
+
+	$scope.$watch('geoSearch', function(newValue, oldValue) {
+		$rootScope.$broadcast("returnFilters", newValue);
     });
 
 	// This is fired on page init to get ALL the skateparks
