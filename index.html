@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- for production, make sure to include the name of the app!!!-->
+<html ng-app="ngSkateApp">
+<!--<html>-->
+<head>
+	<meta charset="utf-8">
+	<title>skateLocate</title>
+	<meta name="description" content="An app to find and locate skateparks and skate spots">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- fav icon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="./src/img/fav/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./src/img/fav/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./src/img/fav/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./src/img/fav/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./src/img/fav/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./src/img/fav/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./src/img/fav/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./src/img/fav/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./src/img/fav/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="./src/img/fav/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./src/img/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./src/img/fav/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./src/img/fav/favicon-16x16.png">
+	<link rel="manifest" href="./src/img/fav/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="./src/img/fav/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link href="https://fonts.googleapis.com/css?family=Pontano+Sans|Titillium+Web" rel="stylesheet">
+
+	<!-- Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="./src/css/leaflet.css" />
+	<link rel="stylesheet" href="./src/css/leaflet-label.css" />
+	<link rel="stylesheet" href="./src/css/marker-cluster.css" />
+	<link rel="stylesheet" href="./src/css/swiper.css" />
+	<link rel="stylesheet" href="./src/css/material.css" />
+	<link rel="stylesheet" href="./src/css/style.css" />
+
+</head>
+
+<body ng-controller="MainCtrl as main">
+
+	<!-- The main map wrapper -->
+	<div ng-controller="MapCtrl as map">
+
+		<leaflet lf-center="init" tiles="tiles" defaults="defaults" markers="markers" controls="controls" id="map-core">
+		</leaflet>
+
+	</div>
+
+	<div class="toolbar-panels-wrapper">
+		<search-panel ng-show=main.panelsShown.search></search-panel>
+		<tags-panel ng-show=main.panelsShown.tags></tags-panel>
+		<highest-panel ng-show=main.panelsShown.highest></highest-panel>
+		<newest-panel ng-show=main.panelsShown.newest></newest-panel>
+		<geo-panel ng-show=main.panelsShown.geo></geo-panel>
+		<about-panel ng-show=main.panelsShown.about></about-panel>
+		<add-panel ng-show=main.panelsShown.add></add-panel>
+	</div>
+
+<script type="text/javascript" src="public/build/bundle.js"></script>
+
+</body>
+</html>

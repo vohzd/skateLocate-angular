@@ -13,7 +13,7 @@ module.exports = function(app) {
 		// Uses Mongoose schema to run the search (empty conditions)
 		const query = Skateparks.find({});
 		query.exec((err, skateparks) => {
-		
+
 			// Test for errors
 			if(err)	res.send(err);
 
@@ -30,7 +30,7 @@ module.exports = function(app) {
 		Skateparks.findOne(q, (err, doc) => {
 
 			if (err) return res.send(500, { error: err });
-			
+
 			// If no errors are found, return matching record
 			res.json(doc);
 
@@ -43,15 +43,12 @@ module.exports = function(app) {
 	// Provides method for saving new skateparks to the db
 	app.post('/skateparks', (req, res) => {
 
-		console.log("you are here");
 		// Creates a new skatepark based on the Mongoose Schema
 		const newSkatepark = new Skateparks(req.body);
 
-		console.log(req);
-
 		// New skatepark is saved to the db
 		newSkatepark.save((err) => {
-			
+
 			// Test for errors
 			if(err) res.send(err);
 
@@ -81,4 +78,4 @@ module.exports = function(app) {
 
 
 	});
-};  
+};

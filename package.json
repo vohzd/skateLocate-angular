@@ -1,19 +1,46 @@
 {
   "dependencies": {
-    "body-parser": "~1.5.2",
-    "express": "~4.7.2",
+    "angular": "^1.5.9",
+    "angular-local-storage": "^0.5.0",
+    "angular-simple-logger": "^0.1.7",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "http": "0.0.0",
+    "jquery": "^3.1.1",
     "jsonwebtoken": "^5.0.2",
-    "method-override": "~2.1.2",
-    "mongoose": "4.4.16",
-    "morgan": "~1.2.2"
+    "leaflet": "^1.0.2",
+    "leaflet-easybutton": "^1.3.2",
+    "leaflet.markercluster": "^1.0.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.0",
+    "morgan": "^1.7.0",
+    "ng-file-upload": "^12.2.13",
+    "swiper": "^3.4.0",
+    "ui-leaflet": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.0",
+    "http-server": "^0.9.0",
+    "node-libs-browser": "^1.0.0",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "name": "skatelocate",
   "description": "skateLocate - A way of finding skateparks near to you, along with reviewing what they feature. https://skatelocate.herokuapp.com",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p --colors",
+    "watch": "webpack-dev-server --hot --progress --colors",
+    "serve": "nodemon server.js 8080"
   },
   "repository": {
     "type": "git",
@@ -23,29 +50,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/intheon/skateLocate/issues"
-  },
-  "jspm": {
-    "dependencies": {
-      "Leaflet/Leaflet": "github:Leaflet/Leaflet@1.0.1",
-      "Leaflet/Leaflet.label": "github:intheon/leaflet.label-unbroken@master",
-      "Leaflet/Leaflet.markercluster": "github:Leaflet/Leaflet.markercluster@1.0.0-rc.1",
-      "angular": "github:angular/bower-angular@^1.5.5",
-      "angular-leaflet-directive": "npm:angular-leaflet-directive@^0.10.0",
-      "angular-local-storage": "npm:angular-local-storage@^0.2.7",
-      "angular-simple-logger": "npm:angular-simple-logger@^0.1.7",
-      "angular-ui/ui-leaflet": "github:angular-ui/ui-leaflet@1.0.0",
-      "jquery": "npm:jquery@^2.2.3",
-      "leaflet-easybutton": "npm:leaflet-easybutton@^1.2.0",
-      "leaflet-geocoder-mapzen": "npm:leaflet-geocoder-mapzen@^1.7.1",
-      "leaflet.fullscreen": "npm:leaflet.fullscreen@^1.4.2",
-      "materialize-css": "npm:materialize-css@^0.97.6",
-      "ng-file-upload": "npm:ng-file-upload@^12.0.4",
-      "swiper": "npm:swiper@^3.3.1"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
   }
 }
