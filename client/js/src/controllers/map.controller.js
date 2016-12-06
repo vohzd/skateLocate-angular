@@ -112,14 +112,13 @@ function configureLeaflet($rootScope, $scope, $log, $compile, leafletData, helpe
 		}).addTo($scope.mapInstance);
 
 		// Geolocation
-
-		
+		/*
 		L.easyButton( '<a class="align no-round"><i class="material-icons">explore</i></a>', function(){
 			$rootScope.$emit("showOnlyOnePanel", "geo");
 			toggleHighlight($rootScope, $scope, this);
 
 		}).addTo($scope.mapInstance);
-		
+		*/
 
 		// About / Help
 		L.easyButton( '<a class="align no-round"><i class="material-icons">help</i></a>', function(){

@@ -37,7 +37,7 @@ import searchPanel from "./directives/search-panel.directive.js";
 import tagsPanel from "./directives/tags-panel.directive.js";
 import highestPanel from "./directives/highest-panel.directive.js";
 import newestPanel from "./directives/newest-panel.directive.js";
-import geoPanel from "./directives/geo-panel.directive.js";
+//import geoPanel from "./directives/geo-panel.directive.js";
 import aboutPanel from "./directives/about-panel.directive.js";
 import addPanel from "./directives/add-panel.directive.js";
 
@@ -68,7 +68,7 @@ angular.module("ngSkateApp", ["nemLogging", "ui-leaflet", "ngFileUpload", "Local
 	.directive("tagsPanel", tagsPanel)
 	.directive("highestPanel", highestPanel)
 	.directive("newestPanel", newestPanel)
-	.directive("geoPanel", geoPanel)
+	//.directive("geoPanel", geoPanel)
 	.directive("aboutPanel", aboutPanel)
 	.directive("addPanel", addPanel)
 	.directive("highestRankedItems", highestRankedItems)
