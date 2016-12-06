@@ -1,0 +1,8 @@
+<div class="pad toolbar-panel-background">
+	<h5 class="inline-header">Tags</h5>
+
+	<div class="tags-list">
+		<div ng-repeat="tag in main.tags" class="chip" ng-click="main.filterByTag(tag, $event)">{{tag}}</div>
+	</div>
+
+</div>

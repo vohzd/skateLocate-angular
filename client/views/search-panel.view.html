@@ -1,0 +1,16 @@
+<div class="pad toolbar-panel-background">
+	<div class="input-field pad">
+		<input type="text" ng-model="searchString" id="search-parks"></input>
+		<label for="search-parks">Search</label>
+	</div>
+	<div class="search-results" ng-show=main.visibleMarkers.length>
+		<h5>Results  [{{main.visibleMarkers.length}}]</h5>
+
+		<ul class="collection">
+			<li class="collection-item avatar" ng-repeat="result in main.visibleMarkers track by $index" ng-click="main.showSkateparkDetails(result.internalId, result)">
+				<div class="circle">{{ $index + 1}}</div>
+				<span class="title">{{ result.title }}</span>
+			</li>
+		</ul>
+	</div>
+</div>

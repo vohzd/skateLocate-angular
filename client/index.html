@@ -48,27 +48,18 @@
 
 	</div>
 
-	<!-- Sidebar view -->
-	<div class="sidebar">
-	
-		<header-graphic></header-graphic>
-		<search-bar></search-bar>
-
-		<ul class="collapsible" data-collapsible="accordion">
-			<filter-items-by-tag></filter-items-by-tag>
-			<highest-ranked-items></highest-ranked-items>
-			<recently-added-items></recently-added-items>
-		</ul>
-
+	<div class="toolbar-panels-wrapper">
+		<search-panel ng-show=main.panelsShown.search></search-panel>
+		<tags-panel ng-show=main.panelsShown.tags></tags-panel>
+		<highest-panel ng-show=main.panelsShown.highest></highest-panel>
+		<newest-panel ng-show=main.panelsShown.newest></newest-panel>
+		<!--<geo-panel ng-show=main.panelsShown.geo></geo-panel>-->
+		<about-panel ng-show=main.panelsShown.about></about-panel>
+		<add-panel ng-show=main.panelsShown.add></add-panel>
 	</div>
 
-	<info-triangle></info-triangle>
 
-	<fullscreen></fullscreen>		
-	<fullscreen-slideshow></fullscreen-slideshow>		
-
-
-<!-- for dev, keep these uncommented  
+<!-- for dev, keep these uncommented 
 <script type="text/javascript" src="../jspm_packages/system.js"></script>
 <script type="text/javascript" src="../config.js"></script>
 <script type="text/javascript">
@@ -77,10 +68,9 @@
 			angular.bootstrap( document, [ "ngSkateApp" ]);
 		});
 	});
-
 </script>
+ -->
 
--->
 
 <!-- for prod, comment out the 3 above and just use this  -->
 <script type="text/javascript" src="js/dist/final.js"></script>

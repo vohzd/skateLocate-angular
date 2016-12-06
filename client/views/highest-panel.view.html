@@ -1,0 +1,16 @@
+<div class="pad toolbar-panel-background">
+	<h5 class="inline-header">Highest Voted</h5>
+
+	<ul class="collection">
+
+		<li class="collection-item avatar" ng-repeat="item in main.allData | orderBy: '-skateparkRating' | limitTo: 6" ng-click="main.showSkateparkDetails(item._id, item)">
+			<div class="circle">
+				<span>{{ item.skateparkRating }}<span>
+			</div>
+			<span class="title">{{ item.skateparkName }}</span>
+		</li>
+
+	</ul>
+
+</div>
+
